@@ -1,0 +1,886 @@
+/* =====================================================
+   CATEGORIES — COMPACT ZAKHIRA UI
+===================================================== */
+
+.categories-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 0;
+  color: #26352f;
+}
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.categories-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.categories-eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #66745a;
+  margin-bottom: 4px;
+}
+
+.categories-heading h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #123c32;
+  letter-spacing: -0.5px;
+}
+
+.categories-heading p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #70776b;
+}
+
+/* =====================================================
+   SUMMARY CARDS
+===================================================== */
+
+.categories-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.categories-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  min-height: 76px;
+
+  background: #f8f4ec;
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  border-radius: 12px;
+
+  box-shadow:
+    0 3px 8px rgba(18, 60, 50, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.categories-summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(18, 60, 50, 0.08);
+}
+
+.categories-summary-icon {
+  width: 39px;
+  height: 39px;
+  min-width: 39px;
+  border-radius: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    inset 1px 1px 2px rgba(255, 255, 255, 0.5),
+    0 3px 5px rgba(0, 0, 0, 0.12);
+}
+
+.categories-summary-icon.forest {
+  color: #f8f4ec;
+  background: linear-gradient(145deg, #315c49, #123c32);
+}
+
+.categories-summary-icon.brass {
+  color: #fffaf0;
+  background: linear-gradient(145deg, #d7b675, #b38a47);
+}
+
+.categories-summary-icon.charcoal {
+  color: #f8f4ec;
+  background: linear-gradient(145deg, #454c47, #28332d);
+}
+
+.categories-summary-content {
+  min-width: 0;
+}
+
+.categories-summary-content h3 {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #123c32;
+}
+
+.categories-summary-content span {
+  display: block;
+  margin-top: 4px;
+  font-size: 9px;
+  letter-spacing: 0.9px;
+  font-weight: 800;
+  color: #70776b;
+}
+
+/* =====================================================
+   COMMON PANELS
+===================================================== */
+
+.categories-panel,
+.categories-products-panel {
+  background: #f8f4ec;
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  border-radius: 12px;
+
+  box-shadow:
+    0 3px 9px rgba(18, 60, 50, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.categories-section-heading,
+.categories-filter-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.categories-section-heading > svg,
+.categories-filter-heading > svg {
+  color: #315c49;
+}
+
+.categories-section-heading h2,
+.categories-filter-heading h2 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #123c32;
+}
+
+/* =====================================================
+   CATEGORY TABS
+===================================================== */
+
+.categories-tabs-panel {
+  padding: 13px 15px;
+}
+
+.categories-tabs-navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.categories-tabs-scroll {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.categories-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.category-tab {
+  min-height: 35px;
+  padding: 7px 10px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(18, 60, 50, 0.12);
+
+  background: #eeeadf;
+  color: #59655b;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.category-tab:hover {
+  color: #123c32;
+  transform: translateY(-1px);
+}
+
+.category-tab.active {
+  background: linear-gradient(145deg, #315c49, #123c32);
+  color: #fffaf0;
+  border-color: #123c32;
+
+  box-shadow:
+    0 3px 6px rgba(18, 60, 50, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.categories-tab-arrow {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eeeadf;
+  color: #315c49;
+
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.categories-tab-arrow:hover:not(:disabled) {
+  background: #123c32;
+  color: #fffaf0;
+}
+
+.categories-tab-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+.categories-filters {
+  padding: 13px 15px;
+}
+
+.categories-filter-heading {
+  margin-bottom: 12px;
+}
+
+.categories-reset-button {
+  margin-left: auto;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 6px 10px;
+
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  border-radius: 7px;
+
+  background: #eeeadf;
+  color: #315c49;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.categories-reset-button:hover {
+  background: #123c32;
+  color: #fffaf0;
+}
+
+.categories-filter-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 12px;
+}
+
+.categories-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.categories-filter-field label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+
+  color: #70776b;
+}
+
+.categories-search-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  height: 36px;
+  padding: 0 11px;
+
+  background: #eeeadf;
+  border: 1px solid rgba(18, 60, 50, 0.13);
+  border-radius: 8px;
+
+  color: #66745a;
+}
+
+.categories-search-input svg {
+  min-width: 16px;
+  color: #66745a;
+}
+
+.categories-search-input input {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+  color: #26352f;
+
+  font-size: 11px;
+}
+
+.categories-search-input input::placeholder {
+  color: #90968a;
+}
+
+.categories-filter-field select {
+  width: 100%;
+  height: 36px;
+
+  padding: 0 10px;
+
+  border: 1px solid rgba(18, 60, 50, 0.13);
+  border-radius: 8px;
+
+  background: #eeeadf;
+  color: #26352f;
+
+  font-size: 11px;
+  outline: none;
+  cursor: pointer;
+}
+
+.categories-filter-field select:focus,
+.categories-search-input:focus-within {
+  border-color: #315c49;
+  box-shadow: 0 0 0 2px rgba(49, 92, 73, 0.08);
+}
+
+/* =====================================================
+   PRODUCTS PANEL
+===================================================== */
+
+.categories-products-panel {
+  overflow: hidden;
+}
+
+.categories-products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 15px;
+
+  border-bottom: 1px solid rgba(18, 60, 50, 0.10);
+}
+
+.categories-products-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.categories-products-title h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #123c32;
+}
+
+.categories-record-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3px 7px;
+
+  border-radius: 6px;
+  background: #eeeadf;
+
+  color: #66745a;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.categories-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.categories-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 580px;
+}
+
+.categories-table thead {
+  background: #eeeadf;
+}
+
+.categories-table th {
+  padding: 10px 15px;
+
+  text-align: left;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+
+  color: #66745a;
+
+  white-space: nowrap;
+}
+
+.categories-table td {
+  padding: 10px 15px;
+
+  border-bottom: 1px solid rgba(18, 60, 50, 0.08);
+
+  font-size: 11px;
+  color: #26352f;
+}
+
+.categories-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.categories-table tbody tr:hover {
+  background: rgba(49, 92, 73, 0.035);
+}
+
+.categories-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.categories-product-id {
+  font-weight: 700;
+  color: #66745a;
+}
+
+.categories-product-name {
+  font-weight: 700;
+  color: #26352f;
+}
+
+.categories-product-price {
+  font-weight: 800;
+  color: #123c32;
+  white-space: nowrap;
+}
+
+.categories-category-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 9px;
+
+  border-radius: 6px;
+
+  background: rgba(49, 92, 73, 0.10);
+  border: 1px solid rgba(49, 92, 73, 0.13);
+
+  color: #315c49;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.categories-empty-state {
+  min-height: 140px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 20px;
+
+  color: #70776b;
+  text-align: center;
+}
+
+.categories-empty-state svg {
+  color: #66745a;
+}
+
+.categories-empty-state p {
+  margin: 0;
+  font-size: 11px;
+}
+
+/* =====================================================
+   PAGINATION
+===================================================== */
+
+.categories-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 10px 15px;
+
+  border-top: 1px solid rgba(18, 60, 50, 0.10);
+}
+
+.categories-pagination-info {
+  font-size: 10px;
+  color: #70776b;
+}
+
+.categories-pagination-info strong {
+  color: #26352f;
+}
+
+.categories-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.categories-page-size {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.categories-page-size label {
+  font-size: 10px;
+  color: #70776b;
+}
+
+.categories-page-size select {
+  height: 29px;
+  padding: 0 7px;
+
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  border-radius: 7px;
+
+  background: #eeeadf;
+  color: #26352f;
+
+  font-size: 10px;
+  outline: none;
+}
+
+.categories-page-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.categories-page-buttons button {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  border-radius: 7px;
+
+  background: #eeeadf;
+  color: #315c49;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.categories-page-buttons button:hover:not(:disabled) {
+  background: #123c32;
+  color: #fffaf0;
+}
+
+.categories-page-buttons button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.categories-page-buttons span {
+  font-size: 10px;
+  font-weight: 700;
+  color: #26352f;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.categories-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 8px 2px 3px;
+
+  font-size: 10px;
+  color: #858b7e;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+  .categories-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .categories-filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .categories-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .categories-page {
+    gap: 10px;
+  }
+
+  .categories-heading h1 {
+    font-size: 21px;
+  }
+
+  .categories-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .categories-summary-card {
+    min-height: 65px;
+    padding: 10px 12px;
+  }
+
+  .categories-tabs-panel,
+  .categories-filters {
+    padding: 11px;
+  }
+
+  .categories-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .categories-pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .categories-pagination-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .categories-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+/* ================================
+   CATEGORIES — COMPACT UI FIX
+================================ */
+
+/* Page spacing */
+.categories-page {
+  gap: 10px;
+  padding-top: 8px;
+}
+
+/* Page heading */
+.categories-page h1 {
+  font-size: 28px;
+}
+
+.categories-page > p {
+  font-size: 14px;
+}
+
+/* Summary cards */
+.categories-summary-grid {
+  gap: 12px;
+}
+
+.categories-summary-card {
+  min-height: 100px;
+  padding: 14px 16px;
+  gap: 12px;
+  border-radius: 14px;
+}
+
+.categories-summary-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+}
+
+.categories-summary-content {
+  gap: 3px;
+}
+
+.categories-summary-content h3,
+.categories-summary-content strong {
+  font-size: 24px;
+}
+
+.categories-summary-content p {
+  font-size: 12px;
+}
+
+.categories-summary-content span {
+  font-size: 13px;
+}
+
+/* Categories section */
+.categories-section {
+  margin-top: 4px;
+}
+
+.categories-tabs {
+  gap: 8px;
+}
+
+.categories-tabs button {
+  height: 42px;
+  min-height: 42px;
+  padding: 0 12px;
+  font-size: 12px;
+  border-radius: 11px;
+}
+
+/* Filters */
+.categories-filter-panel {
+  padding: 14px 16px;
+  gap: 10px;
+  border-radius: 14px;
+}
+
+.categories-filter-panel input,
+.categories-filter-panel select {
+  height: 40px;
+  font-size: 13px;
+}
+
+.categories-filter-heading {
+  font-size: 14px;
+}
+
+/* Product panel */
+.categories-product-panel {
+  border-radius: 14px;
+}
+
+.categories-product-panel h3 {
+  font-size: 15px;
+}
+
+.categories-product-panel table th {
+  font-size: 11px;
+  padding: 10px 14px;
+}
+
+.categories-product-panel table td {
+  font-size: 13px;
+  padding: 10px 14px;
+}
+
+/* Overall section gaps */
+.categories-page section {
+  margin-bottom: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .categories-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .categories-tabs button {
+    min-width: 80px;
+  }
+
+  .categories-filter-panel {
+    padding: 12px;
+  }
+}
+/* Summary card icons — palette colors */
+
+/* First icon — muted brass */
+.categories-summary-card:nth-child(1) .categories-summary-icon {
+  background: linear-gradient(145deg, #D9B779, #C49A5A);
+  color: #123C32;
+  border: 1px solid #B99154;
+  box-shadow: 0 3px 7px rgba(90, 65, 30, 0.16);
+}
+
+/* Second icon — forest green (already styled) */
+.categories-summary-card:nth-child(2) .categories-summary-icon {
+  background: linear-gradient(145deg, #28594A, #123C32);
+  color: #F8F4EB;
+  border: 1px solid #507765;
+}
+
+/* Third icon — charcoal green */
+.categories-summary-card:nth-child(3) .categories-summary-icon {
+  background: linear-gradient(145deg, #334B43, #1B302A);
+  color: #E7D4AD;
+  border: 1px solid #53665D;
+  box-shadow: 0 3px 7px rgba(20, 40, 30, 0.15);
+}
+/* =========================================
+   CATEGORIES PAGE — POPPINS FONT
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.categories-page,
+.categories-page *,
+.categories-page *::before,
+.categories-page *::after {
+  font-family: 'Poppins', sans-serif !important;
+}

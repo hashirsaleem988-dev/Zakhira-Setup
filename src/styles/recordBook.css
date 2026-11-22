@@ -1,0 +1,4063 @@
+
+/* =========================================
+   ZAKHIRA - RECORD BOOK
+========================================= */
+
+.record-book {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 12px 0 45px;
+  color: var(--dashboard-text, #26352F);
+}
+
+.record-book * {
+  box-sizing: border-box;
+}
+
+.record-book button,
+.record-book input,
+.record-book select {
+  font: inherit;
+}
+
+.record-book button {
+  cursor: pointer;
+}
+
+/* PAGE HEADING */
+
+.rb-page-heading,
+.rb-section-heading,
+.rb-analytics-heading,
+.rb-chart-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.rb-page-heading {
+  margin-bottom: 20px;
+}
+
+.rb-eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--olive, #66745A);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.rb-page-heading h1 {
+  margin: 0;
+  color: var(--forest, #123C32);
+  font-size: clamp(25px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.rb-page-heading p,
+.rb-section-heading p,
+.rb-analytics-heading p,
+.rb-chart-title p {
+  margin: 6px 0 0;
+  color: var(--dashboard-muted, #58645B);
+  font-size: 12px;
+}
+
+.rb-export-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 17px;
+  color: var(--ivory, #F7F3EA);
+  background: var(--forest, #123C32);
+  border: 1px solid var(--forest, #123C32);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .2s ease;
+}
+
+.rb-export-button:hover {
+  background: var(--forest-light, #315C49);
+  transform: translateY(-2px);
+}
+
+/* DEMO NOTE */
+
+.rb-demo-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 20px;
+  padding: 11px 14px;
+  color: #52664E;
+  background: rgba(102, 116, 90, .09);
+  border: 1px solid rgba(102, 116, 90, .18);
+  border-radius: 11px;
+  font-size: 11px;
+}
+
+.rb-demo-note svg {
+  flex-shrink: 0;
+  color: var(--olive, #66745A);
+}
+
+/* KPI CARDS */
+
+.rb-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+  margin-bottom: 23px;
+}
+
+.rb-kpi-card {
+  position: relative;
+  min-width: 0;
+  padding: 17px 16px 16px;
+  background: var(--dashboard-card, rgba(247, 243, 234, .88));
+  border: 1px solid var(--dashboard-border, rgba(18, 60, 50, .15));
+  border-radius: 16px;
+  box-shadow: 0 7px 22px rgba(18, 60, 50, .045);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.rb-kpi-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(18, 60, 50, .09);
+}
+
+.rb-kpi-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.rb-kpi-icon {
+  display: grid;
+  width: 37px;
+  height: 37px;
+  place-items: center;
+  border-radius: 11px;
+}
+
+.rb-kpi-icon.green {
+  color: #315C49;
+  background: rgba(49, 92, 73, .12);
+}
+
+.rb-kpi-icon.gold {
+  color: #A77A36;
+  background: rgba(196, 154, 90, .16);
+}
+
+.rb-kpi-icon.orange {
+  color: #B66C37;
+  background: rgba(205, 128, 68, .13);
+}
+
+.rb-kpi-icon.blue {
+  color: #55758C;
+  background: rgba(85, 117, 140, .13);
+}
+
+.rb-kpi-icon.purple {
+  color: #80678E;
+  background: rgba(128, 103, 142, .13);
+}
+
+.rb-kpi-title {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--dashboard-muted, #58645B);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.rb-kpi-value {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--forest, #123C32);
+  font-size: clamp(15px, 1.35vw, 21px);
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+.rb-kpi-note {
+  display: block;
+  margin-top: 7px;
+  color: #858B80;
+  font-size: 10px;
+}
+
+/* INFO TOOLTIP */
+
+.rb-info-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.rb-info-button {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  place-items: center;
+  color: #849084;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+}
+
+.rb-info-button:hover {
+  color: var(--forest, #123C32);
+  background: rgba(18, 60, 50, .08);
+}
+
+.rb-info-tooltip {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 210px;
+  padding: 11px 12px;
+  color: var(--ivory, #F7F3EA);
+  background: var(--forest-dark, #0B2C25);
+  border: 1px solid rgba(196, 154, 90, .4);
+  border-radius: 10px;
+  box-shadow: 0 9px 25px rgba(0, 0, 0, .17);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: .18s ease;
+  pointer-events: none;
+}
+
+.rb-info-wrap:hover .rb-info-tooltip,
+.rb-info-wrap:focus-within .rb-info-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* RECORD PANEL */
+
+.rb-record-panel,
+.rb-chart-card {
+  min-width: 0;
+  background: var(--dashboard-card, rgba(247, 243, 234, .88));
+  border: 1px solid var(--dashboard-border, rgba(18, 60, 50, .15));
+  border-radius: 17px;
+  box-shadow: 0 7px 22px rgba(18, 60, 50, .045);
+}
+
+.rb-record-panel {
+  padding: 20px;
+}
+
+.rb-section-heading {
+  margin-bottom: 19px;
+}
+
+.rb-section-heading h2,
+.rb-analytics-heading h2 {
+  margin: 0;
+  color: var(--forest, #123C32);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.rb-record-count,
+.rb-analytics-heading > span {
+  padding: 7px 11px;
+  color: var(--forest, #123C32);
+  background: rgba(18, 60, 50, .07);
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* FILTERS */
+
+.rb-filters {
+  display: grid;
+  grid-template-columns: minmax(190px, 1.5fr) repeat(4, minmax(115px, 1fr));
+  gap: 10px;
+  margin-bottom: 19px;
+}
+
+.rb-search-field,
+.rb-filter-field > div {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0 11px;
+  gap: 8px;
+  color: #899087;
+  background: rgba(255, 255, 255, .55);
+  border: 1px solid rgba(18, 60, 50, .13);
+  border-radius: 10px;
+}
+
+.rb-search-field:focus-within,
+.rb-filter-field > div:focus-within {
+  border-color: rgba(196, 154, 90, .8);
+  box-shadow: 0 0 0 3px rgba(196, 154, 90, .09);
+}
+
+.rb-search-field input,
+.rb-filter-field input,
+.rb-filter-field select {
+  width: 100%;
+  min-width: 0;
+  color: var(--dashboard-text, #26352F);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 10px;
+}
+
+.rb-search-field input::placeholder {
+  color: #92988E;
+}
+
+.rb-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.rb-filter-field > span {
+  color: var(--dashboard-muted, #58645B);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.rb-filter-field > div {
+  min-height: 42px;
+}
+
+.rb-filter-field input[type="date"] {
+  font-size: 10px;
+}
+
+.rb-filter-field select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.rb-filter-field > div > svg:last-child {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* TABS */
+
+.rb-tabs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 15px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid rgba(18, 60, 50, .12);
+}
+
+.rb-tabs button {
+  position: relative;
+  min-height: 35px;
+  padding: 0 15px;
+  color: #727D72;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 650;
+  transition: .2s ease;
+}
+
+.rb-tabs button:hover {
+  color: var(--forest, #123C32);
+  background: rgba(18, 60, 50, .06);
+}
+
+.rb-tabs button.active {
+  color: var(--ivory, #F7F3EA);
+  background: var(--forest, #123C32);
+  border-color: var(--forest, #123C32);
+}
+
+/* TABLE */
+
+.rb-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.rb-table {
+  width: 100%;
+  min-width: 850px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.rb-table th {
+  padding: 12px 11px;
+  color: #778176;
+  background: rgba(18, 60, 50, .045);
+  font-size: 10px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.rb-table th:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.rb-table th:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.rb-table td {
+  padding: 13px 11px;
+  color: #59665B;
+  border-bottom: 1px solid rgba(18, 60, 50, .085);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.rb-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.rb-table tbody tr:hover {
+  background: rgba(18, 60, 50, .025);
+}
+
+.rb-table td strong {
+  display: block;
+  color: var(--dashboard-text, #26352F);
+  font-size: 10px;
+}
+
+.rb-table td small {
+  display: block;
+  margin-top: 4px;
+  color: #92998E;
+  font-size: 9px;
+}
+
+.rb-table .rb-order-id {
+  color: var(--forest, #123C32);
+  font-weight: 800;
+}
+
+.rb-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.rb-status.paid {
+  color: #34734D;
+  background: rgba(67, 145, 91, .12);
+}
+
+.rb-status.unpaid {
+  color: #B45C4E;
+  background: rgba(180, 92, 78, .11);
+}
+
+.rb-status.partial {
+  color: #A77A36;
+  background: rgba(196, 154, 90, .17);
+}
+
+.rb-empty {
+  padding: 35px !important;
+  color: #899087 !important;
+  text-align: center;
+  white-space: normal !important;
+}
+
+/* ANALYTICS */
+
+.rb-analytics {
+  margin-top: 27px;
+}
+
+.rb-analytics-heading {
+  margin-bottom: 16px;
+}
+
+.rb-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.rb-chart-card {
+  padding: 19px;
+}
+
+.rb-chart-title {
+  align-items: flex-start;
+}
+
+.rb-chart-title h3 {
+  margin: 0;
+  color: var(--forest, #123C32);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.rb-chart-title p {
+  font-size: 10px;
+}
+
+.rb-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 19px;
+  margin-bottom: 12px;
+}
+
+.rb-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #778176;
+  font-size: 9px;
+}
+
+.rb-legend i,
+.rb-channel-row i,
+.rb-donut-legend i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 3px;
+}
+
+.rb-legend .revenue,
+.rb-bar.revenue {
+  background: #315C49;
+}
+
+.rb-legend .expense,
+.rb-bar.expense {
+  background: #C49A5A;
+}
+
+.rb-legend .profit,
+.rb-bar.profit {
+  background: #829477;
+}
+
+/* PERFORMANCE BAR CHART */
+
+.rb-bar-chart {
+  display: grid;
+  grid-template-columns: 35px minmax(0, 1fr);
+  height: 205px;
+  margin-top: 5px;
+}
+
+.rb-y-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 5px 22px 0;
+  color: #92998E;
+  font-size: 9px;
+  text-align: right;
+}
+
+.rb-bar-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.rb-grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(18, 60, 50, .09);
+}
+
+.rb-grid-line:nth-child(1) { top: 0; }
+.rb-grid-line:nth-child(2) { top: 25%; }
+.rb-grid-line:nth-child(3) { top: 50%; }
+.rb-grid-line:nth-child(4) { top: 75%; }
+.rb-grid-line:nth-child(5) { bottom: 22px; }
+
+.rb-bar-months {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  height: 100%;
+}
+
+.rb-month-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  gap: 8px;
+}
+
+.rb-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 22px);
+  padding: 0 3px;
+  gap: 3px;
+}
+
+.rb-bar {
+  display: block;
+  width: min(17px, 25%);
+  min-height: 2px;
+  border-radius: 4px 4px 0 0;
+  transition: opacity .2s ease;
+}
+
+.rb-bar:hover {
+  opacity: .7;
+}
+
+.rb-month-column small {
+  color: #7D887D;
+  font-size: 9px;
+}
+
+/* ONLINE / OFFLINE */
+
+.rb-channel-total {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 29px 0 22px;
+}
+
+.rb-channel-total strong {
+  color: var(--forest, #123C32);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -.7px;
+}
+
+.rb-channel-total span {
+  color: #899087;
+  font-size: 10px;
+}
+
+.rb-channel-bar {
+  display: flex;
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  margin-bottom: 21px;
+  background: #E8E8DE;
+  border-radius: 20px;
+}
+
+.rb-channel-bar .online {
+  width: 35%;
+  background: #C49A5A;
+}
+
+.rb-channel-bar .offline {
+  width: 65%;
+  background: #315C49;
+}
+
+.rb-channel-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.rb-channel-row i.online {
+  background: #C49A5A;
+}
+
+.rb-channel-row i.offline {
+  background: #315C49;
+}
+
+.rb-channel-row span {
+  flex: 1;
+  color: #707B70;
+  font-size: 11px;
+}
+
+.rb-channel-row strong {
+  color: var(--forest, #123C32);
+  font-size: 11px;
+}
+
+/* TOP PRODUCTS */
+
+.rb-products {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 23px;
+}
+
+.rb-product-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.rb-product-rank {
+  display: grid;
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  color: var(--forest, #123C32);
+  background: rgba(18, 60, 50, .08);
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.rb-product-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.rb-product-details strong {
+  display: block;
+  overflow: hidden;
+  color: #405347;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rb-product-details > div {
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+  margin: 6px 0 4px;
+  background: #E9E8DE;
+  border-radius: 10px;
+}
+
+.rb-product-details > div span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #315C49, #829477);
+  border-radius: inherit;
+}
+
+.rb-product-details small {
+  color: #92998E;
+  font-size: 9px;
+}
+
+.rb-product-amount {
+  flex-shrink: 0;
+  color: var(--forest, #123C32);
+  font-size: 10px;
+}
+
+/* INVOICE DOUGHNUT */
+
+.rb-invoice-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  min-height: 205px;
+}
+
+.rb-donut {
+  display: grid;
+  width: 145px;
+  height: 145px;
+  flex-shrink: 0;
+  place-items: center;
+  background: conic-gradient(
+    #315C49 0deg 135deg,
+    #C49A5A 135deg 225deg,
+    #D7D9CC 225deg 360deg
+  );
+  border-radius: 50%;
+}
+
+.rb-donut::before {
+  content: "";
+  position: absolute;
+  width: 101px;
+  height: 101px;
+  background: #F7F3EA;
+  border-radius: 50%;
+}
+
+.rb-donut > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.rb-donut > div strong {
+  color: var(--forest, #123C32);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.rb-donut > div span {
+  color: #8A9287;
+  font-size: 9px;
+}
+
+.rb-donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  min-width: 100px;
+}
+
+.rb-donut-legend span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #788277;
+  font-size: 10px;
+}
+
+.rb-donut-legend strong {
+  margin-left: auto;
+  color: var(--forest, #123C32);
+}
+
+.rb-donut-legend i.paid { background: #315C49; }
+.rb-donut-legend i.partial { background: #C49A5A; }
+.rb-donut-legend i.unpaid { background: #D7D9CC; }
+
+/* ORDER PATTERNS HEATMAP */
+
+.rb-heatmap {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.rb-heatmap-times,
+.rb-heatmap-row {
+  display: grid;
+  grid-template-columns: 42px repeat(5, minmax(0, 1fr));
+  align-items: center;
+  gap: 8px;
+}
+
+.rb-heatmap-times {
+  color: #899087;
+  font-size: 9px;
+  text-align: center;
+}
+
+.rb-heatmap-row > span {
+  color: #778176;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.rb-heatmap-row i,
+.rb-heatmap-legend i {
+  display: block;
+  height: 24px;
+  background: #E5E7DD;
+  border-radius: 5px;
+}
+
+.rb-heatmap-row i.level-0,
+.rb-heatmap-legend i.level-0 { background: #E8E9DF; }
+
+.rb-heatmap-row i.level-1,
+.rb-heatmap-legend i.level-1 { background: #C9D4C3; }
+
+.rb-heatmap-row i.level-2,
+.rb-heatmap-legend i.level-2 { background: #91A98C; }
+
+.rb-heatmap-row i.level-3,
+.rb-heatmap-legend i.level-3 { background: #557C61; }
+
+.rb-heatmap-row i.level-4,
+.rb-heatmap-legend i.level-4 { background: #123C32; }
+
+.rb-heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: 15px;
+  color: #899087;
+  font-size: 9px;
+}
+
+.rb-heatmap-legend i {
+  width: 15px;
+  height: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+  .rb-kpi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rb-filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rb-search-field {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 850px) {
+  .rb-chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rb-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rb-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rb-search-field {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book {
+    padding-top: 8px;
+  }
+
+  .rb-page-heading {
+    align-items: flex-start;
+  }
+
+  .rb-page-heading h1 {
+    font-size: 24px;
+  }
+
+  .rb-page-heading p {
+    max-width: 230px;
+    line-height: 1.5;
+  }
+
+  .rb-export-button {
+    min-height: 36px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .rb-export-button svg {
+    width: 14px;
+  }
+
+  .rb-kpi-grid {
+    gap: 9px;
+  }
+
+  .rb-kpi-card {
+    padding: 13px 11px;
+    border-radius: 13px;
+  }
+
+  .rb-kpi-value {
+    font-size: 15px;
+  }
+
+  .rb-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .rb-search-field {
+    grid-column: auto;
+    min-height: 42px;
+  }
+
+  .rb-record-panel,
+  .rb-chart-card {
+    padding: 14px;
+  }
+
+  .rb-section-heading h2,
+  .rb-analytics-heading h2 {
+    font-size: 15px;
+  }
+
+  .rb-tabs {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .rb-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rb-tabs button {
+    flex-shrink: 0;
+    padding: 0 11px;
+    font-size: 10px;
+  }
+
+  .rb-invoice-chart {
+    gap: 18px;
+  }
+
+  .rb-donut {
+    width: 120px;
+    height: 120px;
+  }
+
+  .rb-donut::before {
+    width: 84px;
+    height: 84px;
+  }
+
+  .rb-heatmap-times,
+  .rb-heatmap-row {
+    grid-template-columns: 34px repeat(5, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .rb-heatmap-times {
+    font-size: 8px;
+  }
+
+  .rb-heatmap-row i {
+    height: 20px;
+  }
+
+  .rb-product-amount {
+    font-size: 9px;
+  }
+}
+
+/* PRINT */
+
+@media print {
+  .dashboard-sidebar,
+  .dashboard-topbar,
+  .rb-export-button,
+  .rb-filters,
+  .rb-tabs {
+    display: none !important;
+  }
+
+  .dashboard-main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .record-book {
+    padding: 0;
+  }
+
+  .rb-record-panel,
+  .rb-chart-card,
+  .rb-kpi-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}
+
+/* =========================================
+   RECORD BOOK - HEADING TYPOGRAPHY FIX
+   Match Sales Invoice / Quotation Page
+========================================= */
+
+.record-book .rb-eyebrow {
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1.7px;
+  line-height: 1.4;
+  color: var(--olive, #66745A);
+  margin-bottom: 9px;
+}
+
+.record-book .rb-page-heading h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.7px;
+  color: var(--forest, #123C32);
+  margin: 0;
+}
+
+.record-book .rb-page-heading p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--dashboard-text, #26352F);
+  margin-top: 10px;
+}
+
+@media (max-width: 560px) {
+  .record-book .rb-page-heading h1 {
+    font-size: 25px;
+    letter-spacing: -0.4px;
+  }
+
+  .record-book .rb-page-heading p {
+    font-size: 13px;
+  }
+
+  .record-book .rb-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+}
+
+/* =========================================
+   RECORD BOOK KPI ICONS - 3D DASHBOARD STYLE
+========================================= */
+
+/* Forest Green 3D Icons: 1, 3, 5 */
+
+.record-book .rb-kpi-icon.green,
+.record-book .rb-kpi-icon.orange,
+.record-book .rb-kpi-icon.purple {
+  color: #F8F5ED !important;
+
+  background: linear-gradient(
+    145deg,
+    #315C49 0%,
+    #123C32 55%,
+    #0B2C25 100%
+  ) !important;
+
+  border: 1px solid rgba(247, 243, 234, 0.24);
+
+  box-shadow:
+    0 7px 13px rgba(11, 44, 37, 0.24),
+    inset 0 2px 3px rgba(255, 255, 255, 0.30),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.18);
+}
+
+/* Brass / Beige 3D Icons: 2, 4 */
+
+.record-book .rb-kpi-icon.gold,
+.record-book .rb-kpi-icon.blue {
+  color: #FFF9EC !important;
+
+  background: linear-gradient(
+    145deg,
+    #D6B477 0%,
+    #C49A5A 55%,
+    #A77A3F 100%
+  ) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.38);
+
+  box-shadow:
+    0 7px 13px rgba(125, 91, 43, 0.22),
+    inset 0 2px 3px rgba(255, 255, 255, 0.40),
+    inset 0 -3px 5px rgba(100, 65, 25, 0.18);
+}
+
+/* Icon Depth */
+
+.record-book .rb-kpi-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.20));
+}
+
+/* Subtle 3D Hover */
+
+.record-book .rb-kpi-card:hover .rb-kpi-icon {
+  transform: translateY(-2px);
+}
+
+.record-book .rb-kpi-icon {
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+/* =========================================
+   RECORD BOOK - DASHBOARD MATCHING INFO POPUP
+========================================= */
+
+.record-book .rb-info-wrap {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 24px;
+  align-self: flex-start;
+  z-index: 5;
+}
+
+.record-book .rb-info-button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #788064;
+  background: #F7F3EA;
+
+  border: 1px solid rgba(102, 116, 90, .28);
+  border-radius: 50%;
+
+  cursor: help;
+  transition: .2s ease;
+}
+
+.record-book .rb-info-button:hover,
+.record-book .rb-info-button:focus-visible {
+  color: #123C32;
+  background: #E9E9DD;
+  border-color: #829477;
+  outline: none;
+}
+
+/* Popup container */
+
+.record-book .rb-info-tooltip {
+  position: absolute;
+  top: 31px;
+  right: -12px;
+
+  width: 345px;
+  max-width: min(345px, calc(100vw - 40px));
+
+  display: block;
+  padding: 12px;
+
+  color: #526052;
+  background: #F7F3EA;
+
+  border: 1px solid rgba(102, 116, 90, .22);
+  border-radius: 13px;
+
+  box-shadow:
+    0 8px 24px rgba(18, 60, 50, .10),
+    inset 0 1px 0 rgba(255, 255, 255, .45);
+
+  font-size: 11px;
+  line-height: 1.5;
+  white-space: normal;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(5px);
+  transition: opacity .18s ease, transform .18s ease,
+              visibility .18s ease;
+
+  z-index: 9999;
+}
+
+.record-book .rb-info-wrap:hover .rb-info-tooltip,
+.record-book .rb-info-wrap:focus-within .rb-info-tooltip {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Explanation */
+
+.record-book .rb-info-purpose {
+  display: block;
+  margin: 0 0 10px;
+
+  color: #526052;
+  font-size: 11px;
+  font-weight: 450;
+  line-height: 1.5;
+}
+
+/* Formula box */
+
+.record-book .rb-info-formula {
+  display: block;
+  padding: 9px 10px;
+
+  background: #EAE9DD;
+  border: 1px solid rgba(102, 116, 90, .10);
+  border-radius: 8px;
+}
+
+.record-book .rb-info-formula > span {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #85866C;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .55px;
+}
+
+.record-book .rb-info-formula p {
+  margin: 0;
+
+  color: #123C32;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+/* Chart info popups without formulas */
+
+.record-book .rb-chart-card .rb-info-tooltip {
+  width: 280px;
+}
+
+/* =========================================
+   RECORD BOOK - FILTER WIDTH & DROPDOWNS
+========================================= */
+
+/* All five filter fields equal width */
+
+.record-book .rb-filters {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  align-items: end;
+  width: 100%;
+}
+
+/* Search field */
+
+.record-book .rb-search-field {
+  width: 100%;
+  min-width: 0;
+  height: 64px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 16px;
+
+  background: #FBFAF6;
+  border: 1px solid #DEDCD2;
+  border-radius: 14px;
+
+  color: #899286;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.record-book .rb-search-field:focus-within {
+  border-color: #66745A;
+  box-shadow: 0 0 0 3px rgba(102, 116, 90, .10);
+}
+
+.record-book .rb-search-field input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0;
+  border: none;
+  outline: none;
+
+  background: transparent;
+  color: #26352F;
+  font-size: 13px;
+}
+
+.record-book .rb-search-field input::placeholder {
+  color: #8B9187;
+}
+
+/* Filter labels */
+
+.record-book .rb-filter-field {
+  min-width: 0;
+  width: 100%;
+}
+
+.record-book .rb-filter-field > span {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #405248;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+/* Filter controls */
+
+.record-book .rb-filter-field > div {
+  width: 100%;
+  height: 64px;
+  min-width: 0;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0 13px;
+
+  background: #FBFAF6;
+  border: 1px solid #DEDCD2;
+  border-radius: 14px;
+
+  color: #899286;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.record-book .rb-filter-field > div:focus-within {
+  border-color: #66745A;
+  box-shadow: 0 0 0 3px rgba(102, 116, 90, .10);
+}
+
+/* Select dropdown */
+
+.record-book .rb-filter-field select {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0 4px;
+  border: none;
+  outline: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: transparent;
+  color: #26352F;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.record-book .rb-filter-field select option {
+  background: #F8F5ED;
+  color: #26352F;
+  padding: 12px;
+}
+
+/* =========================================
+   RECORD BOOK - FOUR FULL-WIDTH TABS
+========================================= */
+
+.record-book .rb-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+
+  width: 100%;
+  margin-top: 26px;
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #DEDCD2;
+}
+
+.record-book .rb-tabs button {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 15px;
+
+  border: 1px solid transparent;
+  border-radius: 11px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 650;
+
+  cursor: pointer;
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+/* Quotations - Olive */
+
+.record-book .rb-tabs button:nth-child(1) {
+  color: #66745A;
+  background: #F1EEE4;
+  border-color: #DCDACB;
+}
+
+/* Invoices - Blue */
+
+.record-book .rb-tabs button:nth-child(2) {
+  color: #52718A;
+  background: #EDF1F3;
+  border-color: #D6E0E6;
+}
+
+/* Approved - Green */
+
+.record-book .rb-tabs button:nth-child(3) {
+  color: #52765B;
+  background: #EDF1E9;
+  border-color: #D8E3D5;
+}
+
+/* Rejected - Muted Red */
+
+.record-book .rb-tabs button:nth-child(4) {
+  color: #A65E55;
+  background: #F3EBE8;
+  border-color: #E8D8D3;
+}
+
+/* Active tab */
+
+.record-book .rb-tabs button:nth-child(1).active {
+  color: #FFFFFF;
+  background: #66745A;
+  border-color: #66745A;
+}
+
+.record-book .rb-tabs button:nth-child(2).active {
+  color: #FFFFFF;
+  background: #52718A;
+  border-color: #52718A;
+}
+
+.record-book .rb-tabs button:nth-child(3).active {
+  color: #FFFFFF;
+  background: #52765B;
+  border-color: #52765B;
+}
+
+.record-book .rb-tabs button:nth-child(4).active {
+  color: #FFFFFF;
+  background: #A65E55;
+  border-color: #A65E55;
+}
+
+/* Hover */
+
+.record-book .rb-tabs button:hover {
+  filter: brightness(.96);
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   RESPONSIVE FILTERS & TABS
+========================================= */
+
+@media (max-width: 1100px) {
+  .record-book .rb-filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .record-book .rb-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .record-book .rb-tabs {
+    gap: 6px;
+  }
+
+  .record-book .rb-tabs button {
+    min-height: 43px;
+    padding: 9px 5px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .record-book .rb-filters {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   INVOICE STATUS - LARGER DONUT CHART
+========================================= */
+
+.record-book .rb-invoice-chart {
+  width: 100%;
+  min-height: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  padding: 25px 15px;
+  box-sizing: border-box;
+}
+
+/* Increase donut size */
+
+.record-book .rb-donut {
+  width: 280px;
+  height: 280px;
+  min-width: 280px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Center content */
+
+.record-book .rb-donut > div {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.record-book .rb-donut > div strong {
+  font-size: 38px;
+  font-weight: 800;
+}
+
+.record-book .rb-donut > div span {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Larger legend */
+
+.record-book .rb-donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 125px;
+}
+
+.record-book .rb-donut-legend span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.record-book .rb-donut-legend span strong {
+  margin-left: auto;
+  font-size: 15px;
+}
+
+/* Responsive */
+
+@media (max-width: 650px) {
+  .record-book .rb-invoice-chart {
+    min-height: auto;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .record-book .rb-donut {
+    width: 230px;
+    height: 230px;
+    min-width: 230px;
+  }
+}
+
+/* =========================================
+   INVOICE STATUS - THREE CIRCULAR GRAPHS
+========================================= */
+
+.record-book .rb-invoice-status-card {
+  min-width: 0;
+}
+
+.record-book .rb-status-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 30px 5px 15px;
+  align-items: start;
+}
+
+.record-book .rb-status-progress-item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Circular progress */
+
+.record-book .rb-status-ring {
+  --progress: 0%;
+  width: 145px;
+  height: 145px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    var(--ring-color) var(--progress),
+    #E7E7E2 var(--progress)
+  );
+}
+
+/* Three colors */
+
+.record-book .rb-status-ring.paid {
+  --ring-color: #C49A5A;
+}
+
+.record-book .rb-status-ring.partial {
+  --ring-color: #25A7CF;
+}
+
+.record-book .rb-status-ring.unpaid {
+  --ring-color: #E9AA16;
+}
+
+/* Inner circle */
+
+.record-book .rb-status-ring-inner {
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+
+  background: #F8F5ED;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.record-book .rb-status-ring-inner strong {
+  font-size: 25px;
+  font-weight: 750;
+  color: #26352F;
+}
+
+/* Labels */
+
+.record-book .rb-status-progress-label {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #26352F;
+}
+
+.record-book .rb-status-progress-item p {
+  margin: 5px 0 12px;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #70776B;
+}
+
+/* Legend */
+
+.record-book .rb-status-progress-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  font-size: 9px;
+  color: #70776B;
+}
+
+.record-book .rb-status-progress-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.record-book .rb-status-progress-legend i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.record-book .rb-status-progress-legend i.current {
+  background: #315C49;
+}
+
+.record-book .rb-status-progress-legend i.remaining {
+  background: #D8D8D0;
+}
+
+/* Responsive */
+
+@media (max-width: 650px) {
+  .record-book .rb-status-progress-grid {
+    gap: 8px;
+  }
+
+  .record-book .rb-status-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .record-book .rb-status-ring-inner strong {
+    font-size: 19px;
+  }
+
+  .record-book .rb-status-progress-item p {
+    font-size: 9px;
+  }
+}
+
+/* =========================================
+   ZAKHIRA THEME - INVOICE STATUS COLORS
+========================================= */
+
+/* Paid - Forest Green */
+.record-book .rb-status-ring.paid {
+  --ring-color: #315C49;
+}
+
+/* Partial - Brass Gold */
+.record-book .rb-status-ring.partial {
+  --ring-color: #C49A5A;
+}
+
+/* Unpaid - Olive Green */
+.record-book .rb-status-ring.unpaid {
+  --ring-color: #66745A;
+}
+
+/* Circular graph background */
+.record-book .rb-status-ring {
+  background: conic-gradient(
+    var(--ring-color) var(--progress),
+    #E7E5DC var(--progress)
+  );
+}
+
+/* Inner circle */
+.record-book .rb-status-ring-inner {
+  background: #F8F5ED;
+}
+
+/* Percentage text */
+.record-book .rb-status-ring-inner strong {
+  color: #123C32;
+}
+
+/* Status labels */
+.record-book .rb-status-progress-label {
+  color: #123C32;
+}
+
+/* Legend dots */
+.record-book .rb-status-progress-legend i.current {
+  background: #315C49;
+}
+
+.record-book .rb-status-progress-legend i.remaining {
+  background: #D9D9CF;
+}
+
+/* =========================================
+   ORDER PATTERNS - FULL WIDTH LAYOUT
+========================================= */
+
+/* Make Order Patterns use the complete row */
+.record-book .rb-pattern-card {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+/* Heatmap full width */
+.record-book .rb-pattern-card .rb-heatmap {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Time heading row */
+.record-book .rb-pattern-card .rb-heatmap-times {
+  display: grid;
+  grid-template-columns: 65px repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  color: #70776B;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+/* Weekday rows */
+.record-book .rb-pattern-card .rb-heatmap-row {
+  display: grid;
+  grid-template-columns: 65px repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Day labels */
+.record-book .rb-pattern-card .rb-heatmap-row > span {
+  color: #52634F;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+/* Heatmap cells */
+.record-book .rb-pattern-card .rb-heatmap-row > i {
+  display: block;
+  width: 100%;
+  height: 43px;
+  border-radius: 9px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+/* =========================================
+   FIVE ZAKHIRA THEME COLORS
+========================================= */
+
+/* Level 0 - Warm Ivory */
+.record-book .rb-pattern-card .level-0 {
+  background: #F0E8D8;
+}
+
+/* Level 1 - Soft Sand */
+.record-book .rb-pattern-card .level-1 {
+  background: #D8C7A5;
+}
+
+/* Level 2 - Muted Brass */
+.record-book .rb-pattern-card .level-2 {
+  background: #B99A68;
+}
+
+/* Level 3 - Olive Green */
+.record-book .rb-pattern-card .level-3 {
+  background: #71816A;
+}
+
+/* Level 4 - Forest Green */
+.record-book .rb-pattern-card .level-4 {
+  background: #123C32;
+}
+
+/* Cell hover */
+.record-book .rb-pattern-card .rb-heatmap-row > i:hover {
+  transform: scale(1.025);
+  box-shadow: 0 4px 12px rgba(18, 60, 50, 0.15);
+}
+
+/* =========================================
+   HEATMAP LEGEND
+========================================= */
+
+.record-book .rb-pattern-card .rb-heatmap-legend {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  color: #70776B;
+  font-size: 12px;
+}
+
+.record-book .rb-pattern-card .rb-heatmap-legend i {
+  width: 19px;
+  height: 19px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+  .record-book .rb-pattern-card {
+    padding: 20px 15px;
+  }
+
+  .record-book .rb-pattern-card .rb-heatmap {
+    overflow-x: auto;
+  }
+
+  .record-book .rb-pattern-card .rb-heatmap-times,
+  .record-book .rb-pattern-card .rb-heatmap-row {
+    min-width: 560px;
+    gap: 8px;
+    grid-template-columns: 48px repeat(5, minmax(0, 1fr));
+  }
+
+  .record-book .rb-pattern-card .rb-heatmap-row > i {
+    height: 34px;
+  }
+
+  .record-book .rb-pattern-card .rb-heatmap-legend {
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================
+   ORDER PATTERNS - FRESH MINT PALETTE
+========================================= */
+
+.record-book .rb-pattern-card .level-0 {
+  background: #E1EAE0 !important;
+}
+
+.record-book .rb-pattern-card .level-1 {
+  background: #C6D8C1 !important;
+}
+
+.record-book .rb-pattern-card .level-2 {
+  background: #91B38D !important;
+}
+
+.record-book .rb-pattern-card .level-3 {
+  background: #568267 !important;
+}
+
+.record-book .rb-pattern-card .level-4 {
+  background: #123C32 !important;
+}
+
+.record-book .rb-pattern-card .rb-heatmap-row > i {
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.record-book .rb-pattern-card .rb-heatmap-row > i:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 14px rgba(18, 60, 50, 0.16);
+}
+
+/* Legend */
+.record-book .rb-pattern-card .rb-heatmap-legend i.level-0 {
+  background: #E1EAE0 !important;
+}
+
+.record-book .rb-pattern-card .rb-heatmap-legend i.level-1 {
+  background: #C6D8C1 !important;
+}
+
+.record-book .rb-pattern-card .rb-heatmap-legend i.level-2 {
+  background: #91B38D !important;
+}
+
+.record-book .rb-pattern-card .rb-heatmap-legend i.level-3 {
+  background: #568267 !important;
+}
+
+.record-book .rb-pattern-card .rb-heatmap-legend i.level-4 {
+  background: #123C32 !important;
+}
+/* =========================================
+   RECORD BOOK — COMPACT PAGE + KPI OVERRIDE
+   Match Sales Dashboard Layout
+========================================= */
+
+/* Page Layout */
+.record-book {
+  padding: 8px 0 30px;
+}
+
+/* Page Heading */
+.record-book .rb-page-heading {
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.record-book .rb-eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  margin-bottom: 6px;
+}
+
+.record-book .rb-page-heading h1 {
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.record-book .rb-page-heading p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+/* Demo Notice */
+.record-book .rb-demo-note {
+  margin-bottom: 16px;
+  padding: 9px 12px;
+  gap: 8px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+/* KPI Grid */
+.record-book .rb-kpi-grid {
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* KPI Cards */
+.record-book .rb-kpi-card {
+  padding: 14px 14px 13px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(18, 60, 50, 0.04);
+}
+
+/* KPI Card Hover */
+.record-book .rb-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(18, 60, 50, 0.07);
+}
+
+/* KPI Top Row */
+.record-book .rb-kpi-top {
+  margin-bottom: 10px;
+}
+
+/* KPI Icons */
+.record-book .rb-kpi-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+
+.record-book .rb-kpi-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* KPI Title */
+.record-book .rb-kpi-title {
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+/* KPI Values */
+.record-book .rb-kpi-value {
+  font-size: clamp(16px, 1.2vw, 19px);
+  letter-spacing: -0.4px;
+}
+
+/* KPI Notes */
+.record-book .rb-kpi-note {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+/* KPI Info Button */
+.record-book .rb-info-button {
+  width: 22px;
+  height: 22px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+  .record-book .rb-kpi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .record-book .rb-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book {
+    padding-top: 6px;
+  }
+
+  .record-book .rb-page-heading {
+    margin-bottom: 14px;
+  }
+
+  .record-book .rb-page-heading h1 {
+    font-size: 24px;
+  }
+
+  .record-book .rb-page-heading p {
+    font-size: 12px;
+  }
+
+  .record-book .rb-demo-note {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .record-book .rb-kpi-grid {
+    gap: 9px;
+    margin-bottom: 16px;
+  }
+
+  .record-book .rb-kpi-card {
+    padding: 12px 11px;
+    border-radius: 12px;
+  }
+
+  .record-book .rb-kpi-icon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .record-book .rb-kpi-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .record-book .rb-kpi-value {
+    font-size: 15px;
+  }
+}
+/* =========================================
+   RECORD BOOK — EXACT FILTER OVERRIDE
+   ========================================= */
+
+.record-book .rb-filters {
+  grid-template-columns: minmax(190px, 1.5fr) repeat(4, minmax(115px, 1fr)) !important;
+  gap: 10px !important;
+  margin-bottom: 16px !important;
+  align-items: end !important;
+}
+
+/* Search Box */
+.record-book .rb-search-field {
+  height: 42px !important;
+  min-height: 42px !important;
+  padding: 0 11px !important;
+  gap: 8px !important;
+  border-radius: 10px !important;
+  box-sizing: border-box !important;
+}
+
+.record-book .rb-search-field svg {
+  width: 15px !important;
+  height: 15px !important;
+  flex-shrink: 0 !important;
+}
+
+.record-book .rb-search-field input {
+  height: 100% !important;
+  font-size: 11px !important;
+}
+
+/* Filter Labels */
+.record-book .rb-filter-field {
+  gap: 5px !important;
+}
+
+.record-book .rb-filter-field > span {
+  font-size: 10px !important;
+  margin-bottom: 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* Filter Control Wrappers */
+.record-book .rb-filter-field > div {
+  height: 42px !important;
+  min-height: 42px !important;
+  padding: 0 10px !important;
+  gap: 7px !important;
+  border-radius: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* Filter Icons */
+.record-book .rb-filter-field > div > svg {
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Input & Dropdown */
+.record-book .rb-filter-field input,
+.record-book .rb-filter-field select {
+  font-size: 11px !important;
+  height: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Date Input */
+.record-book .rb-filter-field input[type="date"] {
+  font-size: 10px !important;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+  .record-book .rb-filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .record-book .rb-search-field {
+    grid-column: span 2 !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .record-book .rb-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .record-book .rb-search-field {
+    grid-column: span 2 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book .rb-filters {
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .record-book .rb-search-field {
+    grid-column: auto !important;
+  }
+
+  .record-book .rb-filter-field > div,
+  .record-book .rb-search-field {
+    height: 38px !important;
+    min-height: 38px !important;
+  }
+}
+/* =========================================
+   RECORD BOOK — TABS OVERRIDE
+========================================= */
+
+/* Tabs Container */
+.record-book .rb-tabs {
+  gap: 6px !important;
+  padding: 5px !important;
+  margin-bottom: 16px !important;
+  border-radius: 12px !important;
+}
+
+/* Individual Tab */
+.record-book .rb-tab {
+  padding: 9px 15px !important;
+  min-height: 38px !important;
+  font-size: 11px !important;
+  gap: 7px !important;
+  border-radius: 9px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Tab Icons */
+.record-book .rb-tab svg {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+/* Active Tab */
+.record-book .rb-tab.active {
+  font-weight: 700 !important;
+}
+
+/* Hover */
+.record-book .rb-tab:hover {
+  transition: all 0.2s ease !important;
+}
+
+/* Tab Content Spacing */
+.record-book .rb-tab-content {
+  margin-top: 14px !important;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+  .record-book .rb-tabs {
+    gap: 5px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .record-book .rb-tab {
+    padding: 8px 11px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book .rb-tabs {
+    gap: 4px !important;
+    padding: 4px !important;
+  }
+
+  .record-book .rb-tab {
+    padding: 7px 9px !important;
+    min-height: 34px !important;
+    font-size: 10px !important;
+  }
+
+  .record-book .rb-tab svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+}
+/* =========================================
+   RECORD BOOK — TABLE COMPACT OVERRIDE
+========================================= */
+
+/* Table Wrapper */
+.record-book .rb-table-wrap {
+  width: 100% !important;
+  overflow-x: auto !important;
+  border-radius: 12px !important;
+}
+
+/* Main Table */
+.record-book .rb-table {
+  width: 100% !important;
+  min-width: 850px !important;
+  border-collapse: collapse !important;
+}
+
+/* Table Header */
+.record-book .rb-table th {
+  padding: 10px 10px !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.35px !important;
+}
+
+/* Table Body Cells */
+.record-book .rb-table td {
+  padding: 10px !important;
+  font-size: 10px !important;
+  line-height: 1.45 !important;
+}
+
+/* Row Hover */
+.record-book .rb-table tbody tr:hover {
+  transition: background 0.2s ease !important;
+}
+
+/* Main Text */
+.record-book .rb-table td strong {
+  font-size: 10px !important;
+  line-height: 1.4 !important;
+}
+
+/* Secondary Text */
+.record-book .rb-table td small {
+  font-size: 9px !important;
+  margin-top: 3px !important;
+}
+
+/* Order ID */
+.record-book .rb-table .rb-order-id {
+  font-size: 10px !important;
+  font-weight: 750 !important;
+}
+
+/* Status Badge */
+.record-book .rb-table .rb-status {
+  padding: 4px 8px !important;
+  font-size: 9px !important;
+  line-height: 1.4 !important;
+  border-radius: 20px !important;
+}
+
+/* =========================================
+   RESPONSIVE TABLE
+========================================= */
+
+@media (max-width: 768px) {
+  .record-book .rb-table th {
+    padding: 9px 8px !important;
+    font-size: 9px !important;
+  }
+
+  .record-book .rb-table td {
+    padding: 9px 8px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book .rb-table-wrap {
+    border-radius: 10px !important;
+  }
+
+  .record-book .rb-table th,
+  .record-book .rb-table td {
+    padding: 8px 7px !important;
+  }
+
+  .record-book .rb-table td strong {
+    font-size: 9px !important;
+  }
+
+  .record-book .rb-table .rb-status {
+    padding: 4px 7px !important;
+    font-size: 8px !important;
+  }
+}
+/* =========================================
+   RECORD BOOK — ANALYTICS PANEL OVERRIDE
+========================================= */
+
+/* Analytics / Record Panels */
+.record-book .rb-record-panel,
+.record-book .rb-chart-card {
+  padding: 16px !important;
+  border-radius: 14px !important;
+}
+
+/* Analytics Heading */
+.record-book .rb-analytics-heading {
+  margin-bottom: 14px !important;
+  gap: 10px !important;
+}
+
+/* Heading Text */
+.record-book .rb-analytics-heading h2,
+.record-book .rb-analytics-heading h3 {
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+}
+
+/* Heading Description */
+.record-book .rb-analytics-heading p {
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+  margin-top: 4px !important;
+}
+
+/* Analytics Count Badge */
+.record-book .rb-analytics-heading > span {
+  padding: 5px 9px !important;
+  font-size: 10px !important;
+  border-radius: 9px !important;
+}
+
+/* Panel Spacing */
+.record-book .rb-record-panel,
+.record-book .rb-chart-card {
+  margin-bottom: 14px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .record-book .rb-record-panel,
+  .record-book .rb-chart-card {
+    padding: 13px !important;
+  }
+
+  .record-book .rb-analytics-heading h2,
+  .record-book .rb-analytics-heading h3 {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book .rb-record-panel,
+  .record-book .rb-chart-card {
+    padding: 11px !important;
+    border-radius: 12px !important;
+  }
+
+  .record-book .rb-analytics-heading {
+    gap: 8px !important;
+  }
+}
+/* ===== INVOICE DONUT CHART COMPACT ===== */
+
+.record-book .rb-invoice-chart {
+  gap: 14px !important;
+  padding: 4px 0 !important;
+}
+
+.record-book .rb-donut {
+  width: 150px !important;
+  height: 150px !important;
+  flex-shrink: 0 !important;
+}
+
+.record-book .rb-donut-legend {
+  gap: 9px !important;
+}
+
+.record-book .rb-donut-legend > div {
+  gap: 8px !important;
+  font-size: 11px !important;
+}
+
+@media (max-width: 768px) {
+  .record-book .rb-donut {
+    width: 125px !important;
+    height: 125px !important;
+  }
+
+  .record-book .rb-invoice-chart {
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book .rb-donut {
+    width: 110px !important;
+    height: 110px !important;
+  }
+}
+/* ===== STATUS PROGRESS RINGS COMPACT ===== */
+
+.record-book .rb-status-progress-grid {
+  gap: 12px !important;
+}
+
+.record-book .rb-status-progress-item {
+  padding: 12px !important;
+  gap: 8px !important;
+}
+
+.record-book .rb-status-ring {
+  width: 110px !important;
+  height: 110px !important;
+}
+
+.record-book .rb-status-ring-inner {
+  width: 82px !important;
+  height: 82px !important;
+}
+
+.record-book .rb-status-progress-label {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+.record-book .rb-status-progress-legend {
+  gap: 8px !important;
+  font-size: 10px !important;
+}
+
+@media (max-width: 768px) {
+  .record-book .rb-status-ring {
+    width: 95px !important;
+    height: 95px !important;
+  }
+
+  .record-book .rb-status-ring-inner {
+    width: 72px !important;
+    height: 72px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book .rb-status-progress-grid {
+    gap: 8px !important;
+  }
+
+  .record-book .rb-status-progress-item {
+    padding: 9px !important;
+  }
+
+  .record-book .rb-status-ring {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .record-book .rb-status-ring-inner {
+    width: 62px !important;
+    height: 62px !important;
+  }
+}
+/* ===== ORDER PATTERN HEATMAP COMPACT ===== */
+
+.record-book .rb-pattern-card {
+  padding: 14px !important;
+  gap: 12px !important;
+}
+
+.record-book .rb-heatmap {
+  gap: 5px !important;
+}
+
+.record-book .rb-heatmap-times {
+  gap: 5px !important;
+  font-size: 9px !important;
+}
+
+.record-book .rb-heatmap-row {
+  gap: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.record-book .rb-heatmap-legend {
+  gap: 8px !important;
+  margin-top: 10px !important;
+  font-size: 9px !important;
+}
+
+.record-book .rb-heatmap-legend > span {
+  gap: 5px !important;
+}
+
+@media (max-width: 768px) {
+  .record-book .rb-pattern-card {
+    padding: 12px !important;
+  }
+
+  .record-book .rb-heatmap {
+    gap: 4px !important;
+  }
+
+  .record-book .rb-heatmap-row {
+    gap: 4px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .record-book .rb-pattern-card {
+    padding: 10px !important;
+  }
+
+  .record-book .rb-heatmap-times {
+    font-size: 8px !important;
+  }
+
+  .record-book .rb-heatmap-legend {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+}
+/* =========================================
+   VERIFIED INFO TOOLTIP FIX
+========================================= */
+
+/* KPI card stacking */
+.record-book .rb-kpi-grid {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.record-book .rb-kpi-card {
+  position: relative !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+}
+
+.record-book .rb-kpi-card:hover,
+.record-book .rb-kpi-card:focus-within {
+  z-index: 10000 !important;
+}
+
+/* Info wrapper */
+.record-book .rb-info-wrap {
+  position: relative !important;
+  z-index: 10001 !important;
+}
+
+/* Info button */
+.record-book .rb-info-button {
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 10002 !important;
+}
+
+/* Tooltip */
+.record-book .rb-info-tooltip {
+  position: absolute !important;
+
+  top: calc(100% + 8px) !important;
+  bottom: auto !important;
+
+  right: 0 !important;
+  left: auto !important;
+
+  width: 300px !important;
+  max-width: min(300px, calc(100vw - 30px)) !important;
+
+  z-index: 10003 !important;
+}
+
+/* Keep tooltip above overlapping cards */
+.record-book .rb-kpi-card:hover .rb-info-wrap,
+.record-book .rb-kpi-card:focus-within .rb-info-wrap {
+  z-index: 10004 !important;
+}
+
+/* Remove question-mark cursor */
+.record-book .rb-info-button {
+  cursor: pointer !important;
+}
+
+/* Mobile adjustment */
+@media (max-width: 560px) {
+  .record-book .rb-info-tooltip {
+    width: 260px !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+}
+/* =========================================
+   INFO TOOLTIP - CENTER ABOVE ICON
+   GLASS EFFECT / 15% OPACITY
+========================================= */
+
+.record-book .rb-info-wrap {
+  position: relative !important;
+  z-index: 99999 !important;
+}
+
+.record-book .rb-info-tooltip {
+  position: absolute !important;
+
+  /* Center above info icon */
+  left: 50% !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: calc(100% + 12px) !important;
+
+  transform: translateX(-50%) translateY(4px) !important;
+
+  width: 280px !important;
+  max-width: calc(100vw - 30px) !important;
+
+  /* Glass effect */
+  background: rgba(11, 44, 37, 0.15) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+
+  border: 1px solid rgba(196, 154, 90, 0.35) !important;
+  border-radius: 14px !important;
+
+  box-shadow:
+    0 8px 30px rgba(11, 44, 37, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+
+  z-index: 999999 !important;
+}
+
+/* Hover position */
+.record-book .rb-info-wrap:hover .rb-info-tooltip,
+.record-book .rb-info-wrap:focus-within .rb-info-tooltip {
+  transform: translateX(-50%) translateY(0) !important;
+}
+/* ===== INFO TOOLTIP GLASS COLOR UPDATE ===== */
+
+.record-book .rb-info-tooltip {
+  background: rgba(102, 116, 90, 0.25) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+
+  border: 1px solid rgba(102, 116, 90, 0.30) !important;
+
+  box-shadow:
+    0 8px 30px rgba(18, 60, 50, 0.10),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+}
+/* ===== INFO TOOLTIP - CREAM GLASS ===== */
+
+.record-book .rb-info-tooltip {
+  background: rgba(247, 243, 234, 0.25) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+
+  border: 1px solid rgba(247, 243, 234, 0.45) !important;
+
+  box-shadow:
+    0 8px 30px rgba(18, 60, 50, 0.10),
+    inset 0 1px 1px rgba(255, 255, 255, 0.40) !important;
+}
+/* ===== SINGLE TOOLTIP: TOP-LEFT POSITION ===== */
+
+.record-book .rb-info-wrap:hover .rb-info-tooltip,
+.record-book .rb-info-wrap:focus-within .rb-info-tooltip {
+  left: auto !important;
+  right: 0 !important;
+
+  top: auto !important;
+  bottom: calc(100% + 12px) !important;
+
+  transform: translateX(0) translateY(0) !important;
+}
+
+
+/* PORTAL INFO TOOLTIP - HOVER FIX + POLISHED LIGHT STYLE */
+.rb-info-tooltip-portal {
+  padding: 13px 15px !important;
+  color: #526052 !important;
+  background: rgba(247, 243, 234, .97) !important;
+  border: 1px solid rgba(255, 255, 255, .85) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 14px 35px rgba(18, 60, 50, .16), 0 3px 10px rgba(18, 60, 50, .06) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 11px !important;
+  font-weight: 450 !important;
+  line-height: 1.55 !important;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.rb-info-tooltip-portal .rb-info-purpose {
+  display: block; margin: 0 0 10px; color: #526052;
+  font-size: 11px; font-weight: 450; line-height: 1.55;
+}
+.rb-info-tooltip-portal .rb-info-formula {
+  display: block; padding: 10px 11px;
+  background: rgba(102, 116, 90, .08);
+  border: 1px solid rgba(102, 116, 90, .12); border-radius: 10px;
+}
+.rb-info-tooltip-portal .rb-info-formula > span {
+  display: block; margin-bottom: 5px; color: #85866C;
+  font-size: 9px; font-weight: 800; letter-spacing: .6px;
+}
+.rb-info-tooltip-portal .rb-info-formula p {
+  margin: 0; color: #123C32; font-size: 11px; font-weight: 650; line-height: 1.5;
+}
+/* =========================================
+   RECORD BOOK INFO TOOLTIP — COMPACT OVERRIDE
+========================================= */
+
+.rb-info-tooltip {
+  width: 300px !important;
+  max-width: min(300px, calc(100vw - 24px)) !important;
+  padding: 13px 14px !important;
+  border-radius: 13px !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  box-shadow: 0 12px 30px rgba(18, 60, 50, 0.14) !important;
+}
+
+/* Tooltip paragraph */
+.rb-info-tooltip p {
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  margin: 0 0 10px !important;
+}
+
+/* Formula section */
+.rb-info-formula {
+  padding: 9px 10px !important;
+  border-radius: 9px !important;
+  margin-top: 8px !important;
+}
+
+/* Formula heading */
+.rb-info-formula-label {
+  font-size: 9px !important;
+  margin-bottom: 5px !important;
+  letter-spacing: 0.7px !important;
+}
+
+/* Formula text */
+.rb-info-formula strong,
+.rb-info-formula p,
+.rb-info-formula-text {
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+/* Smaller tooltip on mobile */
+@media (max-width: 560px) {
+  .rb-info-tooltip {
+    width: min(280px, calc(100vw - 24px)) !important;
+    padding: 11px 12px !important;
+    font-size: 11px !important;
+  }
+
+  .rb-info-formula {
+    padding: 8px !important;
+  }
+}
+.rb-info-tooltip {
+  backdrop-filter: blur(0.2px) saturate(110%) !important;
+  -webkit-backdrop-filter: blur(0.2px) saturate(110%) !important;
+}
+/* =========================================
+   RECORD BOOK TABS + TABLE COLOR OVERRIDE
+   Paste at the END of RecordBook.css
+========================================= */
+
+/* TAB BASE */
+
+.record-book .rb-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  padding-bottom: 11px;
+}
+
+.record-book .rb-tabs button {
+  flex: 1;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid transparent !important;
+  border-radius: 11px;
+  font-size: 11px;
+  font-weight: 700;
+  transform: none !important;
+  box-shadow: none !important;
+  transition: background .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+/* QUOTATIONS — SOFT OLIVE */
+
+.record-book .rb-tabs button.quotations {
+  color: #8C8061 !important;
+  background: #F0EEE5 !important;
+  border-color: #E2DDCD !important;
+}
+
+.record-book .rb-tabs button.quotations.active {
+  box-shadow: inset 0 0 0 1.5px rgba(140, 128, 97, .20) !important;
+}
+
+/* INVOICES — SOFT BLUE */
+
+.record-book .rb-tabs button.invoices {
+  color: #55758C !important;
+  background: #EAF0F4 !important;
+  border-color: #D5E1E9 !important;
+}
+
+.record-book .rb-tabs button.invoices.active {
+  box-shadow: inset 0 0 0 1.5px rgba(85, 117, 140, .20) !important;
+}
+
+/* APPROVED — SOFT GREEN */
+
+.record-book .rb-tabs button.approved {
+  color: #54765D !important;
+  background: #EDF1E9 !important;
+  border-color: #D9E3D5 !important;
+}
+
+.record-book .rb-tabs button.approved.active {
+  box-shadow: inset 0 0 0 1.5px rgba(84, 118, 93, .20) !important;
+}
+
+/* REJECTED — SOFT RED */
+
+.record-book .rb-tabs button.rejected {
+  color: #B15F52 !important;
+  background: #F4EBE8 !important;
+  border-color: #EAD8D3 !important;
+}
+
+.record-book .rb-tabs button.rejected.active {
+  box-shadow: inset 0 0 0 1.5px rgba(177, 95, 82, .20) !important;
+}
+
+
+/* =========================================
+   RECORD PANEL — MATCH SELECTED TAB
+========================================= */
+
+.record-book .rb-record-panel {
+  transition: background .25s ease, border-color .25s ease;
+}
+
+/* QUOTATIONS */
+
+.record-book .rb-record-panel:has(.rb-tabs.quotations) {
+  background: rgba(240, 238, 229, .45) !important;
+  border-color: rgba(140, 128, 97, .20) !important;
+}
+
+/* INVOICES */
+
+.record-book .rb-record-panel:has(.rb-tabs.invoices) {
+  background: rgba(234, 240, 244, .45) !important;
+  border-color: rgba(85, 117, 140, .20) !important;
+}
+
+/* APPROVED */
+
+.record-book .rb-record-panel:has(.rb-tabs.approved) {
+  background: rgba(237, 241, 233, .65) !important;
+  border-color: rgba(84, 118, 93, .22) !important;
+}
+
+/* REJECTED */
+
+.record-book .rb-record-panel:has(.rb-tabs.rejected) {
+  background: rgba(244, 235, 232, .65) !important;
+  border-color: rgba(177, 95, 82, .22) !important;
+}
+/* ==========================================
+   RECORD BOOK — ISOLATED 3D GRAPH OVERRIDE
+========================================== */
+
+.record-book .rb-performance-card .rb-bar-chart-3d {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr) !important;
+  height: 260px !important;
+  margin-top: 14px !important;
+  gap: 8px !important;
+}
+
+.record-book .rb-performance-card .rb-chart-y-axis {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 0 5px 25px 0 !important;
+  color: #7D887D !important;
+  font-size: 10px !important;
+  text-align: right !important;
+}
+
+.record-book .rb-performance-card .rb-chart-plot {
+  position: relative !important;
+  min-width: 0 !important;
+  height: 100% !important;
+}
+
+.record-book .rb-performance-card .rb-chart-grid {
+  position: absolute !important;
+  inset: 0 0 25px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  pointer-events: none !important;
+}
+
+.record-book .rb-performance-card .rb-chart-grid span {
+  height: 1px !important;
+  background: rgba(18, 60, 50, .09) !important;
+}
+
+.record-book .rb-performance-card .rb-chart-month-groups {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  height: 100% !important;
+}
+
+.record-book .rb-performance-card .rb-chart-month {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  gap: 8px !important;
+}
+
+.record-book .rb-performance-card .rb-chart-bars {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  width: 100% !important;
+  height: calc(100% - 25px) !important;
+  padding: 0 4px !important;
+  border-bottom: 1px solid rgba(18, 60, 50, .16) !important;
+}
+
+/* PILLARS */
+
+.record-book .rb-performance-card .rb-3d-bar {
+  position: relative !important;
+  display: block !important;
+  width: min(24px, 26%) !important;
+  min-width: 6px !important;
+  border-radius: 2px 2px 0 0 !important;
+  transition: filter .25s ease, transform .25s ease !important;
+}
+
+.record-book .rb-performance-card .rb-bar-front {
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 2px 2px 0 0 !important;
+}
+
+.record-book .rb-performance-card .rb-bar-side {
+  position: absolute !important;
+  top: 0 !important;
+  right: -5px !important;
+  width: 5px !important;
+  height: 100% !important;
+  transform: skewY(-25deg) !important;
+  transform-origin: left top !important;
+}
+
+.record-book .rb-performance-card .rb-bar-top {
+  position: absolute !important;
+  top: -4px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 5px !important;
+  transform: skewX(-40deg) !important;
+  transform-origin: bottom left !important;
+}
+
+/* REVENUE */
+
+.record-book .rb-performance-card .rb-3d-bar.revenue .rb-bar-front {
+  background: linear-gradient(90deg, #164638, #205747 55%, #174739) !important;
+}
+
+.record-book .rb-performance-card .rb-3d-bar.revenue .rb-bar-side {
+  background: #10392F !important;
+}
+
+.record-book .rb-performance-card .rb-3d-bar.revenue .rb-bar-top {
+  background: #326C57 !important;
+}
+
+/* EXPENSE */
+
+.record-book .rb-performance-card .rb-3d-bar.expense .rb-bar-front {
+  background: linear-gradient(90deg, #737F65, #879477 55%, #737F65) !important;
+}
+
+.record-book .rb-performance-card .rb-3d-bar.expense .rb-bar-side {
+  background: #5E6B52 !important;
+}
+
+.record-book .rb-performance-card .rb-3d-bar.expense .rb-bar-top {
+  background: #A0AA8E !important;
+}
+
+/* PROFIT */
+
+.record-book .rb-performance-card .rb-3d-bar.profit .rb-bar-front {
+  background: linear-gradient(90deg, #B88D4F, #D0A66B 55%, #B88D4F) !important;
+}
+
+.record-book .rb-performance-card .rb-3d-bar.profit .rb-bar-side {
+  background: #A47B42 !important;
+}
+
+.record-book .rb-performance-card .rb-3d-bar.profit .rb-bar-top {
+  background: #DEBB82 !important;
+}
+
+/* HOVER */
+
+.record-book .rb-performance-card .rb-3d-bar:hover {
+  filter: brightness(1.12) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* MONTH LABEL */
+
+.record-book .rb-performance-card .rb-chart-month small {
+  color: #718071 !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .record-book .rb-performance-card .rb-bar-chart-3d {
+    height: 220px !important;
+    grid-template-columns: 32px minmax(0, 1fr) !important;
+    gap: 5px !important;
+  }
+
+  .record-book .rb-performance-card .rb-chart-bars {
+    gap: 3px !important;
+    padding: 0 2px !important;
+  }
+
+  .record-book .rb-performance-card .rb-3d-bar {
+    width: min(15px, 26%) !important;
+  }
+
+  .record-book .rb-performance-card .rb-bar-side {
+    width: 3px !important;
+    right: -3px !important;
+  }
+}
+/* ==========================================
+   RECORD BOOK — COMPACT ANALYTICS CARDS
+========================================== */
+
+/* Both chart cards */
+.rb-performance-card,
+.rb-channel-donut-card {
+  min-height: 0 !important;
+  padding-bottom: 22px !important;
+}
+
+/* Sales Performance graph height */
+.rb-performance-card .rb-bar-chart-3d {
+  height: 235px !important;
+  margin-top: 8px !important;
+}
+
+/* Reduce graph's extra bottom space */
+.rb-performance-card .rb-chart-bars {
+  height: calc(100% - 20px) !important;
+}
+
+/* Online / Offline card */
+.rb-channel-donut-card {
+  min-height: 0 !important;
+}
+
+/* Donut layout spacing */
+.rb-channel-donut-card .rb-channel-donut-grid {
+  margin-top: 24px !important;
+  gap: 20px !important;
+}
+
+/* Donut size reduction */
+.rb-channel-donut-card .rb-channel-donut {
+  width: 145px !important;
+  height: 145px !important;
+}
+
+/* Center reduction */
+.rb-channel-donut-card .rb-channel-donut-inner {
+  width: 108px !important;
+  height: 108px !important;
+}
+
+/* Percentage text */
+.rb-channel-donut-card .rb-channel-donut-inner strong {
+  font-size: 31px !important;
+}
+
+/* Reduce label spacing */
+.rb-channel-donut-card .rb-channel-donut-label {
+  margin-top: 22px !important;
+}
+
+/* Description spacing */
+.rb-channel-donut-card .rb-channel-donut-item p {
+  margin: 14px 0 18px !important;
+}
+
+/* Compact cards on smaller screens */
+@media (max-width: 700px) {
+  .rb-performance-card .rb-bar-chart-3d {
+    height: 210px !important;
+  }
+
+  .rb-channel-donut-card .rb-channel-donut {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .rb-channel-donut-card .rb-channel-donut-inner {
+    width: 90px !important;
+    height: 90px !important;
+  }
+
+  .rb-channel-donut-card .rb-channel-donut-inner strong {
+    font-size: 25px !important;
+  }
+}
+/* =========================================
+   FIX ONLINE / OFFLINE DONUT SHAPES
+========================================= */
+
+.rb-channel-donut-card .rb-channel-donut-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.rb-channel-donut-card .rb-channel-donut {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 145px !important;
+  height: 145px !important;
+  min-width: 145px !important;
+  min-height: 145px !important;
+
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Circular inner hole */
+.rb-channel-donut-card .rb-channel-donut-inner {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 105px !important;
+  height: 105px !important;
+  min-width: 105px !important;
+  min-height: 105px !important;
+
+  border-radius: 50% !important;
+  background: #F5F2E9 !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Center percentage */
+.rb-channel-donut-card .rb-channel-donut-inner strong {
+  display: block !important;
+  margin: 0 !important;
+  color: #123C32 !important;
+  font-size: 30px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
+/* Donut spacing */
+.rb-channel-donut-card .rb-channel-donut-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  max-width: 620px !important;
+  margin: 30px auto 0 !important;
+  gap: 20px !important;
+}
+
+.rb-channel-donut-card .rb-channel-donut-label {
+  margin-top: 24px !important;
+}
+
+.rb-channel-donut-card .rb-channel-donut-item p {
+  margin: 16px 0 22px !important;
+}
+/* =========================================
+   FIX CHART INFO ICON OVERLAPPING TOPBAR
+========================================= */
+
+.rb-chart-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.rb-chart-title {
+  position: relative;
+  z-index: 1;
+}
+
+.rb-chart-title > * {
+  position: relative;
+}
+
+/* Keep info trigger inside its chart card */
+.rb-chart-card .rb-info-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+/* Prevent info icons from floating above sticky header */
+.rb-chart-card .rb-info-button,
+.rb-chart-card .rb-info-trigger {
+  position: relative;
+  z-index: 2;
+}
+/* =========================================
+   ORDER PATTERNS — CLEAN HEATMAP DESIGN
+========================================= */
+
+.rb-pattern-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.rb-pattern-card .rb-heatmap {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 9px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+/* Time heading row */
+.rb-pattern-card .rb-heatmap-times {
+  display: grid;
+  grid-template-columns: 44px repeat(5, minmax(0, 1fr));
+  grid-column: 1 / -1;
+  gap: 7px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.rb-pattern-card .rb-heatmap-times span {
+  color: #788579;
+  font-size: 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Day rows */
+.rb-pattern-card .rb-heatmap-row {
+  display: contents;
+}
+
+.rb-pattern-card .rb-heatmap-row > span:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #315C49;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Heatmap cells */
+.rb-pattern-card .rb-heatmap-row i {
+  display: block;
+  height: 39px;
+  min-width: 0;
+  border-radius: 8px;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+/* Hover */
+.rb-pattern-card .rb-heatmap-row i:hover {
+  transform: scale(1.03);
+  filter: brightness(1.04);
+  box-shadow: 0 4px 10px rgba(18, 60, 50, 0.12);
+  z-index: 2;
+}
+
+/* Activity intensity — matching your green palette */
+.rb-pattern-card .level-0 {
+  background: #E2E9E0;
+}
+
+.rb-pattern-card .level-1 {
+  background: #C6D8C2;
+}
+
+.rb-pattern-card .level-2 {
+  background: #91B391;
+}
+
+.rb-pattern-card .level-3 {
+  background: #557F66;
+}
+
+.rb-pattern-card .level-4 {
+  background: #123C32;
+}
+
+/* Heatmap legend */
+.rb-pattern-card .rb-heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.rb-pattern-card .rb-heatmap-legend span {
+  color: #788579;
+  font-size: 10px;
+}
+
+.rb-pattern-card .rb-heatmap-legend i {
+  display: block;
+  width: 20px;
+  height: 17px;
+  border-radius: 5px;
+}
+
+/* Compact chart card */
+.rb-pattern-card {
+  padding-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rb-pattern-card .rb-heatmap {
+    gap: 6px;
+  }
+
+  .rb-pattern-card .rb-heatmap-times {
+    gap: 4px;
+  }
+
+  .rb-pattern-card .rb-heatmap-times span {
+    font-size: 8px;
+  }
+
+  .rb-pattern-card .rb-heatmap-row i {
+    height: 29px;
+    border-radius: 5px;
+  }
+
+  .rb-pattern-card .rb-heatmap-row > span:first-child {
+    font-size: 9px;
+  }
+
+  .rb-pattern-card .rb-heatmap-legend i {
+    width: 15px;
+    height: 14px;
+  }
+}
+/* =========================================
+   ORDER PATTERNS — MATRIX HEATMAP
+========================================= */
+
+.rb-pattern-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.rb-pattern-card .rb-heatmap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+/* Every row uses the same 6-column matrix */
+.rb-pattern-card .rb-heatmap-times,
+.rb-pattern-card .rb-heatmap-row {
+  display: grid;
+  grid-template-columns: 60px repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Time axis */
+.rb-pattern-card .rb-heatmap-times {
+  margin-bottom: 2px;
+}
+
+.rb-pattern-card .rb-heatmap-times span {
+  color: #788579;
+  font-size: 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Day axis */
+.rb-pattern-card .rb-heatmap-day {
+  color: #315C49;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Matrix cells */
+.rb-pattern-card .rb-heatmap-row i {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    filter .18s ease;
+}
+
+.rb-pattern-card .rb-heatmap-row i:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(18, 60, 50, .12);
+  filter: brightness(1.04);
+}
+
+/* Green activity scale */
+.rb-pattern-card .level-0 {
+  background: #E2E9E0;
+}
+
+.rb-pattern-card .level-1 {
+  background: #C6D8C2;
+}
+
+.rb-pattern-card .level-2 {
+  background: #91B391;
+}
+
+.rb-pattern-card .level-3 {
+  background: #557F66;
+}
+
+.rb-pattern-card .level-4 {
+  background: #123C32;
+}
+
+/* Legend */
+.rb-pattern-card .rb-heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.rb-pattern-card .rb-heatmap-legend span {
+  color: #788579;
+  font-size: 10px;
+}
+
+.rb-pattern-card .rb-heatmap-legend i {
+  width: 20px;
+  height: 17px;
+  display: block;
+  border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rb-pattern-card .rb-heatmap-times,
+  .rb-pattern-card .rb-heatmap-row {
+    grid-template-columns: 38px repeat(5, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .rb-pattern-card .rb-heatmap-times span {
+    font-size: 8px;
+  }
+
+  .rb-pattern-card .rb-heatmap-row i {
+    height: 30px;
+    border-radius: 5px;
+  }
+
+  .rb-pattern-card .rb-heatmap-day {
+    font-size: 7px;
+  }
+}
+.rb-page-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+
+.rb-page-footer span:first-child {
+  margin-right: auto;
+  text-align: left;
+}
+
+.rb-page-footer span:last-child {
+  margin-left: auto;
+  text-align: right;
+}
+.rb-page-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 24px;
+  padding: 0;
+  color: #64756c;
+  font-size: 13px;
+  text-align: left;
+}
+
+.rb-page-footer span:first-child {
+  margin: 0;
+  text-align: left;
+}
+/* ================================
+   ONLINE / OFFLINE COMPACT LEGEND
+================================ */
+
+.rb-channel-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  margin-top: 24px;
+  padding-bottom: 4px;
+}
+
+.rb-channel-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #263C35;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rb-channel-legend-item i {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.rb-channel-legend-item .online-dot {
+  background: #315C49;
+}
+
+.rb-channel-legend-item .offline-dot {
+  background: #C49A5A;
+}
+/* =========================================
+   ORDER PATTERNS — COMPACT FINAL OVERRIDE
+========================================= */
+
+.rb-pattern-card {
+  padding: 16px 18px !important;
+  min-height: 0 !important;
+}
+
+/* Heading */
+.rb-pattern-card .rb-chart-title {
+  margin: 0 0 10px !important;
+  padding: 0 !important;
+}
+
+.rb-pattern-card .rb-chart-title h3 {
+  font-size: 15px !important;
+  margin: 0 0 3px !important;
+}
+
+.rb-pattern-card .rb-chart-title p {
+  font-size: 11px !important;
+  margin: 0 !important;
+}
+
+/* Heatmap container */
+.rb-pattern-card .rb-heatmap {
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Time heading row */
+.rb-pattern-card .rb-heatmap-times {
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  font-size: 10px !important;
+}
+
+/* Week rows */
+.rb-pattern-card .rb-heatmap-row {
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+
+/* Day labels */
+.rb-pattern-card .rb-heatmap-day {
+  font-size: 10px !important;
+  padding: 0 5px !important;
+}
+
+/* Heatmap cells — joined */
+.rb-pattern-card .rb-heatmap-row i {
+  border-radius: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  min-height: 0 !important;
+  opacity: 0.85;
+}
+
+/* Muted colors */
+.rb-pattern-card .rb-heatmap-row i.level-0 {
+  background: #D1D9D0 !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-1 {
+  background: #B5C3B3 !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-2 {
+  background: #899F8B !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-3 {
+  background: #657F6D !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-4 {
+  background: #3D5E4C !important;
+}
+
+/* Compact legend */
+.rb-pattern-card .rb-heatmap-legend {
+  margin: 10px 0 0 !important;
+  padding: 0 !important;
+  gap: 7px !important;
+  font-size: 10px !important;
+}
+
+.rb-pattern-card .rb-heatmap-legend-scale {
+  gap: 0 !important;
+}
+
+.rb-pattern-card .rb-heatmap-legend-scale i {
+  width: 13px !important;
+  height: 9px !important;
+  border-radius: 0 !important;
+}
+/* SOLID GREEN HEATMAP COLORS */
+
+.rb-pattern-card .rb-heatmap-row i.level-0,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-0 {
+  background: #C1D5C2;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-1,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-1 {
+  background: #8FB697;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-2,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-2 {
+  background: #639774;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-3,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-3 {
+  background: #447A58;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-4,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-4 {
+  background: #285A3C;
+}
+/* ===== ORDER PATTERNS: SOLID COLORS & NO HOVER ===== */
+
+.rb-pattern-card .rb-heatmap-row i.level-0,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-0 {
+  background: #C5D6C5 !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-1,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-1 {
+  background: #9BB99F !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-2,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-2 {
+  background: #72977B !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-3,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-3 {
+  background: #527A60 !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-4,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-4 {
+  background: #315C45 !important;
+}
+
+/* Disable cell hover */
+.rb-pattern-card .rb-heatmap-row i:hover {
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Disable transitions and hover animation */
+.rb-pattern-card .rb-heatmap-row i {
+  transition: none !important;
+  cursor: default !important;
+}
+.rb-pattern-card .rb-heatmap-row i.level-0,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-0 {
+  background: #B8D0B9 !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-1,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-1 {
+  background: #8CAF93 !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-2,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-2 {
+  background: #679178 !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-3,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-3 {
+  background: #48745A !important;
+}
+
+.rb-pattern-card .rb-heatmap-row i.level-4,
+.rb-pattern-card .rb-heatmap-legend-scale i.level-4 {
+  background: #28563D !important;
+}
+/* =========================================
+   RECORD BOOK — POPPINS FONT
+   Preserve existing sizes and layout
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.record-book,
+.record-book *,
+.record-book *::before,
+.record-book *::after {
+  font-family: 'Poppins', sans-serif !important;
+}

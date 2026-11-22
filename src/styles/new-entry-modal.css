@@ -1,0 +1,556 @@
+
+/* ========================================
+   NEW ENTRY MODAL
+   ACCOUNTING THEME
+======================================== */
+
+.entry-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  background: rgba(18, 35, 29, 0.48);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  animation: entryOverlayIn 0.2s ease;
+}
+
+.entry-modal {
+  --entry-forest: #123C32;
+  --entry-forest-light: #315C49;
+  --entry-olive: #66745A;
+  --entry-olive-light: #829477;
+  --entry-brass: #C49A5A;
+  --entry-cream: #FDF3E8;
+  --entry-ivory: #F7F3EA;
+  --entry-border: rgba(18, 60, 50, 0.15);
+
+  width: min(920px, 100%);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #FDF3E8 0%,
+    #F7F3EA 55%,
+    #E9E6DC 100%
+  );
+
+  border: 1px solid rgba(18, 60, 50, 0.15);
+  border-radius: 22px;
+
+  box-shadow:
+    0 24px 70px rgba(20, 38, 30, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  animation: entryModalIn 0.25s ease;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.entry-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  padding: 24px 30px 20px;
+
+  background: rgba(253, 243, 232, 0.85);
+  border-bottom: 1px solid var(--entry-border);
+}
+
+.entry-modal-eyebrow {
+  color: #829477;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.entry-modal-header h2 {
+  margin: 7px 0 4px;
+  color: #123C32;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.entry-modal-header p {
+  margin: 0;
+  color: #66745A;
+  font-size: 13px;
+}
+
+.entry-modal-close {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+
+  color: #66745A;
+  background: #F3F0E7;
+  border: 1px solid rgba(102, 116, 90, 0.18);
+  border-radius: 50%;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.entry-modal-close:hover {
+  color: #fff;
+  background: #123C32;
+  border-color: #123C32;
+  transform: rotate(90deg);
+}
+
+/* ========================================
+   MODAL BODY
+======================================== */
+
+.entry-modal-body {
+  padding: 24px 30px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #829477 rgba(18, 60, 50, 0.06);
+}
+
+.entry-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.entry-modal-body::-webkit-scrollbar-track {
+  background: rgba(18, 60, 50, 0.05);
+}
+
+.entry-modal-body::-webkit-scrollbar-thumb {
+  background: #829477;
+  border: 2px solid #F7F3EA;
+  border-radius: 20px;
+}
+
+/* ========================================
+   FORM GROUPS
+======================================== */
+
+.entry-form-group {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.entry-form-group > label {
+  color: #123C32;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.45px;
+}
+
+.entry-form-group > label span {
+  color: #C49A5A;
+}
+
+.entry-form-group > label small {
+  color: #829477;
+  font-weight: 600;
+}
+
+.entry-form-grid {
+  display: grid;
+  gap: 17px;
+}
+
+.entry-form-grid.two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.entry-form-grid.three-columns {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ========================================
+   INPUTS & SELECTS
+======================================== */
+
+.entry-modal input,
+.entry-modal select,
+.entry-modal textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+
+  padding: 0 15px;
+
+  color: #26352F;
+
+  background: linear-gradient(
+    135deg,
+    #FDF3E8,
+    #F4F0E6
+  );
+
+  border: 1.5px solid rgba(102, 116, 90, 0.25);
+  border-radius: 13px;
+  outline: none;
+
+  font: inherit;
+  font-size: 14px;
+
+  transition: all 0.2s ease;
+}
+
+.entry-modal input::placeholder,
+.entry-modal textarea::placeholder {
+  color: #9AA48F;
+}
+
+.entry-modal input:focus,
+.entry-modal select:focus,
+.entry-modal textarea:focus {
+  border-color: #829477;
+  background: #FFF9F0;
+  box-shadow: 0 0 0 3px rgba(130, 148, 119, 0.13);
+}
+
+.entry-modal textarea {
+  min-height: 86px;
+  padding: 13px 15px;
+  resize: vertical;
+}
+
+/* ========================================
+   TRANSACTION TYPE BUTTONS
+======================================== */
+
+.entry-type-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.entry-type-btn {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  color: #66745A;
+  background: #FDF3E8;
+
+  border: 1.5px solid rgba(102, 116, 90, 0.23);
+  border-radius: 13px;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.entry-type-btn:hover {
+  color: #123C32;
+  background: #EDF0E8;
+  border-color: #829477;
+}
+
+.entry-type-btn.active {
+  color: #FFFFFF;
+  background: #123C32;
+  border-color: #123C32;
+
+  box-shadow:
+    0 5px 13px rgba(18, 60, 50, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* ========================================
+   FILE INPUT
+======================================== */
+
+.entry-file-input {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 0 14px;
+
+  color: #66745A;
+  background: #FDF3E8;
+
+  border: 1.5px solid rgba(102, 116, 90, 0.25);
+  border-radius: 13px;
+
+  cursor: pointer;
+  font-size: 13px;
+  overflow: hidden;
+
+  transition: all 0.2s ease;
+}
+
+.entry-file-input:hover {
+  border-color: #829477;
+  background: #F7F3EA;
+}
+
+.entry-file-input span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entry-file-input svg {
+  flex-shrink: 0;
+  color: #123C32;
+}
+
+.entry-file-input input {
+  display: none;
+}
+
+/* ========================================
+   PAYMENT MODE BUTTONS
+   CASH / CARD / BANK TRANSFER / OTHER
+======================================== */
+
+.entry-mode-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.entry-mode-btn {
+  min-height: 44px;
+  padding: 0 19px;
+
+  color: #66745A;
+  background: linear-gradient(
+    135deg,
+    #FDF3E8,
+    #F7F3EA
+  );
+
+  border: 1.5px solid rgba(102, 116, 90, 0.23);
+  border-radius: 30px;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.22s ease;
+}
+
+/* Normal button hover */
+
+.entry-mode-btn:hover {
+  color: #FFFFFF;
+  background: #829477;
+  border-color: #829477;
+  transform: translateY(-1px);
+}
+
+/* Selected payment mode */
+
+.entry-mode-btn.active {
+  color: #FFFFFF;
+  background: #123C32;
+  border-color: #123C32;
+
+  box-shadow: 0 5px 13px rgba(18, 60, 50, 0.17);
+}
+
+/* Selected button hover */
+
+.entry-mode-btn.active:hover {
+  color: #FFFFFF;
+  background: #315C49;
+  border-color: #315C49;
+}
+
+/* ========================================
+   FORM ERROR
+======================================== */
+
+.entry-form-error {
+  margin: 0;
+  padding: 11px 14px;
+
+  color: #984B3D;
+  background: rgba(166, 77, 63, 0.08);
+
+  border: 1px solid rgba(166, 77, 63, 0.2);
+  border-radius: 10px;
+
+  font-size: 13px;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.entry-modal-footer {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 17px 30px 23px;
+
+  background: linear-gradient(
+    135deg,
+    #FDF3E8,
+    #E9E6DC
+  );
+
+  border-top: 1px solid rgba(18, 60, 50, 0.13);
+}
+
+.entry-save-btn,
+.entry-cancel-btn {
+  min-height: 45px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 0 21px;
+  border-radius: 30px;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* SAVE BUTTON */
+
+.entry-save-btn {
+  color: #FFFFFF;
+  background: #123C32;
+  border: 1px solid #123C32;
+
+  box-shadow: 0 5px 13px rgba(18, 60, 50, 0.13);
+}
+
+.entry-save-btn:hover {
+  color: #FFFFFF;
+  background: #66745A;
+  border-color: #66745A;
+  transform: translateY(-1px);
+}
+
+/* CANCEL BUTTON */
+
+.entry-cancel-btn {
+  color: #66745A;
+  background: #FDF3E8;
+  border: 1.5px solid rgba(102, 116, 90, 0.25);
+}
+
+.entry-cancel-btn:hover {
+  color: #FFFFFF;
+  background: #123C32;
+  border-color: #123C32;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes entryOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes entryModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 700px) {
+  .entry-modal-overlay {
+    padding: 10px;
+    align-items: center;
+  }
+
+  .entry-modal {
+    max-height: 95vh;
+    border-radius: 19px;
+  }
+
+  .entry-modal-header,
+  .entry-modal-body {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .entry-form-grid.two-columns,
+  .entry-form-grid.three-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .entry-modal-footer {
+    padding: 15px 18px 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .entry-type-options {
+    gap: 6px;
+  }
+
+  .entry-type-btn {
+    gap: 5px;
+    font-size: 13px;
+  }
+
+  .entry-mode-options {
+    gap: 7px;
+  }
+
+  .entry-mode-btn {
+    min-height: 40px;
+    padding: 0 13px;
+    font-size: 13px;
+  }
+}
+/* ========================================
+   NEW ENTRY MODAL — POPPINS FONT
+======================================== */
+
+.entry-modal,
+.entry-modal * {
+  font-family: 'Poppins', sans-serif !important;
+}

@@ -1,0 +1,1149 @@
+
+/* =========================================
+   ZAKHIRA CUSTOMER PAGE
+========================================= */
+
+.customer-page {
+  --customer-forest: #123C32;
+  --customer-dark: #0B2C25;
+  --customer-green: #315C49;
+  --customer-olive: #66745A;
+  --customer-brass: #C49A5A;
+  --customer-ivory: #F8F5ED;
+  --customer-text: #26352F;
+  --customer-muted: #788076;
+  --customer-border: rgba(49, 92, 73, 0.16);
+
+  width: 100%;
+  min-width: 0;
+  padding: 24px;
+  color: var(--customer-text);
+  box-sizing: border-box;
+}
+
+.customer-page *,
+.customer-page *::before,
+.customer-page *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   PAGE HEADING
+========================================= */
+
+.customer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.customer-eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--customer-olive);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.customer-heading h1 {
+  margin: 0;
+  color: var(--customer-forest);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+}
+
+.customer-heading p {
+  margin: 7px 0 0;
+  color: var(--customer-muted);
+  font-size: 14px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.customer-primary-btn,
+.customer-secondary-btn {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 17px;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.customer-primary-btn {
+  border: 1px solid #B58A4A;
+  color: #fff;
+  background: linear-gradient(145deg, #D3AE70, #B98B4D);
+  box-shadow:
+    0 4px 0 rgba(119, 82, 36, 0.17),
+    0 7px 15px rgba(151, 111, 55, 0.16),
+    inset 0 1px 2px rgba(255, 255, 255, 0.55);
+}
+
+.customer-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 rgba(119, 82, 36, 0.14),
+    0 10px 20px rgba(151, 111, 55, 0.22);
+}
+
+.customer-secondary-btn {
+  border: 1px solid var(--customer-border);
+  color: var(--customer-olive);
+  background: transparent;
+}
+
+.customer-secondary-btn:hover {
+  background: rgba(49, 92, 73, 0.06);
+}
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.customer-summary-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(320px, 1.15fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.customer-summary-card {
+  min-height: 125px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border: 1px solid var(--customer-border);
+  border-radius: 20px;
+  background: rgba(248, 245, 237, 0.88);
+  box-shadow: 0 8px 24px rgba(35, 54, 44, 0.055);
+}
+
+.customer-summary-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.customer-summary-card > div:last-child strong {
+  color: var(--customer-forest);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.customer-summary-card > div:last-child span {
+  color: var(--customer-olive);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   3D ICONS
+========================================= */
+
+.customer-3d-icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(145deg, #376D59, #0D392F);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 4px 0 #0A2C24,
+    0 7px 14px rgba(14, 51, 42, 0.20),
+    inset 0 2px 3px rgba(255, 255, 255, 0.32);
+}
+
+.customer-3d-icon.brass {
+  background: linear-gradient(145deg, #E0BC80, #B48643);
+  box-shadow:
+    0 4px 0 #99713C,
+    0 7px 14px rgba(151, 111, 55, 0.20),
+    inset 0 2px 3px rgba(255, 255, 255, 0.42);
+}
+
+.customer-3d-icon.small {
+  width: 43px;
+  height: 43px;
+  flex-basis: 43px;
+  border-radius: 13px;
+}
+
+/* =========================================
+   REVENUE CARD
+========================================= */
+
+.customer-summary-card.revenue-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 11px;
+}
+
+.customer-summary-top {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.customer-summary-top > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.customer-summary-top strong {
+  color: var(--customer-forest);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.customer-summary-top span {
+  color: var(--customer-brass);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.customer-revenue-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.customer-revenue-select select {
+  width: 100%;
+  height: 40px;
+  padding: 0 36px 0 12px;
+  appearance: none;
+  border: 1px solid rgba(102, 116, 90, 0.25);
+  border-radius: 12px;
+  outline: none;
+  color: var(--customer-text);
+  background: #F4F1E7;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.customer-revenue-select select:focus {
+  border-color: var(--customer-brass);
+  box-shadow: 0 0 0 3px rgba(196, 154, 90, 0.12);
+}
+
+.customer-revenue-select > svg {
+  position: absolute;
+  right: 12px;
+  color: var(--customer-olive);
+  pointer-events: none;
+}
+
+.customer-revenue-value {
+  color: var(--customer-forest);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* =========================================
+   FILTER PANEL
+========================================= */
+
+.customer-filter-panel,
+.customer-table-panel {
+  border: 1px solid var(--customer-border);
+  border-radius: 20px;
+  background: rgba(248, 245, 237, 0.91);
+  box-shadow: 0 8px 22px rgba(35, 54, 44, 0.045);
+}
+
+.customer-filter-panel {
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.customer-filter-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  color: var(--customer-forest);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.customer-filter-heading svg {
+  color: var(--customer-olive);
+}
+
+.customer-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.customer-filter-field,
+.customer-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.customer-filter-field > span,
+.customer-form-field > span {
+  color: var(--customer-forest);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   INPUT SHELL
+========================================= */
+
+.customer-input-shell {
+  position: relative;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid rgba(49, 92, 73, 0.18);
+  border-radius: 12px;
+  background: #FCFAF5;
+  color: var(--customer-olive);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.customer-input-shell:focus-within {
+  border-color: var(--customer-brass);
+  box-shadow: 0 0 0 3px rgba(196, 154, 90, 0.12);
+}
+
+.customer-input-shell input,
+.customer-input-shell select {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  color: var(--customer-text);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+}
+
+.customer-input-shell select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.customer-input-shell > svg:last-child {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* =========================================
+   CUSTOMER TABLE
+========================================= */
+
+.customer-table-panel {
+  overflow: hidden;
+}
+
+.customer-table-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--customer-border);
+}
+
+.customer-table-heading h2 {
+  margin: 0;
+  color: var(--customer-forest);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.customer-table-heading p {
+  margin: 5px 0 0;
+  color: var(--customer-muted);
+  font-size: 11px;
+}
+
+.customer-count-badge {
+  padding: 8px 12px;
+  border-radius: 11px;
+  color: var(--customer-forest);
+  background: rgba(102, 116, 90, 0.11);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.customer-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.customer-table {
+  width: 100%;
+  min-width: 850px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.customer-table th {
+  padding: 13px 15px;
+  color: var(--customer-olive);
+  background: rgba(102, 116, 90, 0.07);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.customer-table td {
+  padding: 14px 15px;
+  border-bottom: 1px solid rgba(49, 92, 73, 0.11);
+  color: var(--customer-text);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.customer-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.customer-table tbody tr:hover {
+  background: rgba(49, 92, 73, 0.035);
+}
+
+.customer-table td:first-child strong {
+  display: block;
+  color: var(--customer-dark);
+  font-size: 12px;
+}
+
+.customer-table td:first-child small {
+  display: block;
+  margin-top: 4px;
+  color: var(--customer-muted);
+  font-size: 10px;
+}
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.customer-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.customer-action-btn {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.customer-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 9px rgba(30, 45, 35, 0.12);
+}
+
+.customer-action-btn.view {
+  color: var(--customer-forest);
+  background: rgba(49, 92, 73, 0.09);
+}
+
+.customer-action-btn.edit {
+  color: #fff;
+  background: linear-gradient(145deg, #D3AE70, #B98B4D);
+}
+
+.customer-action-btn.delete {
+  color: #A94D43;
+  background: #F8E8E3;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.customer-empty {
+  height: 170px;
+  text-align: center !important;
+  color: var(--customer-muted) !important;
+}
+
+.customer-empty svg,
+.customer-empty strong,
+.customer-empty span {
+  display: block;
+  margin: 7px auto;
+}
+
+.customer-empty svg {
+  color: var(--customer-olive);
+}
+
+.customer-empty strong {
+  color: var(--customer-forest);
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.customer-modal-backdrop {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(8, 31, 25, 0.48);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  animation: customerBackdropIn 180ms ease;
+}
+
+.customer-modal {
+  width: min(100%, 850px);
+  max-height: min(90vh, 850px);
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 21px;
+  background: #F8F5ED;
+  box-shadow: 0 25px 80px rgba(8, 31, 25, 0.28);
+  animation: customerModalIn 220ms ease;
+}
+
+.customer-modal-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 19px 22px;
+  border-bottom: 1px solid var(--customer-border);
+}
+
+.customer-modal-title-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.customer-modal-heading h2 {
+  margin: 0;
+  color: var(--customer-forest);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.customer-modal-heading p {
+  margin: 5px 0 0;
+  color: var(--customer-olive);
+  font-size: 11px;
+}
+
+.customer-modal-close {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--customer-olive);
+  background: rgba(102, 116, 90, 0.1);
+  cursor: pointer;
+}
+
+.customer-modal-close:hover {
+  color: var(--customer-dark);
+  background: rgba(102, 116, 90, 0.17);
+}
+
+.customer-modal form {
+  padding: 21px 22px 22px;
+}
+
+/* =========================================
+   CUSTOMER FORM
+========================================= */
+
+.customer-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px 15px;
+}
+
+.customer-form-field.full {
+  grid-column: 1 / -1;
+}
+
+.customer-form-field > span b {
+  color: var(--customer-brass);
+}
+
+.customer-form-field > small {
+  margin-top: -3px;
+  color: var(--customer-olive);
+  font-size: 10px;
+}
+
+.customer-form-input {
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1px solid rgba(49, 92, 73, 0.17);
+  border-radius: 12px;
+  color: var(--customer-olive);
+  background: #FCFAF5;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.customer-form-input:focus-within {
+  border-color: var(--customer-brass);
+  box-shadow: 0 0 0 3px rgba(196, 154, 90, 0.12);
+}
+
+.customer-form-input input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--customer-text);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+}
+
+.customer-form-input input::placeholder {
+  color: #A09F94;
+}
+
+.customer-form-input input:disabled {
+  color: var(--customer-muted);
+  cursor: default;
+}
+
+/* =========================================
+   FORM ERROR
+========================================= */
+
+.customer-form-error {
+  margin: 15px 0 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(169, 77, 67, 0.2);
+  border-radius: 10px;
+  color: #A94D43;
+  background: #F8E8E3;
+  font-size: 11px;
+}
+
+/* =========================================
+   MODAL FOOTER
+========================================= */
+
+.customer-modal-footer {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid var(--customer-border);
+}
+
+/* =========================================
+   CUSTOMER FOOTER
+========================================= */
+
+.customer-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0 10px;
+  color: #64736d;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes customerBackdropIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes customerModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .customer-page {
+    padding: 23px;
+  }
+
+  .customer-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .customer-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .customer-filter-field:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .customer-page {
+    padding: 17px;
+  }
+
+  .customer-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 18px;
+  }
+
+  .customer-heading .customer-primary-btn {
+    width: 100%;
+  }
+
+  .customer-summary-grid,
+  .customer-filters,
+  .customer-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-filter-field:first-child,
+  .customer-form-field.full {
+    grid-column: auto;
+  }
+
+  .customer-summary-card {
+    min-height: 120px;
+    padding: 18px;
+  }
+
+  .customer-table-heading {
+    padding: 16px;
+  }
+
+  .customer-modal-backdrop {
+    padding: 12px;
+  }
+
+  .customer-modal {
+    max-height: 94vh;
+    border-radius: 18px;
+  }
+
+  .customer-modal-heading,
+  .customer-modal form {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .customer-modal-footer {
+    flex-wrap: wrap;
+  }
+
+  .customer-modal-footer button {
+    flex: 1;
+  }
+
+  .customer-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+.customer-footer {
+  font-size: 11px;
+}
+/* Add Customer Button — Forest Green Override */
+.customer-page .customer-primary-btn {
+  background: linear-gradient(145deg, #315C49, #123C32) !important;
+  border: 1px solid #123C32 !important;
+  color: #F8F5ED !important;
+  box-shadow:
+    0 4px 0 #0B2C25,
+    0 7px 15px rgba(18, 60, 50, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2) !important;
+}
+
+.customer-page .customer-primary-btn:hover {
+  background: linear-gradient(145deg, #123C32, #0B2C25) !important;
+  border-color: #0B2C25 !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #0B2C25,
+    0 10px 20px rgba(18, 60, 50, 0.22) !important;
+}
+/* ADD CUSTOMER — TOPBAR STYLE */
+.customer-page .customer-primary-btn {
+  background: linear-gradient(145deg, #315C49, #123C32) !important;
+  color: #F8F5ED !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 16px !important;
+  min-height: 56px;
+  padding: 0 24px;
+  box-shadow:
+    0 8px 20px rgba(18, 60, 50, 0.16),
+    inset 0 1px 2px rgba(255, 255, 255, 0.16) !important;
+  transition: all 220ms ease !important;
+}
+
+.customer-page .customer-primary-btn:hover {
+  background: linear-gradient(145deg, #376D59, #0B2C25) !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 24px rgba(18, 60, 50, 0.22),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2) !important;
+}
+
+.customer-page .customer-primary-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 4px 10px rgba(18, 60, 50, 0.15),
+    inset 0 2px 4px rgba(0, 0, 0, 0.12) !important;
+}
+/* ADD CUSTOMER — SLIGHTLY SMALLER THAN TOPBAR */
+.customer-page .customer-primary-btn {
+  min-height: 54px;
+  padding: 12 12px;
+}
+
+/* CUSTOMER MODAL — COMPACT SIZE */
+.customer-page .customer-modal {
+  width: min(100%, 680px) !important;
+  max-height: 85vh !important;
+  border-radius: 18px;
+}
+
+.customer-page .customer-modal-heading {
+  padding: 16px 20px !important;
+}
+
+.customer-page .customer-modal form {
+  padding: 18px 20px 20px !important;
+}
+
+.customer-page .customer-form-grid {
+  gap: 13px 14px !important;
+}
+
+.customer-page .customer-form-input {
+  min-height: 40px !important;
+}
+
+.customer-page .customer-modal-footer {
+  margin-top: 15px !important;
+  padding-top: 14px !important;
+}
+
+@media (max-width: 650px) {
+  .customer-page .customer-modal {
+    width: 100% !important;
+    max-height: 92vh !important;
+  }
+}
+/* CUSTOMER MODAL — FIT WITHOUT INTERNAL SCROLL */
+
+.customer-page .customer-modal {
+  width: min(100%, 680px) !important;
+  max-height: 90vh !important;
+  overflow-y: hidden !important;
+}
+
+.customer-page .customer-modal-heading {
+  padding: 13px 20px !important;
+}
+
+.customer-page .customer-modal form {
+  padding: 14px 20px 16px !important;
+}
+
+.customer-page .customer-form-grid {
+  gap: 10px 14px !important;
+}
+
+.customer-page .customer-form-field {
+  gap: 5px !important;
+}
+
+.customer-page .customer-form-field > span {
+  font-size: 10px !important;
+}
+
+.customer-page .customer-form-input {
+  min-height: 36px !important;
+  padding: 0 10px !important;
+}
+
+.customer-page .customer-form-input input {
+  font-size: 12px !important;
+}
+
+.customer-page .customer-form-field > small {
+  font-size: 10px !important;
+  margin-top: -2px !important;
+}
+
+.customer-page .customer-modal-footer {
+  margin-top: 12px !important;
+  padding-top: 12px !important;
+}
+
+.customer-page .customer-modal-footer button {
+  min-height: 40px !important;
+}
+
+@media (max-width: 650px) {
+  .customer-page .customer-modal {
+    max-height: 92vh !important;
+    overflow-y: auto !important;
+  }
+}
+/* =========================================================
+   CUSTOMERS — COMPACT SUMMARY OVERRIDE
+========================================================= */
+
+.customer-summary-grid {
+  grid-template-columns: minmax(220px, 0.85fr) minmax(320px, 1.15fr) !important;
+  gap: 16px !important;
+  margin-bottom: 18px !important;
+  align-items: stretch !important;
+}
+
+/* Both summary cards equal height */
+.customer-summary-card {
+  min-height: 0 !important;
+  height: 128px !important;
+  padding: 18px 22px !important;
+  gap: 14px !important;
+  border-radius: 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* Total Customers card */
+.customer-summary-card:first-child {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Reduce summary number */
+.customer-summary-card > div:last-child strong {
+  font-size: 28px !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
+/* Reduce summary label */
+.customer-summary-card > div:last-child span {
+  font-size: 10px !important;
+  letter-spacing: 0.7px !important;
+}
+
+/* =========================================================
+   CUSTOMER REVENUE — COMPACT HORIZONTAL STRUCTURE
+========================================================= */
+
+.customer-summary-card:last-child {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+/* Revenue content layout */
+.customer-summary-card:last-child > div:last-child {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+}
+
+/* Revenue heading & description */
+.customer-summary-card:last-child > div:last-child span {
+  flex-shrink: 0 !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .customer-summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .customer-summary-card {
+    height: 120px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .customer-summary-card {
+    height: auto !important;
+    min-height: 110px !important;
+    padding: 16px !important;
+  }
+
+  .customer-summary-card:last-child > div:last-child {
+    flex-wrap: wrap !important;
+  }
+}
+/* =========================================================
+   CUSTOMER REVENUE — COMPACT LAYOUT
+   Heading + Dropdown on top, PKR below
+========================================================= */
+
+.customer-summary-card:last-child {
+  height: 128px !important;
+  min-height: 0 !important;
+  padding: 18px 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+/* Revenue content */
+.customer-summary-card:last-child > div:last-child {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* Heading and Dropdown row */
+.customer-revenue-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* Revenue heading */
+.customer-summary-card:last-child h3 {
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+/* Description */
+.customer-summary-card:last-child p {
+  font-size: 11px !important;
+  margin: 3px 0 0 !important;
+}
+
+/* PKR amount stays below */
+.customer-summary-card:last-child .revenue-amount {
+  font-size: 23px !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
+/* Equal card height */
+.customer-summary-card:first-child,
+.customer-summary-card:last-child {
+  height: 128px !important;
+  min-height: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .customer-summary-card:first-child,
+  .customer-summary-card:last-child {
+    height: 120px !important;
+  }
+}
+/* =========================================
+   CUSTOMER PAGE — POPPINS FONT
+   Preserve all existing sizes and layout
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.customer-page,
+.customer-page *,
+.customer-page *::before,
+.customer-page *::after {
+  font-family: 'Poppins', sans-serif !important;
+}

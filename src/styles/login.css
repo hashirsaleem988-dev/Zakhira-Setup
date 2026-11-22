@@ -1,0 +1,1226 @@
+
+/* ========================================
+   GLOBAL RESET
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ========================================
+   FULL SCREEN LOGIN PAGE
+======================================== */
+
+.login-page {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 100svh;
+
+  padding: 28px 16px;
+  background: transparent !important;
+  overflow: hidden;
+}
+
+
+/* ========================================
+   BACKGROUND IMAGE
+======================================== */
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image: url('/images/zakhira-forest-cream-background-1920x1080.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.95;
+  transform: scale(1.12);
+  filter: blur(6px);
+
+  transform-origin: center;
+  pointer-events: none;
+
+  animation: backgroundReveal 2s
+    cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  will-change: transform, filter;
+}
+
+.login-page::after {
+  display: none !important;
+  content: none !important;
+}
+
+
+/* ========================================
+   ZAKHIRA LOGO
+======================================== */
+
+.login-page > div:first-child {
+  position: relative;
+  z-index: 30;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 128px;
+  max-width: 100%;
+  margin: 0 auto 20px;
+
+  transform: translateY(-12px);
+
+  animation: logoReveal 1.2s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.login-page > div:first-child svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  color: #FDF3E8;
+  fill: #FDF3E8;
+}
+
+.login-page > div:first-child svg path {
+  fill: #FDF3E8;
+  stroke: #FDF3E8;
+}
+
+
+/* ========================================
+   GLASS LOGIN CARD
+======================================== */
+
+.login-card {
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 340px;
+
+  height: auto;
+  min-height: 0;
+  max-height: none;
+
+  padding: 17px 18px;
+
+  background: rgba(255, 255, 255, 0.015);
+
+  backdrop-filter: blur(0.4px) saturate(140%);
+  -webkit-backdrop-filter: blur(0.4px) saturate(140%);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.07),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.48),
+    inset 1px 0 1px rgba(255, 255, 255, 0.18),
+    inset -1px 0 1px rgba(255, 255, 255, 0.14),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.16);
+
+  opacity: 0;
+
+  animation: loginCardReveal 1.3s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+
+/* ========================================
+   GLASS REFLECTION
+======================================== */
+
+.login-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.04) 18%,
+    transparent 42%,
+    transparent 70%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+
+  opacity: 0.30;
+}
+
+.login-card::after {
+  display: none;
+}
+
+
+/* ========================================
+   LOGIN HEADING
+======================================== */
+
+.login-card > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  margin-bottom: 11px !important;
+
+  text-align: center;
+}
+
+.login-card h1 {
+  display: block;
+  width: 100%;
+  margin: 0;
+
+  font-size: 23px !important;
+  line-height: 1.25 !important;
+  font-weight: 700;
+
+  color: #FDF3E8 !important;
+  -webkit-text-fill-color: #FDF3E8;
+  text-align: center;
+}
+
+.login-card > div:first-child p {
+  display: block;
+  width: 100%;
+  margin-top: 5px !important;
+
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+
+  color: #F6F6F6 !important;
+  -webkit-text-fill-color: #F6F6F6;
+  text-align: center;
+}
+
+
+/* ========================================
+   LOGIN FORM STRUCTURE
+======================================== */
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  gap: 8px !important;
+}
+
+/* Flex gap controls form spacing */
+
+.login-card form > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.login-card form input,
+.login-card form button,
+.login-card form select {
+  font-family: inherit;
+}
+
+.login-card form input {
+  min-width: 0;
+  font-size: 13px !important;
+}
+
+.login-card form label {
+  color: #FDF3E8 !important;
+  -webkit-text-fill-color: #FDF3E8;
+}
+
+.login-card form input:focus {
+  outline-offset: 2px;
+}
+
+
+/* ========================================
+   EMAIL FIELD
+======================================== */
+
+.login-card form > div:first-child {
+  width: 100%;
+}
+
+.login-card form > div:first-child label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-card form > div:first-child > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+
+  background: #FFFFFF;
+  border: 1px solid #D9D5CA;
+  border-radius: 9px;
+
+  transition: border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-card form > div:first-child > div:focus-within {
+  border-color: #123C32;
+  box-shadow: 0 0 0 2px rgba(18, 60, 50, 0.10);
+}
+
+.login-card form > div:first-child > div svg {
+  display: block;
+  flex-shrink: 0;
+
+  width: 17px;
+  height: 17px;
+  color: #66745A;
+}
+
+.login-card form > div:first-child > div input {
+  display: block;
+
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  padding: 0 10px;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #252A28 !important;
+  -webkit-text-fill-color: #252A28;
+  font-size: 13px !important;
+}
+
+.login-card form > div:first-child > div input::placeholder {
+  color: #929292 !important;
+  -webkit-text-fill-color: #929292;
+  opacity: 1;
+}
+
+
+/* ========================================
+   PASSWORD FIELD
+======================================== */
+
+.login-card form > div:nth-child(2) {
+  width: 100%;
+}
+
+.login-card form > div:nth-child(2) > label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-card form > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  height: 48px;
+  padding: 0 10px;
+
+  background: #FFFFFF;
+  border: 1px solid #D9D5CA;
+  border-radius: 9px;
+
+  transition: border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-card form > div:nth-child(2) > div:focus-within {
+  border-color: #123C32;
+  box-shadow: 0 0 0 2px rgba(18, 60, 50, 0.10);
+}
+
+.login-card form > div:nth-child(2) > div > svg {
+  display: block;
+  flex-shrink: 0;
+
+  width: 18px;
+  height: 18px;
+  color: #66745A;
+}
+
+.login-card form > div:nth-child(2) > div input {
+  display: block;
+
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  padding: 0 10px;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #252A28 !important;
+  -webkit-text-fill-color: #252A28;
+  font-size: 13px !important;
+}
+
+.login-card form > div:nth-child(2) > div input::placeholder {
+  color: #929292 !important;
+  -webkit-text-fill-color: #929292;
+  opacity: 1;
+}
+
+/* Password visibility */
+
+.login-card form > div:nth-child(2) > div button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 30px;
+  height: 36px;
+  min-height: 0;
+
+  padding: 0;
+  color: #66745A;
+  background: transparent;
+  border: none;
+}
+
+.login-card form > div:nth-child(2) > div button:hover {
+  color: #123C32;
+}
+
+
+/* ========================================
+   REMEMBER ME & FORGOT PASSWORD
+======================================== */
+
+.login-card form > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  gap: 8px;
+}
+
+.login-card form > div:nth-child(3) label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.login-card form input[type="checkbox"] {
+  display: inline-block;
+
+  width: 14px;
+  height: 14px;
+  min-height: 14px;
+  flex: 0 0 14px;
+
+  margin: 0;
+  padding: 0;
+
+  accent-color: #123C32;
+  cursor: pointer;
+}
+
+.login-card .forgot-password,
+.login-card a.forgot-password {
+  color: #F7F3EA !important;
+  -webkit-text-fill-color: #F7F3EA;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-shadow: 0 1px 2px rgba(247, 243, 234, 0.25);
+  transition: color 0.2s ease;
+}
+
+.login-card .forgot-password:hover,
+.login-card a.forgot-password:hover {
+  color: #C49A5A !important;
+  -webkit-text-fill-color: #C49A5A;
+}
+
+
+/* ========================================
+   SIGN IN BUTTON
+======================================== */
+
+.login-card form > button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+
+  padding: 0 12px;
+
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF;
+
+  background: #C49A5A !important;
+  border: none;
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-card form > button[type="submit"]:hover {
+  background: #B58B4F !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ========================================
+   STATUS MESSAGE
+======================================== */
+
+.login-card form > p[role="status"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+
+  font-size: 12px;
+  text-align: center;
+}
+
+
+/* ========================================
+   DEMO CREDENTIALS - COMPACT
+======================================== */
+
+.login-card form > button:last-child {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  width: 100%;
+  min-height: 0;
+
+  padding: 9px 10px;
+  gap: 8px;
+
+  color: #123C32 !important;
+  background: #F7F3EA !important;
+
+  border: 1px solid rgba(196, 154, 90, 0.5);
+  border-radius: 9px;
+
+  text-align: left;
+
+  transition: background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.login-card form > button:last-child:hover {
+  background: #EFE7D7 !important;
+  border-color: #C49A5A;
+}
+
+/* Icon and text group */
+
+.login-card form > button:last-child > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 9px;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Golden icon circle */
+
+.login-card form > button:last-child > div > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+
+  background: #C49A5A;
+  border-radius: 50%;
+}
+
+/* Text column */
+
+.login-card form > button:last-child > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  min-width: 0;
+}
+
+/* Heading */
+
+.login-card form > button:last-child p:first-child {
+  margin: 0 !important;
+
+  color: #123C32 !important;
+  -webkit-text-fill-color: #123C32;
+
+  font-size: 12px !important;
+  line-height: 16px !important;
+  font-weight: 700 !important;
+
+  text-align: left !important;
+}
+
+/* Credentials */
+
+.login-card form > button:last-child p:last-child {
+  margin: 0 !important;
+
+  color: #66745A !important;
+  -webkit-text-fill-color: #66745A;
+
+  font-size: 10px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+
+  white-space: nowrap;
+  text-align: left !important;
+}
+
+/* Tap to fill */
+
+.login-card form > button:last-child > span {
+  flex-shrink: 0;
+
+  color: #123C32 !important;
+  -webkit-text-fill-color: #123C32;
+
+  font-size: 10px !important;
+  line-height: 14px !important;
+  font-weight: 700 !important;
+
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   SECURITY FOOTER - CENTERED
+======================================== */
+
+.login-card > div:last-child {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100%;
+  gap: 7px !important;
+
+  margin-top: 9px !important;
+  padding-top: 7px !important;
+
+  text-align: center !important;
+}
+
+/* Security icon */
+
+.login-card > div:last-child > svg {
+  display: block;
+  flex-shrink: 0;
+
+  width: 15px;
+  height: 15px;
+
+  color: #F6F6F6 !important;
+  stroke: #F6F6F6 !important;
+}
+
+/* Security description */
+
+.login-card > div:last-child .security-text {
+  width: auto !important;
+  margin: 0 !important;
+
+  color: #F6F6F6 !important;
+  -webkit-text-fill-color: #F6F6F6;
+
+  font-size: 11px !important;
+  line-height: 16px !important;
+  font-weight: 600 !important;
+
+  text-align: center !important;
+}
+
+
+/* ========================================
+   BUTTONS & ICONS
+======================================== */
+
+.login-page button {
+  cursor: pointer;
+}
+
+.login-page svg {
+  max-width: 100%;
+}
+
+
+/* ========================================
+   SHORT DESKTOP / LAPTOP
+======================================== */
+
+@media (max-height: 750px) and (min-width: 769px) {
+
+  .login-page {
+    padding: 18px 16px;
+  }
+
+  .login-page > div:first-child {
+    width: 116px;
+    margin-bottom: 13px;
+  }
+
+  .login-card {
+    padding: 15px 17px;
+  }
+
+  .login-card > div:first-child {
+    margin-bottom: 9px !important;
+  }
+
+  .login-card h1 {
+    font-size: 22px !important;
+  }
+
+  .login-card > div:first-child p {
+    margin-top: 4px !important;
+    font-size: 12px !important;
+  }
+
+  .login-card form {
+    gap: 7px !important;
+  }
+
+  .login-card form > div:first-child > div {
+    height: 38px;
+  }
+
+  .login-card form > div:nth-child(2) > div {
+    height: 42px;
+  }
+
+  .login-card form > button[type="submit"] {
+    height: 38px;
+    min-height: 38px;
+  }
+
+  .login-card > div:last-child {
+    margin-top: 8px !important;
+    padding-top: 6px !important;
+  }
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 768px) {
+
+  .login-page {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    padding: 28px 18px 24px;
+    overflow: hidden;
+  }
+
+  .login-page::before {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .login-page > div:first-child {
+    width: 124px;
+    margin: 0 auto 18px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 18px 17px;
+  }
+
+  .login-card h1 {
+    font-size: 23px !important;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+  .login-page {
+    padding: 24px 14px 22px;
+  }
+
+  .login-page::before {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .login-page > div:first-child {
+    width: 116px;
+    margin: 0 auto 16px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 340px;
+
+    padding: 17px 16px;
+    border-radius: 17px;
+  }
+
+  .login-card > div:first-child {
+    margin-bottom: 11px !important;
+  }
+
+  .login-card h1 {
+    font-size: 22px !important;
+  }
+
+  .login-card > div:first-child p {
+    font-size: 12px !important;
+  }
+
+  .login-card form {
+    gap: 8px !important;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+
+  .login-page {
+    padding: 20px 12px 18px;
+  }
+
+  .login-page::before {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .login-page > div:first-child {
+    width: 108px;
+    margin-bottom: 14px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 16px 14px;
+  }
+
+  .login-card h1 {
+    font-size: 21px !important;
+  }
+
+  .login-card > div:first-child p {
+    font-size: 12px !important;
+  }
+
+  .login-card form > button:last-child {
+    padding: 8px;
+    gap: 5px;
+  }
+
+  .login-card form > button:last-child p:last-child {
+    font-size: 9px !important;
+  }
+
+  .login-card form > button:last-child > span {
+    font-size: 9px !important;
+  }
+}
+
+
+/* ========================================
+   BACKDROP FILTER FALLBACK
+======================================== */
+
+@supports not (backdrop-filter: blur(2px)) {
+
+  .login-card {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+
+/* ========================================
+   BACKGROUND REVEAL
+======================================== */
+
+@keyframes backgroundReveal {
+
+  0% {
+    transform: scale(1.12);
+    filter: blur(6px);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+
+/* ========================================
+   LOGO ANIMATION
+======================================== */
+
+@keyframes logoReveal {
+
+  0% {
+    transform: translateY(-45px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+}
+
+
+/* ========================================
+   LOGIN CARD ANIMATION
+======================================== */
+
+@keyframes loginCardReveal {
+
+  0% {
+    transform: translateY(20px) scale(0.96);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .login-page::before,
+  .login-page > div:first-child,
+  .login-card {
+    animation: none !important;
+  }
+
+  .login-page::before {
+    transform: scale(1);
+    filter: none;
+    opacity: 1;
+  }
+
+  .login-page > div:first-child,
+  .login-card {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ========================================
+   LANGUAGE SELECTOR - LOGIN CARD GLASS MATCH
+======================================== */
+
+.login-page .language-selector {
+  position: absolute !important;
+  top: 26px !important;
+  right: 25px !important;
+  left: auto !important;
+  bottom: auto !important;
+
+  z-index: 1000;
+  width: 145px;
+  margin: 0 !important;
+
+  /* Same animation as logo */
+  animation: logoReveal 1.2s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+
+/* ========================================
+   MATCHED GLASS SURFACE
+======================================== */
+
+.login-page .language-selector .language-trigger,
+.login-page .language-selector .language-menu {
+  background: rgba(255, 255, 255, 0.015) !important;
+
+  backdrop-filter: blur(0.4px) saturate(140%);
+  -webkit-backdrop-filter: blur(0.4px) saturate(140%);
+
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.07),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.48),
+    inset 1px 0 1px rgba(255, 255, 255, 0.18),
+    inset -1px 0 1px rgba(255, 255, 255, 0.14),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.16);
+}
+
+
+/* ========================================
+   LANGUAGE TRIGGER
+======================================== */
+
+.login-page .language-selector .language-trigger {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+
+  width: 145px;
+  height: 40px;
+  padding: 0 12px;
+
+  color: #F7F3EA !important;
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  outline: none !important;
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.login-page .language-selector .language-trigger:hover {
+  border-color: rgba(196, 154, 90, 0.85) !important;
+}
+
+
+/* ========================================
+   LANGUAGE ICONS
+======================================== */
+
+.login-page .language-selector .language-trigger svg {
+  display: block;
+
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  max-width: 16px !important;
+
+  color: #F7F3EA !important;
+  stroke: #F7F3EA !important;
+
+  flex-shrink: 0 !important;
+}
+
+.login-page .language-selector .language-trigger .language-chevron {
+  width: 14px !important;
+  height: 14px !important;
+
+  transition: transform 0.25s ease;
+}
+
+.login-page .language-selector .language-chevron-open {
+  transform: rotate(180deg);
+}
+
+
+/* ========================================
+   DROPDOWN MENU
+======================================== */
+
+.login-page .language-selector .language-menu {
+  position: absolute;
+  top: 46px;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 145px;
+  padding: 5px;
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+/* ========================================
+   DROPDOWN OPTIONS
+======================================== */
+
+.login-page .language-selector .language-menu button {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 10px;
+
+  color: #F7F3EA !important;
+  background: transparent !important;
+
+  border: none;
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.login-page .language-selector .language-menu button:hover {
+  background: rgba(196, 154, 90, 0.30) !important;
+  color: #FDF3E8 !important;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .login-page .language-selector {
+    top: 24px !important;
+    right: 14px !important;
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .login-page .language-selector {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+/* =========================================
+   LOGIN — HIDE WINDOW SCROLLBAR
+========================================= */
+
+html:has(.login-page),
+body:has(.login-page),
+#root:has(.login-page) {
+  overflow: hidden !important;
+  height: 100% !important;
+  max-height: 100vh !important;
+}
+
+.login-page {
+  width: 100% !important;
+  height: 100vh !important;
+  height: 100svh !important;
+  min-height: 100svh !important;
+  overflow: hidden !important;
+}
+
+/* Hide scrollbar only while login is displayed */
+html:has(.login-page)::-webkit-scrollbar,
+body:has(.login-page)::-webkit-scrollbar,
+#root:has(.login-page)::-webkit-scrollbar {
+  display: none !important;
+}
+
+html:has(.login-page),
+body:has(.login-page),
+#root:has(.login-page) {
+  scrollbar-width: none !important;
+}

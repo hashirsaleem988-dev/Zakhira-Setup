@@ -1,0 +1,3175 @@
+
+/* ========================================
+   ZAKHIRA ACCOUNTING
+   Dashboard-Matched Design System
+   Forest | Ivory | Olive | Brass
+======================================== */
+
+.accounting-layout {
+  --accounting-forest: #123C32;
+  --accounting-forest-dark: #0B2C25;
+  --accounting-forest-light: #315C49;
+  --accounting-olive: #66745A;
+  --accounting-olive-light: #829477;
+  --accounting-ivory: #F7F3EA;
+  --accounting-cream: #FDF3E8;
+  --accounting-brass: #C49A5A;
+
+  --accounting-text: #26352F;
+  --accounting-muted: #58645B;
+  --accounting-border: rgba(18, 60, 50, 0.15);
+
+  --accounting-card: rgba(253, 243, 232, 0.94);
+
+  color: var(--accounting-text);
+
+  background:
+    radial-gradient(
+      ellipse at 85% 10%,
+      rgba(130, 148, 119, 0.16),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 15% 90%,
+      rgba(196, 154, 90, 0.10),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #F7F3EA 0%,
+      #EEEAE0 55%,
+      #E9E6DC 100%
+    );
+}
+
+.accounting-layout,
+.accounting-layout * {
+  box-sizing: border-box;
+}
+
+.accounting-layout button,
+.accounting-layout input,
+.accounting-layout select {
+  font-family: inherit;
+}
+
+.accounting-layout button {
+  cursor: pointer;
+}
+
+/* ========================================
+   PAGE CONTENT
+======================================== */
+
+.accounting-page-content {
+  width: 100%;
+  min-width: 0;
+  padding: 20px 25px 35px;
+  color: var(--accounting-text);
+}
+
+.accounting-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 27px;
+}
+
+.accounting-eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+
+  color: var(--accounting-olive);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.accounting-heading h1 {
+  margin: 0 0 7px;
+
+  color: var(--accounting-forest);
+
+  font-size: 29px;
+  font-weight: 780;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+}
+
+.accounting-heading p {
+  margin: 0;
+
+  color: var(--accounting-text);
+  font-size: 14px;
+}
+
+.accounting-heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.accounting-primary-btn,
+.accounting-export-btn {
+  min-height: 45px;
+  padding: 11px 17px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.accounting-primary-btn {
+  color: var(--accounting-ivory);
+  background: var(--accounting-forest);
+  border-color: var(--accounting-forest);
+
+  box-shadow:
+    0 6px 18px rgba(18, 60, 50, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.accounting-primary-btn:hover {
+  background: var(--accounting-forest-light);
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(18, 60, 50, 0.20);
+}
+
+.accounting-export-btn {
+  color: var(--accounting-forest);
+  background: rgba(130, 148, 119, 0.15);
+  border-color: rgba(18, 60, 50, 0.25);
+}
+
+.accounting-export-btn:hover {
+  background: rgba(130, 148, 119, 0.25);
+  border-color: var(--accounting-olive);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   COMMON PANELS
+======================================== */
+
+.accounting-panel {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+
+  color: var(--accounting-text);
+
+  background: linear-gradient(
+    145deg,
+    rgba(253, 243, 232, 0.94),
+    rgba(233, 230, 220, 0.94)
+  );
+
+  border: 1px solid var(--accounting-border);
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 30px rgba(18, 60, 50, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.accounting-panel::before,
+.accounting-empty-state::before {
+  content: "";
+
+  position: absolute;
+  inset: 0 0 auto;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.accounting-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 17px;
+
+  color: var(--accounting-olive);
+}
+
+.accounting-section-heading svg {
+  color: var(--accounting-brass);
+}
+
+.accounting-section-heading h2 {
+  margin: 0;
+
+  color: var(--accounting-forest);
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   FINANCIAL OVERVIEW
+======================================== */
+
+.financial-overview {
+  padding: 19px;
+  margin-bottom: 18px;
+}
+
+.financial-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+  padding: 3px 0 5px;
+}
+
+/* KPI CARD */
+
+.financial-stat-card {
+  position: relative;
+  z-index: 1;
+
+  min-width: 0;
+  min-height: 66px;
+  height: 66px;
+  padding: 9px 10px;
+
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+  align-items: center;
+  column-gap: 9px;
+
+  color: var(--accounting-text);
+
+  background: linear-gradient(
+    145deg,
+    rgba(253, 243, 232, 0.96),
+    rgba(233, 230, 220, 0.96)
+  );
+
+  border: 1px solid var(--accounting-border);
+  border-radius: 12px;
+
+  box-shadow:
+    0 8px 20px rgba(18, 60, 50, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  transform-origin: center center;
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.financial-stat-card:hover {
+  z-index: 5;
+
+  transform: translateY(-2px);
+
+  border-color: rgba(196, 154, 90, 0.55);
+
+  box-shadow:
+    0 18px 36px rgba(18, 60, 50, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* KPI ICON */
+
+.financial-stat-icon {
+  position: relative;
+
+  grid-column: 1;
+  grid-row: 1 / 3;
+
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  overflow: visible;
+
+  color: var(--accounting-ivory);
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.financial-stat-icon svg {
+  position: relative;
+  z-index: 2;
+
+  width: 21px;
+  height: 21px;
+
+  stroke: #FFF9EC;
+  stroke-width: 2.1;
+
+  filter:
+    drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.35))
+    drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.24))
+    drop-shadow(3px 4px 2px rgba(0, 0, 0, 0.32));
+
+  transform: perspective(300px) rotateX(-9deg) rotateY(-7deg);
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* KPI HOVER ICON ANIMATION */
+
+.financial-stat-card:hover .financial-stat-icon {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.24),
+    inset 0 1px 3px rgba(255, 255, 255, 0.4);
+}
+
+.financial-stat-card:hover .financial-stat-icon svg {
+  transform:
+    perspective(300px)
+    rotateX(0)
+    rotateY(0)
+    translateY(-2px)
+    scale(1.12);
+}
+
+/* KPI COLORS */
+
+.financial-stat-icon.green,
+.financial-stat-icon.forest {
+  background: linear-gradient(
+    145deg,
+    #829477,
+    #315C49,
+    #123C32
+  );
+}
+
+.financial-stat-icon.mustard {
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #80602F
+  );
+}
+
+.financial-stat-icon.olive {
+  background: linear-gradient(
+    145deg,
+    #8A987C,
+    #66745A,
+    #40533E
+  );
+}
+
+.financial-stat-icon.red {
+  background: linear-gradient(
+    145deg,
+    #A87962,
+    #80513E,
+    #59382F
+  );
+}
+
+.financial-stat-icon.pink {
+  background: linear-gradient(
+    145deg,
+    #B78A83,
+    #92645D,
+    #684641
+  );
+}
+
+/* KPI TEXT */
+
+.financial-stat-card > span {
+  grid-column: 2;
+  grid-row: 1;
+
+  min-width: 0;
+  margin: 0 0 3px;
+
+  color: var(--accounting-olive);
+
+  font-size: 8px;
+  font-weight: 750;
+  letter-spacing: 0.35px;
+  line-height: 1.3;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.financial-stat-card > strong {
+  grid-column: 2;
+  grid-row: 2;
+
+  max-width: 100%;
+  margin: 0;
+
+  color: var(--accounting-forest);
+
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.2;
+
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   TRANSACTION SUMMARY
+======================================== */
+
+.transaction-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.transaction-summary-card {
+  position: relative;
+
+  min-width: 0;
+  min-height: 82px;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  color: var(--accounting-text);
+
+  background: linear-gradient(
+    145deg,
+    rgba(253, 243, 232, 0.96),
+    rgba(233, 230, 220, 0.96)
+  );
+
+  border: 1px solid var(--accounting-border);
+  border-radius: 14px;
+
+  box-shadow:
+    0 8px 20px rgba(18, 60, 50, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.transaction-summary-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(196, 154, 90, 0.5);
+
+  box-shadow:
+    0 14px 28px rgba(18, 60, 50, 0.11);
+}
+
+.transaction-summary-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--accounting-ivory);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 11px;
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.transaction-summary-icon svg {
+  filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.transaction-summary-card:hover .transaction-summary-icon {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.22);
+}
+
+.transaction-summary-card:hover .transaction-summary-icon svg {
+  transform: translateY(-2px) scale(1.1);
+}
+
+.transaction-summary-icon.mustard {
+  background: linear-gradient(145deg, #D2AC70, #C49A5A, #80602F);
+}
+
+.transaction-summary-icon.forest {
+  background: linear-gradient(145deg, #829477, #315C49, #123C32);
+}
+
+.transaction-summary-icon.dark {
+  background: linear-gradient(145deg, #66745A, #315C49, #123C32);
+}
+
+.transaction-summary-card > div:last-child {
+  min-width: 0;
+}
+
+.transaction-summary-card strong {
+  display: block;
+
+  color: var(--accounting-forest);
+
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.transaction-summary-card h3 {
+  margin: 3px 0;
+
+  color: var(--accounting-olive);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.transaction-summary-card p {
+  margin: 0;
+
+  color: var(--accounting-muted);
+  font-size: 10px;
+}
+
+/* ========================================
+   FILTERS PANEL
+======================================== */
+
+.accounting-filters {
+  padding: 19px;
+  margin-bottom: 18px;
+}
+
+.accounting-filter-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+  margin-bottom: 19px;
+}
+
+.accounting-filter-field,
+.accounting-custom-dates > div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.accounting-filters label {
+  display: block;
+
+  color: var(--accounting-olive);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.accounting-filter-field input,
+.accounting-filter-field select,
+.accounting-custom-dates input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 0 13px;
+
+  color: var(--accounting-text);
+  background: rgba(247, 243, 234, 0.75);
+
+  border: 1px solid rgba(18, 60, 50, 0.18);
+  border-radius: 10px;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 12px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.accounting-filter-field input:focus,
+.accounting-filter-field select:focus,
+.accounting-custom-dates input:focus {
+  border-color: var(--accounting-brass);
+
+  background: #FFFDF7;
+
+  box-shadow:
+    0 0 0 3px rgba(196, 154, 90, 0.12);
+}
+
+.accounting-filter-field input::placeholder {
+  color: #8A9086;
+}
+
+/* ========================================
+   FILTER OPTIONS
+======================================== */
+
+.accounting-filter-options {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 22px;
+  margin-bottom: 19px;
+}
+
+.accounting-filter-options > div {
+  min-width: 0;
+}
+
+.accounting-filter-pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.accounting-filter-pills button {
+  min-height: 34px;
+  padding: 0 12px;
+
+  color: var(--accounting-olive);
+  background: rgba(247, 243, 234, 0.75);
+
+  border: 1px solid rgba(18, 60, 50, 0.16);
+  border-radius: 9px;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 650;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.accounting-filter-pills button:hover {
+  color: var(--accounting-forest);
+  background: rgba(196, 154, 90, 0.12);
+  border-color: rgba(196, 154, 90, 0.5);
+  transform: translateY(-1px);
+}
+
+.accounting-filter-pills button.active {
+  color: var(--accounting-ivory);
+  background: var(--accounting-forest);
+  border-color: var(--accounting-forest);
+
+  box-shadow:
+    0 4px 10px rgba(18, 60, 50, 0.14);
+}
+
+/* ========================================
+   CUSTOM DATES
+======================================== */
+
+.accounting-custom-dates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 650px;
+}
+
+.accounting-custom-dates input {
+  color-scheme: light;
+}
+
+/* ========================================
+   ENTRY COUNT
+======================================== */
+
+.accounting-entry-count {
+  margin: 0 0 12px;
+
+  color: var(--accounting-muted);
+  font-size: 11px;
+}
+
+.accounting-entry-count strong {
+  color: var(--accounting-forest);
+  font-weight: 800;
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.accounting-empty-state {
+  position: relative;
+  min-height: 245px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 20px;
+  margin-bottom: 18px;
+
+  color: var(--accounting-text);
+
+  background: linear-gradient(
+    145deg,
+    rgba(253, 243, 232, 0.96),
+    rgba(233, 230, 220, 0.96)
+  );
+
+  border: 1px solid var(--accounting-border);
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 30px rgba(18, 60, 50, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.accounting-empty-icon {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 13px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--accounting-ivory);
+
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #80602F
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+
+  box-shadow:
+    0 7px 16px rgba(0, 0, 0, 0.17),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.accounting-empty-state h2 {
+  margin: 0;
+
+  color: var(--accounting-forest);
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.accounting-empty-state p {
+  margin: 7px 0 16px;
+
+  color: var(--accounting-muted);
+  font-size: 12px;
+}
+
+.accounting-empty-state .accounting-primary-btn {
+  min-height: 40px;
+}
+
+/* ========================================
+   ANALYTICS CHARTS
+======================================== */
+
+.accounting-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.accounting-chart-card {
+  min-width: 0;
+  min-height: 245px;
+  padding: 19px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.accounting-chart-card h2 {
+  margin: 0;
+
+  color: var(--accounting-forest);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.accounting-chart-card p {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+
+  color: var(--accounting-muted);
+  font-size: 11px;
+}
+
+/* ========================================
+   RESPONSIVE LAPTOP
+======================================== */
+
+@media (max-width: 1250px) {
+  .financial-stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+   RESPONSIVE TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .accounting-filter-options {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .accounting-charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   RESPONSIVE MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .accounting-page-content {
+    padding: 14px 14px 25px;
+  }
+
+  .accounting-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .accounting-heading h1 {
+    font-size: 23px;
+  }
+
+  .accounting-heading p {
+    font-size: 11px;
+  }
+
+  .accounting-heading-actions {
+    width: 100%;
+  }
+
+  .accounting-heading-actions button {
+    flex: 1;
+    min-height: 40px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .financial-overview,
+  .accounting-filters {
+    padding: 14px;
+  }
+
+  .financial-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .financial-stat-card {
+    min-height: 66px;
+    height: 66px;
+  }
+
+  .transaction-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .transaction-summary-card {
+    min-height: 75px;
+    padding: 10px;
+    gap: 9px;
+  }
+
+  .accounting-filter-grid,
+  .accounting-custom-dates {
+    grid-template-columns: 1fr;
+  }
+
+  .accounting-filter-pills {
+    gap: 6px;
+  }
+
+  .accounting-filter-pills button {
+    min-height: 32px;
+    padding: 0 9px;
+    font-size: 9px;
+  }
+
+  .accounting-empty-state {
+    min-height: 220px;
+  }
+
+  .accounting-chart-card {
+    min-height: 190px;
+    padding: 14px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 560px) {
+  .accounting-heading-actions {
+    flex-direction: column;
+  }
+
+  .accounting-heading-actions button {
+    width: 100%;
+  }
+
+  .accounting-section-heading h2 {
+    font-size: 11px;
+  }
+
+  .financial-stat-card > span {
+    font-size: 8px;
+  }
+
+  .financial-stat-card > strong {
+    font-size: 16px;
+  }
+
+  .transaction-summary-card strong {
+    font-size: 18px;
+  }
+
+  .accounting-chart-card h2 {
+    font-size: 10px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .accounting-layout *,
+  .accounting-layout *::before,
+  .accounting-layout *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   FINANCIAL KPI ICON ALTERNATING COLORS
+======================================== */
+
+/* 1, 3, 5, 7 — Forest Green */
+.financial-stat-card:nth-child(odd) .financial-stat-icon {
+  background: linear-gradient(
+    145deg,
+    #829477,
+    #315C49,
+    #123C32
+  ) !important;
+}
+
+/* 2, 4, 6 — Mustard */
+.financial-stat-card:nth-child(even) .financial-stat-icon {
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #80602F
+  ) !important;
+}
+
+/* ========================================
+   TRANSACTION SUMMARY ICON COLORS
+======================================== */
+
+/* 1 & 3 — Forest Green */
+.transaction-summary-card:nth-child(odd) .transaction-summary-icon {
+  background: linear-gradient(
+    145deg,
+    #829477,
+    #315C49,
+    #123C32
+  ) !important;
+}
+
+/* 2 & 4 — Mustard */
+.transaction-summary-card:nth-child(even) .transaction-summary-icon {
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #80602F
+  ) !important;
+}
+
+/* ========================================
+   TRANSACTION SUMMARY ICON COLORS
+======================================== */
+
+/* 1 & 3 — Forest Green */
+.transaction-summary-card:nth-child(odd) .transaction-summary-icon {
+  background: linear-gradient(
+    145deg,
+    #829477,
+    #315C49,
+    #123C32
+  ) !important;
+}
+
+/* 2 & 4 — Mustard */
+.transaction-summary-card:nth-child(even) .transaction-summary-icon {
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #80602F
+  ) !important;
+}
+
+/* Export PDF — KPI Card Style */
+
+.accounting-export-btn {
+  background: linear-gradient(
+    145deg,
+    rgba(253, 243, 232, 0.96),
+    rgba(233, 230, 220, 0.96)
+  );
+
+  color: #123C32;
+  border: 1px solid rgba(18, 60, 50, 0.15);
+
+  box-shadow:
+    0 8px 20px rgba(18, 60, 50, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.accounting-export-btn:hover {
+  background: linear-gradient(
+    145deg,
+    #FDF3E8,
+    #E9E6DC
+  );
+
+  border-color: rgba(196, 154, 90, 0.55);
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(18, 60, 50, 0.12);
+}
+@media print {
+  .dashboard-sidebar,
+  .dashboard-topbar,
+  .accounting-heading-actions,
+  .dashboard-footer {
+    display: none !important;
+  }
+
+  .accounting-layout {
+    background: #ffffff !important;
+  }
+
+  .accounting-page-content {
+    padding: 0 !important;
+  }
+
+  .accounting-panel,
+  .financial-stat-card,
+  .transaction-summary-card,
+  .accounting-empty-state,
+  .accounting-chart-card {
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+}
+
+/* ========================================
+   ACCOUNTING ANALYTICS CHARTS
+======================================== */
+
+.accounting-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 28px;
+}
+
+.accounting-chart-card {
+  position: relative;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  border-radius: 26px;
+  background: #F8F5ED;
+  box-shadow: 0 12px 35px rgba(18, 60, 50, 0.055);
+}
+
+.accounting-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.accounting-chart-eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: #707C68;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.accounting-chart-header h2 {
+  margin: 0;
+  color: #123C32;
+  font-size: clamp(19px, 2vw, 25px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.accounting-chart-header p {
+  margin: 10px 0 0;
+  color: #70776B;
+  font-size: 14px;
+}
+
+.accounting-chart-period {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  padding-top: 28px;
+  color: #123C32;
+  font-size: 13px;
+}
+
+.accounting-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.accounting-chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #39483F;
+  font-size: 13px;
+}
+
+.accounting-chart-legend i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.revenue-dot {
+  background: #123C32;
+}
+
+.expenses-dot {
+  background: #7C8B72;
+}
+
+.profit-dot {
+  background: #C49A5A;
+}
+
+/* ========================================
+   CHART INFO TOOLTIP
+======================================== */
+
+.accounting-chart-info {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 5;
+}
+
+.accounting-chart-info-button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(18, 60, 50, 0.2);
+  border-radius: 50%;
+  background: #F8F5ED;
+  color: #66745A;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.accounting-chart-info-button:hover {
+  background: #123C32;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.accounting-chart-tooltip {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  width: 230px;
+  padding: 13px 15px;
+  border: 1px solid rgba(18, 60, 50, 0.12);
+  border-radius: 12px;
+  background: #123C32;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.6;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+.accounting-chart-info:hover .accounting-chart-tooltip,
+.accounting-chart-info:focus-within .accounting-chart-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ========================================
+   FINANCIAL PERFORMANCE BAR CHART
+======================================== */
+
+.accounting-performance-chart {
+  display: flex;
+  width: 100%;
+  height: 310px;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.accounting-chart-y-axis {
+  display: flex;
+  flex: 0 0 42px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  color: #687267;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.accounting-performance-plot {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  border-bottom: 1px solid rgba(18, 60, 50, 0.2);
+}
+
+.accounting-chart-grid-lines {
+  position: absolute;
+  inset: 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.accounting-chart-grid-lines span {
+  width: 100%;
+  border-top: 1px dashed rgba(102, 116, 90, 0.23);
+}
+
+.accounting-month-groups {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.accounting-month-group {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.accounting-month-bars {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 30px);
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(3px, 0.55vw, 8px);
+  padding: 0 3px;
+}
+
+.accounting-financial-bar {
+  position: relative;
+  width: min(25%, 36px);
+  min-height: 2px;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.5s ease, filter 0.2s ease;
+  transform: translateZ(0);
+}
+
+.accounting-financial-bar:hover {
+  filter: brightness(1.12);
+}
+
+.revenue-bar {
+  background: linear-gradient(
+    90deg,
+    #0B2C25 0%,
+    #174B3D 60%,
+    #315C49 100%
+  );
+  box-shadow:
+    inset -3px 0 rgba(255, 255, 255, 0.16),
+    4px 3px 7px rgba(11, 44, 37, 0.19);
+}
+
+.expenses-bar {
+  background: linear-gradient(
+    90deg,
+    #66745A 0%,
+    #87947A 65%,
+    #A4AD98 100%
+  );
+  box-shadow:
+    inset -3px 0 rgba(255, 255, 255, 0.18),
+    4px 3px 7px rgba(70, 85, 64, 0.15);
+}
+
+.profit-bar {
+  background: linear-gradient(
+    90deg,
+    #A77B3D 0%,
+    #C49A5A 65%,
+    #D7B477 100%
+  );
+  box-shadow:
+    inset -3px 0 rgba(255, 255, 255, 0.2),
+    4px 3px 7px rgba(150, 111, 53, 0.18);
+}
+
+.accounting-month-label {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  color: #34443B;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.accounting-chart-demo-label {
+  margin-top: 17px;
+  color: #8A8D80;
+  font-size: 11px;
+  text-align: right;
+}
+
+/* ========================================
+   CASH FLOW HEATMAP
+======================================== */
+
+.accounting-cashflow-grid {
+  display: grid;
+  gap: 11px;
+  margin-top: 30px;
+}
+
+.accounting-cashflow-months,
+.accounting-cashflow-row {
+  display: grid;
+  grid-template-columns: 42px repeat(6, minmax(0, 1fr));
+  align-items: center;
+  gap: 9px;
+}
+
+.accounting-cashflow-months {
+  margin-bottom: 4px;
+  color: #70776B;
+  font-size: 12px;
+  text-align: center;
+}
+
+.accounting-cashflow-day {
+  color: #59685D;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.accounting-cashflow-cell {
+  display: block;
+  height: 43px;
+  min-width: 0;
+  border-radius: 9px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.accounting-cashflow-cell:hover {
+  z-index: 2;
+  transform: scale(1.06);
+  box-shadow: 0 5px 13px rgba(18, 60, 50, 0.18);
+}
+
+/* Five coordinated Zakhira colors */
+
+.accounting-cashflow-cell.level-0,
+.accounting-cashflow-legend .level-0 {
+  background: #E8E8DC;
+}
+
+.accounting-cashflow-cell.level-1,
+.accounting-cashflow-legend .level-1 {
+  background: #C9D2C2;
+}
+
+.accounting-cashflow-cell.level-2,
+.accounting-cashflow-legend .level-2 {
+  background: #879A80;
+}
+
+.accounting-cashflow-cell.level-3,
+.accounting-cashflow-legend .level-3 {
+  background: #4F7661;
+}
+
+.accounting-cashflow-cell.level-4,
+.accounting-cashflow-legend .level-4 {
+  background: #123C32;
+}
+
+.accounting-cashflow-legend {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.accounting-cashflow-legend span {
+  color: #70776B;
+  font-size: 11px;
+}
+
+.accounting-cashflow-legend i {
+  display: block;
+  width: 19px;
+  height: 19px;
+  border-radius: 6px;
+}
+
+/* ========================================
+   RESPONSIVE CHARTS
+======================================== */
+
+@media (max-width: 1100px) {
+  .accounting-charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .accounting-chart-card {
+    min-height: 390px;
+  }
+}
+
+@media (max-width: 600px) {
+  .accounting-chart-card {
+    padding: 20px 15px;
+    border-radius: 19px;
+  }
+
+  .accounting-chart-header {
+    flex-direction: column;
+  }
+
+  .accounting-chart-header h2 {
+    font-size: 19px;
+    padding-right: 24px;
+  }
+
+  .accounting-chart-period {
+    padding-top: 0;
+  }
+
+  .accounting-chart-legend {
+    gap: 13px;
+  }
+
+  .accounting-chart-legend span {
+    font-size: 11px;
+  }
+
+  .accounting-performance-chart {
+    height: 250px;
+    gap: 6px;
+  }
+
+  .accounting-chart-y-axis {
+    flex-basis: 34px;
+    font-size: 9px;
+  }
+
+  .accounting-month-bars {
+    gap: 3px;
+    padding: 0 1px;
+  }
+
+  .accounting-financial-bar {
+    width: 27%;
+  }
+
+  .accounting-month-label {
+    font-size: 10px;
+  }
+
+  .accounting-cashflow-grid {
+    gap: 9px;
+  }
+
+  .accounting-cashflow-months,
+  .accounting-cashflow-row {
+    grid-template-columns: 31px repeat(6, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .accounting-cashflow-months {
+    font-size: 10px;
+  }
+
+  .accounting-cashflow-day {
+    font-size: 10px;
+  }
+
+  .accounting-cashflow-cell {
+    height: 30px;
+    border-radius: 6px;
+  }
+
+  .accounting-cashflow-legend {
+    gap: 6px;
+  }
+
+  .accounting-cashflow-legend i {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ========================================
+   COMPACT ACCOUNTING CHARTS
+======================================== */
+
+/* Both chart cards */
+.accounting-chart-card {
+  padding: 21px 24px;
+  border-radius: 23px;
+  min-height: 0;
+}
+
+/* Chart headings */
+.accounting-chart-header {
+  margin-bottom: 17px;
+  gap: 12px;
+}
+
+.accounting-chart-eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  margin-bottom: 7px;
+}
+
+.accounting-chart-header h2 {
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.accounting-chart-header p {
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+/* Period label */
+.accounting-chart-period {
+  font-size: 12px;
+  gap: 7px;
+  padding-top: 23px;
+}
+
+/* Legend */
+.accounting-chart-legend {
+  gap: 19px;
+  margin-bottom: 15px;
+}
+
+.accounting-chart-legend span {
+  font-size: 12px;
+}
+
+.accounting-chart-legend i {
+  width: 10px;
+  height: 10px;
+}
+
+/* ========================================
+   FINANCIAL PERFORMANCE GRAPH
+======================================== */
+
+.accounting-performance-chart {
+  height: 235px;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.accounting-chart-y-axis {
+  flex-basis: 36px;
+  padding-bottom: 25px;
+  font-size: 10px;
+}
+
+.accounting-chart-grid-lines {
+  inset: 0 0 25px;
+}
+
+.accounting-month-bars {
+  height: calc(100% - 25px);
+  gap: 5px;
+  padding: 0 2px;
+}
+
+.accounting-financial-bar {
+  width: min(25%, 32px);
+  min-height: 2px;
+  border-radius: 9px 9px 0 0;
+  transition: height 0.4s ease, filter 0.2s ease;
+}
+
+/* More polished rounded bar tops */
+.revenue-bar {
+  border-radius: 9px 9px 0 0;
+  background: linear-gradient(
+    90deg,
+    #0B2C25 0%,
+    #174B3D 65%,
+    #47715C 100%
+  );
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,0.25),
+    inset -3px 0 rgba(255,255,255,0.15),
+    3px 3px 6px rgba(11,44,37,0.15);
+}
+
+.expenses-bar {
+  border-radius: 9px 9px 0 0;
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,0.25),
+    inset -3px 0 rgba(255,255,255,0.15),
+    3px 3px 6px rgba(70,85,64,0.13);
+}
+
+.profit-bar {
+  border-radius: 9px 9px 0 0;
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,0.3),
+    inset -3px 0 rgba(255,255,255,0.15),
+    3px 3px 6px rgba(150,111,53,0.14);
+}
+
+.accounting-month-label {
+  height: 25px;
+  font-size: 11px;
+}
+
+/* Demo label */
+.accounting-chart-demo-label {
+  margin-top: 11px;
+  font-size: 10px;
+}
+
+/* ========================================
+   CASH FLOW HEATMAP
+======================================== */
+
+.accounting-cashflow-grid {
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.accounting-cashflow-months,
+.accounting-cashflow-row {
+  grid-template-columns: 36px repeat(6, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.accounting-cashflow-months {
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.accounting-cashflow-day {
+  font-size: 11px;
+}
+
+.accounting-cashflow-cell {
+  height: 31px;
+  border-radius: 7px;
+}
+
+.accounting-cashflow-legend {
+  gap: 7px;
+  margin-top: 17px;
+}
+
+.accounting-cashflow-legend span {
+  font-size: 10px;
+}
+
+.accounting-cashflow-legend i {
+  width: 15px;
+  height: 15px;
+}
+
+/* Info icon */
+.accounting-chart-info {
+  top: 18px;
+  right: 19px;
+}
+
+.accounting-chart-info-button {
+  width: 31px;
+  height: 31px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+  .accounting-chart-card {
+    padding: 18px 15px;
+  }
+
+  .accounting-chart-header h2 {
+    font-size: 18px;
+  }
+
+  .accounting-performance-chart {
+    height: 205px;
+  }
+
+  .accounting-cashflow-grid {
+    gap: 7px;
+  }
+
+  .accounting-cashflow-months,
+  .accounting-cashflow-row {
+    grid-template-columns: 29px repeat(6, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .accounting-cashflow-cell {
+    height: 26px;
+  }
+}
+
+/* ========================================
+   COMPACT ACCOUNTING CHARTS
+======================================== */
+
+/* Both chart cards */
+.accounting-chart-card {
+  padding: 21px 24px;
+  border-radius: 23px;
+  min-height: 0;
+}
+
+/* Chart headings */
+.accounting-chart-header {
+  margin-bottom: 17px;
+  gap: 12px;
+}
+
+.accounting-chart-eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  margin-bottom: 7px;
+}
+
+.accounting-chart-header h2 {
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.accounting-chart-header p {
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+/* Period label */
+.accounting-chart-period {
+  font-size: 12px;
+  gap: 7px;
+  padding-top: 23px;
+}
+
+/* Legend */
+.accounting-chart-legend {
+  gap: 19px;
+  margin-bottom: 15px;
+}
+
+.accounting-chart-legend span {
+  font-size: 12px;
+}
+
+.accounting-chart-legend i {
+  width: 10px;
+  height: 10px;
+}
+
+/* ========================================
+   FINANCIAL PERFORMANCE GRAPH
+======================================== */
+
+.accounting-performance-chart {
+  height: 235px;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.accounting-chart-y-axis {
+  flex-basis: 36px;
+  padding-bottom: 25px;
+  font-size: 10px;
+}
+
+.accounting-chart-grid-lines {
+  inset: 0 0 25px;
+}
+
+.accounting-month-bars {
+  height: calc(100% - 25px);
+  gap: 5px;
+  padding: 0 2px;
+}
+
+.accounting-financial-bar {
+  width: min(25%, 32px);
+  min-height: 2px;
+  border-radius: 9px 9px 0 0;
+  transition: height 0.4s ease, filter 0.2s ease;
+}
+
+/* More polished rounded bar tops */
+.revenue-bar {
+  border-radius: 9px 9px 0 0;
+  background: linear-gradient(
+    90deg,
+    #0B2C25 0%,
+    #174B3D 65%,
+    #47715C 100%
+  );
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,0.25),
+    inset -3px 0 rgba(255,255,255,0.15),
+    3px 3px 6px rgba(11,44,37,0.15);
+}
+
+.expenses-bar {
+  border-radius: 9px 9px 0 0;
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,0.25),
+    inset -3px 0 rgba(255,255,255,0.15),
+    3px 3px 6px rgba(70,85,64,0.13);
+}
+
+.profit-bar {
+  border-radius: 9px 9px 0 0;
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,0.3),
+    inset -3px 0 rgba(255,255,255,0.15),
+    3px 3px 6px rgba(150,111,53,0.14);
+}
+
+.accounting-month-label {
+  height: 25px;
+  font-size: 11px;
+}
+
+/* Demo label */
+.accounting-chart-demo-label {
+  margin-top: 11px;
+  font-size: 10px;
+}
+
+/* ========================================
+   CASH FLOW HEATMAP
+======================================== */
+
+.accounting-cashflow-grid {
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.accounting-cashflow-months,
+.accounting-cashflow-row {
+  grid-template-columns: 36px repeat(6, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.accounting-cashflow-months {
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.accounting-cashflow-day {
+  font-size: 11px;
+}
+
+.accounting-cashflow-cell {
+  height: 31px;
+  border-radius: 7px;
+}
+
+.accounting-cashflow-legend {
+  gap: 7px;
+  margin-top: 17px;
+}
+
+.accounting-cashflow-legend span {
+  font-size: 10px;
+}
+
+.accounting-cashflow-legend i {
+  width: 15px;
+  height: 15px;
+}
+
+/* Info icon */
+.accounting-chart-info {
+  top: 18px;
+  right: 19px;
+}
+
+.accounting-chart-info-button {
+  width: 31px;
+  height: 31px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+  .accounting-chart-card {
+    padding: 18px 15px;
+  }
+
+  .accounting-chart-header h2 {
+    font-size: 18px;
+  }
+
+  .accounting-performance-chart {
+    height: 205px;
+  }
+
+  .accounting-cashflow-grid {
+    gap: 7px;
+  }
+
+  .accounting-cashflow-months,
+  .accounting-cashflow-row {
+    grid-template-columns: 29px repeat(6, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .accounting-cashflow-cell {
+    height: 26px;
+  }
+}
+
+/* ==========================================
+   ACCOUNTING CHARTS - FINAL UI REFINEMENT
+========================================== */
+
+.accounting-chart-card {
+  border-radius: 16px !important;
+  padding: 22px 24px !important;
+  min-height: 0 !important;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Chart heading */
+.accounting-chart-header {
+  margin-bottom: 14px !important;
+  padding-right: 38px;
+}
+
+.accounting-chart-header h2 {
+  font-size: 21px !important;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.accounting-chart-header p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+/* Remove period label completely */
+.accounting-chart-period {
+  display: none !important;
+}
+
+/* Info icon position */
+.accounting-chart-info {
+  position: absolute;
+  top: 19px;
+  right: 20px;
+}
+
+/* ==========================================
+   REVENUE / EXPENSE / PROFIT
+========================================== */
+
+.accounting-performance-chart {
+  height: 225px !important;
+  margin-top: 10px;
+}
+
+.accounting-chart-legend {
+  margin: 14px 0 13px !important;
+  gap: 18px;
+}
+
+.accounting-chart-legend span {
+  font-size: 12px;
+}
+
+/* Bars: almost square, subtly softened edges */
+.revenue-bar,
+.expenses-bar,
+.profit-bar,
+.accounting-financial-bar {
+  border-radius: 3px 3px 0 0 !important;
+  overflow: hidden;
+}
+
+/* Revenue */
+.revenue-bar {
+  background: linear-gradient(
+    90deg,
+    #123C32 0%,
+    #1C5143 100%
+  ) !important;
+}
+
+/* Expenses */
+.expenses-bar {
+  background: linear-gradient(
+    90deg,
+    #66745A 0%,
+    #87947A 100%
+  ) !important;
+}
+
+/* Profit */
+.profit-bar {
+  background: linear-gradient(
+    90deg,
+    #C49A5A 0%,
+    #D6B477 100%
+  ) !important;
+}
+
+/* Month labels */
+.accounting-month-label {
+  font-size: 11px;
+  height: 24px;
+}
+
+/* ==========================================
+   CASH FLOW
+========================================== */
+
+.accounting-cashflow-grid {
+  margin-top: 19px !important;
+  gap: 7px;
+}
+
+.accounting-cashflow-months,
+.accounting-cashflow-row {
+  gap: 7px;
+}
+
+.accounting-cashflow-months {
+  font-size: 11px;
+}
+
+.accounting-cashflow-day {
+  font-size: 11px;
+}
+
+.accounting-cashflow-cell {
+  height: 31px !important;
+  border-radius: 7px !important;
+}
+
+/* Heatmap legend */
+.accounting-cashflow-legend {
+  margin-top: 13px !important;
+  gap: 8px;
+}
+
+.accounting-cashflow-legend span {
+  font-size: 10px;
+}
+
+/* ==========================================
+   BOTTOM DESCRIPTION
+========================================== */
+
+.accounting-chart-demo-label {
+  display: block;
+  text-align: right;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #858879;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(102, 116, 90, 0.16);
+}
+
+/* Cash flow description */
+.accounting-cashflow-description {
+  text-align: right;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #858879;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .accounting-chart-card {
+    padding: 18px !important;
+    border-radius: 14px !important;
+  }
+
+  .accounting-performance-chart {
+    height: 205px !important;
+  }
+
+  .accounting-chart-header h2 {
+    font-size: 18px !important;
+  }
+}
+
+/* ========================================
+   GLASSY INFO BUTTON
+======================================== */
+
+.accounting-chart-info-button {
+  background: rgba(255, 255, 255, 0.38) !important;
+  backdrop-filter: blur(4px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(4px) saturate(120%) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.65) !important;
+  color: #123C32 !important;
+
+  box-shadow:
+    0 4px 12px rgba(18, 60, 50, 0.07),
+    inset 0 1px 2px rgba(255, 255, 255, 0.75) !important;
+
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.accounting-chart-info-button:hover {
+  background: rgba(255, 255, 255, 0.58) !important;
+  border-color: rgba(196, 154, 90, 0.45) !important;
+
+  box-shadow:
+    0 5px 14px rgba(18, 60, 50, 0.10),
+    inset 0 1px 3px rgba(255, 255, 255, 0.85) !important;
+
+  transform: translateY(-1px);
+}
+
+/* Icon */
+.accounting-chart-info-button svg {
+  color: #66745A;
+  stroke-width: 2;
+}
+
+/* ========================================
+   INFO TOOLTIP - FROSTED GLASS EFFECT
+======================================== */
+
+.accounting-chart-card .accounting-chart-tooltip {
+  background: rgba(248, 245, 237, 0.58) !important;
+
+  backdrop-filter: blur(4px) saturate(100%) !important;
+  -webkit-backdrop-filter: blur(4px) saturate(100%) !important;
+
+  color: #123C32 !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  border-radius: 14px !important;
+
+  box-shadow:
+    0 10px 28px rgba(18, 60, 50, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.75) !important;
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* ========================================
+   ACCOUNTING PAGE - SMOOTH SCROLLING
+======================================== */
+
+html {
+  scroll-behavior: auto;
+  scrollbar-gutter: stable;
+}
+
+.accounting-layout {
+  overflow-anchor: none;
+}
+
+.accounting-layout .dashboard-main {
+  overscroll-behavior-y: auto;
+  scroll-behavior: auto;
+  overflow-x: hidden;
+}
+/* Prevent accidental horizontal movement */
+.accounting-page-content {
+  min-width: 0;
+  overflow-x: clip;
+}
+
+/* Keep chart hover effects from shifting page layout */
+.accounting-chart-tooltip {
+  position: absolute;
+  z-index: 50;
+}
+
+/* ========================================
+   EXTRA SMOOTH ACCOUNTING SCROLL
+======================================== */
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+.accounting-layout,
+.accounting-layout .dashboard-main {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+/* Stable scrolling without layout jumps */
+.accounting-page-content {
+  overflow-anchor: none;
+  scroll-margin-top: 12px;
+}
+
+/* Smooth anchor navigation */
+.accounting-layout * {
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   SECONDARY CHART HEADERS
+======================================== */
+
+.accounting-secondary-chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  margin-bottom: 26px;
+}
+
+.accounting-secondary-chart-header h2 {
+  color: #123c32;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 7px 0;
+}
+
+.accounting-secondary-chart-header p {
+  color: #70776b;
+  font-size: 14px;
+  margin: 0;
+}
+
+.accounting-secondary-chart-header .accounting-chart-info {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   MONTHLY OVERVIEW
+======================================== */
+
+.accounting-monthly-card,
+.accounting-expense-breakdown-card {
+  min-width: 0;
+  min-height: 390px;
+  height: auto;
+  padding: 24px;
+  border-radius: 20px;
+}
+
+.accounting-horizontal-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.accounting-horizontal-month {
+  display: grid;
+  grid-template-columns: 65px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.accounting-horizontal-month-label {
+  color: #53665b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.accounting-horizontal-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.accounting-horizontal-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  height: 10px;
+}
+
+.accounting-horizontal-track {
+  flex: 1;
+  height: 9px;
+  overflow: hidden;
+  background: #eeece3;
+  border-radius: 2px;
+}
+
+.accounting-horizontal-bar {
+  height: 100%;
+  min-width: 0;
+  border-radius: 2px;
+  transition: width 0.35s ease;
+}
+
+.accounting-horizontal-value {
+  width: 28px;
+  flex-shrink: 0;
+  color: #526258;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.accounting-horizontal-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.accounting-horizontal-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #43564b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.accounting-horizontal-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* ========================================
+   EXPENSE BREAKDOWN CIRCULAR CHARTS
+======================================== */
+
+.accounting-expense-rings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+  margin-top: 34px;
+}
+
+.accounting-expense-ring-item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.accounting-expense-ring {
+  width: clamp(105px, 12vw, 155px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  flex-shrink: 0;
+}
+
+.accounting-expense-ring-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #f8f5ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accounting-expense-ring-inner strong {
+  color: #123c32;
+  font-size: clamp(21px, 2.4vw, 32px);
+  font-weight: 800;
+}
+
+.accounting-expense-ring-item h3 {
+  color: #123c32;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 18px 0 5px;
+}
+
+.accounting-expense-ring-item p {
+  color: #70776b;
+  font-size: 12px;
+  margin: 0;
+}
+
+.accounting-expense-ring-amount {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: #526258;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.accounting-expense-ring-amount i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+/* ========================================
+   CHART DEMO LABEL
+======================================== */
+
+.accounting-monthly-card .accounting-chart-demo-label,
+.accounting-expense-breakdown-card .accounting-chart-demo-label {
+  margin-top: 22px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(112, 119, 107, 0.16);
+  text-align: right;
+  color: #858879;
+  font-size: 11px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1100px) {
+  .accounting-expense-ring {
+    width: clamp(90px, 12vw, 125px);
+  }
+
+  .accounting-monthly-card,
+  .accounting-expense-breakdown-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .accounting-expense-rings {
+    gap: 8px;
+  }
+
+  .accounting-expense-ring {
+    width: min(25vw, 105px);
+    padding: 8px;
+  }
+
+  .accounting-expense-ring-item h3 {
+    font-size: 11px;
+  }
+
+  .accounting-expense-ring-item p,
+  .accounting-expense-ring-amount {
+    font-size: 10px;
+  }
+
+  .accounting-horizontal-month {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .accounting-horizontal-legend {
+    gap: 10px;
+  }
+}
+/* =========================================================
+   ACCOUNTING — PAGE WRAPPER & HEADER OVERRIDE
+========================================================= */
+
+.accounting-page {
+  padding: 20px 24px;
+  gap: 16px;
+}
+
+/* Page Title */
+.accounting-page h1 {
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+/* Page Description */
+.accounting-page > p,
+.accounting-page .page-description {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Page Header */
+.accounting-page .page-header {
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+/* Header Buttons */
+.accounting-page .page-header button {
+  font-size: 12px;
+  padding: 8px 12px;
+  min-height: 34px;
+}
+/* =========================================================
+   ACCOUNTING — FINANCIAL OVERVIEW CARD SIZE OVERRIDE
+========================================================= */
+
+.accounting-layout .financial-overview {
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.accounting-layout .financial-stats-grid {
+  gap: 8px;
+  padding: 2px 0;
+}
+
+/* KPI CARD */
+.accounting-layout .financial-stat-card {
+  min-height: 60px;
+  height: 60px;
+  padding: 8px;
+
+  grid-template-columns: 30px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+
+  column-gap: 8px;
+  border-radius: 10px;
+}
+
+/* KPI ICON */
+.accounting-layout .financial-stat-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+/* ICON SIZE */
+.accounting-layout .financial-stat-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* KPI LABEL */
+.accounting-layout .financial-stat-card > span {
+  font-size: 9px;
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+  margin-bottom: 2px;
+}
+
+/* KPI VALUE */
+.accounting-layout .financial-stat-card > strong {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+/* =========================================================
+   ACCOUNTING — TRANSACTION SUMMARY COMPACT OVERRIDE
+========================================================= */
+
+.accounting-layout .transaction-summary-grid {
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+/* SUMMARY CARD */
+.accounting-layout .transaction-summary-card {
+  min-height: 68px;
+  padding: 10px;
+  gap: 9px;
+  border-radius: 12px;
+}
+
+/* SUMMARY ICON */
+.accounting-layout .transaction-summary-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+}
+
+/* ICON SIZE */
+.accounting-layout .transaction-summary-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* CARD CONTENT */
+.accounting-layout .transaction-summary-card > div:last-child {
+  min-width: 0;
+}
+
+/* VALUE */
+.accounting-layout .transaction-summary-card strong {
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+/* CARD TITLE */
+.accounting-layout .transaction-summary-card h3 {
+  margin: 2px 0;
+  font-size: 10px;
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+}
+
+/* SUPPORTING TEXT */
+.accounting-layout .transaction-summary-card p {
+  font-size: 10px;
+  line-height: 1.3;
+  margin: 0;
+}
+/* =========================================================
+   ACCOUNTING — FILTER PANEL COMPACT OVERRIDE
+========================================================= */
+
+/* FILTER PANEL */
+.accounting-layout .accounting-filters {
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+/* SEARCH + SORT GRID */
+.accounting-layout .accounting-filter-grid {
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* FILTER FIELD */
+.accounting-layout .accounting-filter-field {
+  gap: 5px;
+}
+
+/* FIELD LABEL */
+.accounting-layout .accounting-filter-field label {
+  font-size: 9px;
+  letter-spacing: 0.3px;
+}
+
+/* SEARCH INPUT + SORT SELECT */
+.accounting-layout .accounting-filter-field input,
+.accounting-layout .accounting-filter-field select {
+  min-height: 34px;
+  height: 34px;
+  padding: 0 10px;
+  font-size: 11px;
+  border-radius: 8px;
+}
+
+/* FILTER OPTIONS */
+.accounting-layout .accounting-filter-options {
+  gap: 12px;
+}
+
+/* FILTER OPTION LABEL */
+.accounting-layout .accounting-filter-options label {
+  font-size: 9px;
+  letter-spacing: 0.3px;
+}
+
+/* FILTER PILLS CONTAINER */
+.accounting-layout .accounting-filter-pills {
+  gap: 7px;
+}
+
+/* FILTER PILLS BUTTONS */
+.accounting-layout .accounting-filter-pills button {
+  min-height: 29px;
+  height: 29px;
+  padding: 0 10px;
+  font-size: 10px;
+  border-radius: 8px;
+}
+
+/* CUSTOM DATE GRID */
+.accounting-layout .accounting-custom-dates {
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* CUSTOM DATE LABEL */
+.accounting-layout .accounting-custom-dates label {
+  font-size: 9px;
+  letter-spacing: 0.3px;
+}
+
+/* CUSTOM DATE INPUT */
+.accounting-layout .accounting-custom-dates input {
+  min-height: 34px;
+  height: 34px;
+  padding: 0 9px;
+  font-size: 11px;
+  border-radius: 8px;
+}
+/* =========================================================
+   ACCOUNTING — ENTRY COUNT & EMPTY STATE COMPACT
+========================================================= */
+
+/* ENTRY COUNT */
+.accounting-layout .accounting-entry-count {
+  margin: 10px 0;
+  font-size: 11px;
+}
+
+/* EMPTY STATE */
+.accounting-layout .accounting-empty-state {
+  min-height: 180px;
+  padding: 20px;
+  gap: 8px;
+  border-radius: 12px;
+}
+
+/* EMPTY STATE ICON BOX */
+.accounting-layout .accounting-empty-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+}
+
+/* EMPTY STATE ICON */
+.accounting-layout .accounting-empty-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+/* EMPTY STATE HEADING */
+.accounting-layout .accounting-empty-state h2 {
+  font-size: 15px;
+  margin: 4px 0;
+}
+
+/* EMPTY STATE DESCRIPTION */
+.accounting-layout .accounting-empty-state p {
+  font-size: 11px;
+  margin: 0;
+}
+
+/* EMPTY STATE BUTTON */
+.accounting-layout .accounting-empty-state button {
+  min-height: 34px;
+  padding: 0 12px;
+  font-size: 11px;
+  border-radius: 8px;
+}
+/* =========================================================
+   ACCOUNTING — CHART CARDS COMPACT REFINEMENT
+========================================================= */
+
+/* CHART CARD */
+.accounting-layout .accounting-chart-card {
+  padding: 18px 20px;
+  border-radius: 14px;
+  min-height: 0;
+}
+
+/* CHART HEADER */
+.accounting-layout .accounting-chart-header {
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+/* EYEBROW */
+.accounting-layout .accounting-chart-eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  margin-bottom: 5px;
+}
+
+/* CHART TITLE */
+.accounting-layout .accounting-chart-header h2 {
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+/* CHART DESCRIPTION */
+.accounting-layout .accounting-chart-header p {
+  font-size: 11px;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* CHART LEGEND */
+.accounting-layout .accounting-chart-legend {
+  gap: 14px;
+  margin: 10px 0;
+}
+
+/* LEGEND TEXT */
+.accounting-layout .accounting-chart-legend span {
+  font-size: 10px;
+  gap: 6px;
+}
+
+/* LEGEND DOTS */
+.accounting-layout .accounting-chart-legend i {
+  width: 8px;
+  height: 8px;
+}
+
+/* FINANCIAL PERFORMANCE GRAPH */
+.accounting-layout .accounting-performance-chart {
+  height: 190px;
+  margin-top: 6px;
+  gap: 7px;
+}
+
+/* Y AXIS */
+.accounting-layout .accounting-chart-y-axis {
+  flex-basis: 32px;
+  font-size: 9px;
+}
+
+/* MONTH LABEL */
+.accounting-layout .accounting-month-label {
+  font-size: 10px;
+}
+
+/* DEMO LABEL */
+.accounting-layout .accounting-chart-demo-label {
+  font-size: 9px;
+  margin-top: 8px;
+}
+/* =========================================================
+   ACCOUNTING — STABLE SCROLL FIX
+========================================================= */
+
+/* Keep scrollbar space stable */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Main accounting wrapper */
+.accounting-layout {
+  scroll-behavior: auto;
+  overflow-anchor: none;
+}
+
+/* Dashboard scroll area */
+.accounting-layout .dashboard-main {
+  scroll-behavior: auto;
+  overflow-x: hidden;
+  overflow-anchor: none;
+  overscroll-behavior: auto;
+}
+
+/* Accounting content */
+.accounting-layout .accounting-page-content {
+  min-width: 0;
+  overflow-x: clip;
+  overflow-anchor: none;
+}
+
+/* Prevent chart/card layout movement */
+.accounting-layout .accounting-chart-card,
+.accounting-layout .accounting-panel,
+.accounting-layout .transaction-summary-card,
+.accounting-layout .financial-stat-card {
+  flex-shrink: 0;
+}
+
+/* Avoid global smooth scroll on every element */
+.accounting-layout * {
+  scroll-behavior: auto;
+}
+/* =========================================
+   ACCOUNTING — NATURAL & STABLE SCROLL
+========================================= */
+
+html {
+  scroll-behavior: auto;
+  scrollbar-gutter: stable;
+}
+
+.accounting-layout {
+  overflow-anchor: none;
+}
+
+.accounting-layout .dashboard-main {
+  scroll-behavior: auto;
+  overflow-x: hidden;
+  overflow-anchor: none;
+  overscroll-behavior-y: auto;
+}
+
+.accounting-layout .accounting-page-content {
+  min-width: 0;
+  overflow-x: clip;
+}
+
+/* Remove forced scrolling behavior from children */
+.accounting-layout * {
+  scroll-behavior: auto;
+}
+/* TEMPORARY CHART JITTER TEST */
+
+.accounting-layout .accounting-financial-bar {
+  transition: none !important;
+  transform: none !important;
+}
+
+.accounting-layout .accounting-financial-bar:hover {
+  filter: none !important;
+}
+
+.accounting-layout .accounting-cashflow-cell {
+  transition: none !important;
+}
+
+.accounting-layout .accounting-cashflow-cell:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+/* ========================================
+   CASH FLOW HEATMAP OVERRIDE
+======================================== */
+
+.accounting-cashflow-grid {
+  gap: 0 !important;
+}
+
+.accounting-cashflow-row {
+  gap: 0 !important;
+}
+
+.accounting-cashflow-cell {
+  opacity: 0.55 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+/* ========================================
+   MONTHLY & EXPENSE CHARTS - COMPACT HEIGHT
+======================================== */
+
+.accounting-monthly-card,
+.accounting-expense-breakdown-card {
+  min-height: 0 !important;
+  height: 440px !important;
+  padding-bottom: 18px !important;
+}
+
+/* Monthly overview chart area */
+.accounting-monthly-card .accounting-horizontal-chart {
+  max-height: 220px !important;
+  overflow: hidden !important;
+}
+
+/* Expense rings */
+.accounting-expense-breakdown-card .accounting-expense-rings {
+  margin-top: 28px !important;
+  gap: 12px !important;
+}
+
+/* Ring size reduction */
+.accounting-expense-breakdown-card .accounting-expense-ring {
+  width: 150px !important;
+  height: 150px !important;
+}
+
+/* Keep chart content compact */
+.accounting-monthly-card .accounting-chart-demo-label,
+.accounting-expense-breakdown-card .accounting-chart-demo-label {
+  margin-top: 12px !important;
+}
+/* ========================================
+   ACCOUNTING FOOTER
+======================================== */
+
+.accounting-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 0;
+  font-size: 11px !important;
+  color: #647067;
+  box-sizing: border-box;
+}
+
+.accounting-footer span {
+  font-size: 11px !important;
+  line-height: 1.4;
+}
+/* =========================================
+   ACCOUNTING PAGE — POPPINS FONT
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.accounting-layout,
+.accounting-layout *,
+.accounting-layout *::before,
+.accounting-layout *::after {
+  font-family: 'Poppins', sans-serif !important;
+}

@@ -1,0 +1,547 @@
+
+/* ============================================
+   TOP 7 PRODUCTS SOLD
+   FOREST GREEN + MUSTARD + CREAM
+============================================ */
+
+.top7-products-card {
+  --sales-forest: #174638;
+  --sales-gold: #C49A5A;
+  --sales-text: #123E32;
+  --sales-muted: #748078;
+  --sales-border: rgba(35, 65, 48, 0.10);
+
+  width: 100%;
+  min-width: 0;
+  padding: 22px 22px 18px;
+
+  background: linear-gradient(
+    145deg,
+    #FFFCF6 0%,
+    #F5F0E5 100%
+  );
+
+  border: 1px solid var(--sales-border);
+  border-radius: 24px;
+
+  box-shadow:
+    0 8px 24px rgba(28, 49, 37, 0.04);
+
+  overflow: hidden;
+}
+
+
+/* ============================================
+   HEADER
+============================================ */
+
+.top7-products-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.top7-products-heading {
+  min-width: 0;
+}
+
+.top7-products-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #758E7C;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.top7-products-heading h2 {
+  margin: 0;
+
+  color: var(--sales-text);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.top7-products-heading p {
+  margin: 8px 0 0;
+
+  color: var(--sales-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* ============================================
+   TOTAL SOLD
+============================================ */
+
+.top7-products-total {
+  min-width: 108px;
+  padding: 13px 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+
+  background: #F3EFE4;
+  border: 1px solid rgba(35, 65, 48, 0.09);
+  border-radius: 17px;
+}
+
+.top7-products-total span {
+  color: var(--sales-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.top7-products-total strong {
+  color: var(--sales-text);
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+
+/* ============================================
+   CHART
+============================================ */
+
+.top7-products-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+
+  margin-top: 30px;
+  padding: 5px 0 5px;
+}
+
+
+/* ============================================
+   PRODUCT ROW
+============================================ */
+
+.top7-product-row {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  width: 100%;
+}
+
+
+/* ============================================
+   PRODUCT LABEL
+============================================ */
+
+.top7-product-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top7-product-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+
+  background: #E9EEE8;
+  border-radius: 9px;
+
+  color: #64806E;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.top7-product-title {
+  color: var(--sales-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* ============================================
+   BAR AREA
+============================================ */
+
+.top7-product-bar-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding-left: 37px;
+  min-width: 0;
+}
+
+
+/* ============================================
+   TRACK
+============================================ */
+
+.top7-product-track {
+  flex: 1;
+  min-width: 0;
+  height: 12px;
+
+  background: #E6E6DD;
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+
+/* ============================================
+   BAR
+============================================ */
+
+.top7-product-bar {
+  height: 100%;
+  min-width: 3px;
+
+  border-radius: 20px;
+
+  transition:
+    width 0.5s ease,
+    opacity 0.3s ease;
+}
+
+
+/* ============================================
+   VALUE
+============================================ */
+
+.top7-product-value {
+  width: 38px;
+  flex-shrink: 0;
+
+  color: var(--sales-text);
+  font-size: 13px;
+  font-weight: 800;
+
+  text-align: right;
+}
+
+
+/* ============================================
+   FOOTER
+============================================ */
+
+.top7-products-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 23px;
+  padding-top: 14px;
+
+  border-top: 1px solid var(--sales-border);
+}
+
+.top7-products-footer-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+
+  background: var(--sales-gold);
+  border-radius: 50%;
+}
+
+.top7-products-footer span {
+  color: var(--sales-muted);
+  font-size: 11px;
+}
+
+
+/* ============================================
+   EMPTY STATE
+============================================ */
+
+.top7-products-empty {
+  padding: 55px 20px;
+  text-align: center;
+}
+
+.top7-products-empty h3 {
+  margin: 0 0 8px;
+  color: var(--sales-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.top7-products-empty p {
+  margin: 0;
+  color: var(--sales-muted);
+  font-size: 13px;
+}
+
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 700px) {
+
+  .top7-products-card {
+    padding: 17px;
+    border-radius: 19px;
+  }
+
+  .top7-products-heading h2 {
+    font-size: 18px;
+  }
+
+  .top7-products-total {
+    min-width: 85px;
+    padding: 11px;
+  }
+
+  .top7-products-total strong {
+    font-size: 23px;
+  }
+
+  .top7-products-chart {
+    gap: 17px;
+    margin-top: 24px;
+  }
+
+  .top7-product-track {
+    height: 10px;
+  }
+
+  .top7-product-bar-area {
+    padding-left: 32px;
+  }
+
+  .top7-product-title {
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  .top7-products-header {
+    gap: 10px;
+  }
+
+  .top7-products-heading h2 {
+    font-size: 16px;
+  }
+
+  .top7-products-heading p {
+    font-size: 11px;
+  }
+
+  .top7-products-total {
+    min-width: 72px;
+  }
+
+  .top7-products-total strong {
+    font-size: 20px;
+  }
+
+}
+/* ==========================================
+   3D BEVELED SALES BARS — OVERRIDE
+========================================== */
+
+.top7-product-track {
+  height: 16px !important;
+  background: #E5E3D9 !important;
+  border-radius: 3px !important;
+  overflow: visible !important;
+  position: relative;
+  box-shadow:
+    inset 0 2px 3px rgba(30, 45, 35, 0.12);
+}
+
+.top7-product-bar {
+  position: relative;
+  height: 100% !important;
+  border-radius: 3px !important;
+
+  box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.32),
+    inset 0 -3px 3px rgba(0, 0, 0, 0.22),
+    0 3px 5px rgba(23, 70, 56, 0.15);
+
+  transform: translateY(-1px);
+}
+
+/* TOP EDGE */
+.top7-product-bar::before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3px;
+
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 3px 3px 0 0;
+}
+
+/* LOWER BEVEL */
+.top7-product-bar::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 3px;
+
+  background: rgba(18, 48, 37, 0.32);
+  border-radius: 0 0 3px 3px;
+}
+
+/* DARKER SIDE DEPTH */
+.top7-product-row {
+  gap: 10px !important;
+}
+
+.top7-product-value {
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+/* HOVER */
+.top7-product-row:hover .top7-product-bar {
+  filter: brightness(1.07);
+  transform: translateY(-2px);
+  transition: 0.25s ease;
+}
+
+.top7-product-track {
+  margin-bottom: 3px;
+}
+/* ==========================================
+   TOP 7 PRODUCTS — RIGHT HALF LAYOUT
+========================================== */
+
+.top7-products-card {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 18px 18px 15px;
+}
+
+/* Compact header */
+.top7-products-heading h2 {
+  font-size: 18px;
+}
+
+.top7-products-heading p {
+  font-size: 12px;
+}
+
+.top7-products-eyebrow {
+  font-size: 10px;
+}
+
+/* Compact total */
+.top7-products-total {
+  min-width: 88px;
+  padding: 10px 12px;
+}
+
+.top7-products-total strong {
+  font-size: 23px;
+}
+
+/* Reduce graph vertical spacing */
+.top7-products-chart {
+  gap: 13px;
+  margin-top: 22px;
+}
+
+/* Product labels */
+.top7-product-rank {
+  width: 23px;
+  height: 23px;
+  font-size: 9px;
+}
+
+.top7-product-title {
+  font-size: 12px;
+}
+
+/* Smaller bars */
+.top7-product-track {
+  height: 12px !important;
+}
+
+/* Compact row */
+.top7-product-row {
+  gap: 7px !important;
+}
+
+/* Value */
+.top7-product-value {
+  font-size: 11px !important;
+  width: 30px;
+}
+
+/* Footer */
+.top7-products-footer {
+  margin-top: 17px;
+  padding-top: 11px;
+}
+
+.top7-products-footer span {
+  font-size: 10px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+  .top7-products-card {
+    padding: 16px;
+  }
+
+  .top7-products-chart {
+    gap: 11px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .top7-products-card {
+    padding: 14px;
+  }
+
+  .top7-products-header {
+    gap: 8px;
+  }
+
+  .top7-products-heading h2 {
+    font-size: 16px;
+  }
+
+}
+/* =========================================
+   TOP 7 PRODUCTS — POPPINS FONT
+   Preserve existing sizes and layout
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.top7-products-card,
+.top7-products-card *,
+.top7-products-card *::before,
+.top7-products-card *::after {
+  font-family: 'Poppins', sans-serif !important;
+}

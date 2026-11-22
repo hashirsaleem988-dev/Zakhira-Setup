@@ -1,0 +1,931 @@
+
+/* =========================================
+   REVENUE BY CATEGORY
+   HORIZONTAL 3D ANALYTICS
+========================================= */
+
+.revenue-category-card {
+  --rev-green: #174638;
+  --rev-green-dark: #0d3328;
+  --rev-green-light: #527966;
+
+  --rev-gold: #c49a5a;
+  --rev-gold-dark: #8d6837;
+  --rev-gold-light: #e3c99b;
+
+  --rev-cream: #f8f5ed;
+  --rev-track: #e7e5dc;
+  --rev-text: #174638;
+
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  padding: 18px 22px;
+
+  border: 1px solid rgba(23, 70, 56, 0.10);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf8 0%,
+      #f8f5ed 100%
+    );
+
+  box-shadow:
+    0 8px 24px rgba(23, 70, 56, 0.045);
+
+  overflow: hidden;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.revenue-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.revenue-category-eyebrow {
+  display: block;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  color: #789184;
+}
+
+.revenue-category-header h2 {
+  margin: 8px 0 6px;
+
+  font-size: 23px;
+  line-height: 1.3;
+
+  font-weight: 800;
+
+  color: var(--rev-text);
+}
+
+.revenue-category-header p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #687d77;
+}
+
+/* =========================================
+   TOTAL BOX
+========================================= */
+
+.revenue-category-total {
+  flex-shrink: 0;
+
+  width: 138px;
+  min-width: 138px;
+
+  height: 76px;
+
+  padding: 12px 14px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  gap: 5px;
+
+  border: 1px solid rgba(23, 70, 56, 0.10);
+  border-radius: 20px;
+
+  background: #f1eee5;
+}
+
+.revenue-category-total span {
+  font-size: 11px;
+  line-height: 1.3;
+
+  color: #71817a;
+}
+
+.revenue-category-total strong {
+  font-size: 28px;
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  color: var(--rev-green);
+}
+
+/* =========================================
+   GRAPH
+========================================= */
+
+.revenue-category-chart {
+  display: flex;
+  flex-direction: column;
+
+  gap: 22px;
+
+  width: 100%;
+}
+
+/* =========================================
+   ROW
+========================================= */
+
+.revenue-category-row {
+  display: grid;
+
+  grid-template-columns: 140px minmax(0, 1fr) 90px;
+
+  align-items: center;
+
+  gap: 14px;
+
+  min-width: 0;
+}
+
+/* =========================================
+   LABEL
+========================================= */
+
+.revenue-category-label {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.revenue-category-index {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #e8eee7;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  color: #547866;
+}
+
+.revenue-category-name {
+  font-size: 13px;
+  font-weight: 700;
+
+  color: var(--rev-text);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================
+   BAR TRACK
+========================================= */
+
+.revenue-category-bar-area {
+  min-width: 0;
+}
+
+.revenue-category-track {
+  position: relative;
+
+  width: 100%;
+  height: 18px;
+
+  border-radius: 5px;
+
+  background: var(--rev-track);
+
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.07),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.5);
+
+  overflow: visible;
+}
+
+/* =========================================
+   3D BAR
+========================================= */
+
+.revenue-category-bar {
+  position: relative;
+
+  height: 18px;
+
+  border-radius: 4px 3px 3px 4px;
+
+  transition:
+    width 0.6s ease,
+    transform 0.25s ease;
+
+  transform: translateY(-1px);
+
+  overflow: visible;
+}
+
+/* GREEN */
+
+.revenue-category-bar.green {
+  background:
+    linear-gradient(
+      180deg,
+      #315c49 0%,
+      #174638 50%,
+      #10382d 100%
+    );
+
+  box-shadow:
+    0 4px 0 #09271f,
+    0 6px 8px rgba(13, 51, 40, 0.18);
+}
+
+/* GOLD */
+
+.revenue-category-bar.gold {
+  background:
+    linear-gradient(
+      180deg,
+      #dfc18c 0%,
+      #c49a5a 50%,
+      #a17b45 100%
+    );
+
+  box-shadow:
+    0 4px 0 #705329,
+    0 6px 8px rgba(141, 104, 55, 0.18);
+}
+
+/* FRONT LIGHT EDGE */
+
+.revenue-category-bar-face {
+  position: absolute;
+
+  left: 0;
+  top: 2px;
+
+  width: 100%;
+  height: 3px;
+
+  border-radius: 4px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  pointer-events: none;
+}
+
+/* RIGHT SIDE EDGE */
+
+.revenue-category-bar-side {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.16);
+
+  border-radius: 0 3px 3px 0;
+}
+
+/* =========================================
+   VALUES
+========================================= */
+
+.revenue-category-value {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  gap: 2px;
+
+  white-space: nowrap;
+}
+
+.revenue-category-value strong {
+  font-size: 13px;
+  font-weight: 800;
+
+  color: var(--rev-green);
+}
+
+.revenue-category-value span {
+  font-size: 10px;
+  font-weight: 600;
+
+  color: #819187;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.revenue-category-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  margin-top: 26px;
+  padding-top: 14px;
+
+  border-top: 1px solid rgba(23, 70, 56, 0.08);
+}
+
+.revenue-category-legend {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  color: #74847c;
+}
+
+.revenue-category-legend-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+}
+
+.revenue-category-legend-dot.green {
+  background: var(--rev-green);
+}
+
+.revenue-category-legend-dot.gold {
+  background: var(--rev-gold);
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.revenue-category-empty {
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.revenue-category-empty h3 {
+  margin: 0 0 8px;
+
+  font-size: 15px;
+
+  color: var(--rev-green);
+}
+
+.revenue-category-empty p {
+  margin: 0;
+
+  font-size: 12px;
+
+  color: #71817a;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .revenue-category-row {
+    grid-template-columns: 120px minmax(0, 1fr) 75px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .revenue-category-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .revenue-category-header {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .revenue-category-header h2 {
+    font-size: 20px;
+  }
+
+  .revenue-category-total {
+    width: 110px;
+    min-width: 110px;
+    height: 70px;
+  }
+
+  .revenue-category-total strong {
+    font-size: 24px;
+  }
+
+  .revenue-category-row {
+    grid-template-columns: 105px minmax(0, 1fr) 65px;
+    gap: 8px;
+  }
+
+  .revenue-category-name {
+    font-size: 11px;
+  }
+
+  .revenue-category-index {
+    width: 26px;
+    height: 26px;
+  }
+
+  .revenue-category-value strong {
+    font-size: 11px;
+  }
+
+  .revenue-category-chart {
+    gap: 18px;
+  }
+
+  .revenue-category-footer {
+    gap: 12px;
+  }
+}
+/* =========================================
+   REVENUE CATEGORY — COMPACT SIZING
+========================================= */
+
+.revenue-category-card {
+  padding: 16px;
+  border-radius: 22px;
+}
+
+/* Header */
+.revenue-category-header {
+  margin-bottom: 20px;
+  gap: 14px;
+}
+
+.revenue-category-eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.6px;
+}
+
+.revenue-category-header h2 {
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 8px 0 6px;
+}
+
+.revenue-category-header p {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Total box */
+.revenue-category-total {
+  width: 130px;
+  min-width: 130px;
+  height: 100px;
+  padding: 14px;
+  border-radius: 22px;
+}
+
+.revenue-category-total span {
+  font-size: 12px;
+}
+
+.revenue-category-total strong {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+/* Graph spacing */
+.revenue-category-chart {
+  gap: 20px;
+}
+
+/* Graph rows */
+.revenue-category-row {
+  grid-template-columns: 125px minmax(0, 1fr) 75px;
+  gap: 12px;
+}
+
+/* Category label */
+.revenue-category-index {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  font-size: 10px;
+}
+
+.revenue-category-name {
+  font-size: 12px;
+}
+
+/* Bars */
+.revenue-category-track,
+.revenue-category-bar {
+  height: 16px;
+}
+
+/* Values */
+.revenue-category-value strong {
+  font-size: 13px;
+}
+
+.revenue-category-value span {
+  font-size: 10px;
+}
+
+/* Footer */
+.revenue-category-footer {
+  margin-top: 22px;
+  padding-top: 12px;
+  gap: 16px;
+}
+
+.revenue-category-legend {
+  font-size: 10px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .revenue-category-row {
+    grid-template-columns: 115px minmax(0, 1fr) 70px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .revenue-category-card {
+    padding: 14px;
+  }
+
+  .revenue-category-header {
+    gap: 10px;
+  }
+
+  .revenue-category-header h2 {
+    font-size: 20px;
+  }
+
+  .revenue-category-total {
+    width: 105px;
+    min-width: 105px;
+    height: 90px;
+    padding: 12px;
+  }
+
+  .revenue-category-total strong {
+    font-size: 24px;
+  }
+
+  .revenue-category-row {
+    grid-template-columns: 100px minmax(0, 1fr) 60px;
+    gap: 8px;
+  }
+
+  .revenue-category-name {
+    font-size: 11px;
+  }
+
+  .revenue-category-chart {
+    gap: 16px;
+  }
+}
+/* =========================================
+   REVENUE TOTAL BOX — SIZE FIX
+========================================= */
+
+.revenue-category-total {
+  width: 110px !important;
+  min-width: 110px !important;
+  height: 76px !important;
+  min-height: 76px !important;
+
+  padding: 14px 16px !important;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  gap: 6px;
+
+  border-radius: 22px;
+  box-sizing: border-box;
+}
+
+.revenue-category-total span {
+  font-size: 11px !important;
+  line-height: 1.4;
+}
+
+.revenue-category-total strong {
+  font-size: 18px !important;
+  line-height: 1.2 !important;
+  margin: 0;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .revenue-category-total {
+    width: 105px !important;
+    min-width: 105px !important;
+    height: 90px !important;
+    min-height: 90px !important;
+  }
+
+  .revenue-category-total strong {
+    font-size: 24px !important;
+  }
+}
+/* =========================================
+   REVENUE BY CATEGORY — FINAL COMPACT DESIGN
+========================================= */
+
+/* POPPINS */
+.revenue-category-card,
+.revenue-category-card *,
+.revenue-category-card *::before,
+.revenue-category-card *::after {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* MAIN CARD */
+.revenue-category-card {
+  padding: 14px !important;
+  border-radius: 18px !important;
+}
+
+/* HEADER */
+.revenue-category-header {
+  margin-bottom: 16px !important;
+  gap: 12px !important;
+}
+
+.revenue-category-eyebrow {
+  font-size: 9px !important;
+  letter-spacing: 1.2px !important;
+}
+
+.revenue-category-header h2 {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  margin: 5px 0 4px !important;
+  font-weight: 700 !important;
+}
+
+.revenue-category-header p {
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+/* TOTAL BOX */
+.revenue-category-total {
+  width: 108px !important;
+  min-width: 108px !important;
+  height: 68px !important;
+  min-height: 68px !important;
+
+  padding: 10px 12px !important;
+  gap: 4px !important;
+
+  border-radius: 15px !important;
+}
+
+.revenue-category-total span {
+  font-size: 9px !important;
+  line-height: 1.4 !important;
+}
+
+.revenue-category-total strong {
+  font-size: 16px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+}
+
+/* CHART */
+.revenue-category-chart {
+  gap: 16px !important;
+}
+
+/* ROW */
+.revenue-category-row {
+  grid-template-columns: 115px minmax(0, 1fr) 75px !important;
+  gap: 10px !important;
+}
+
+/* CATEGORY LABEL */
+.revenue-category-label {
+  gap: 8px !important;
+}
+
+.revenue-category-index {
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 8px !important;
+  font-size: 9px !important;
+}
+
+.revenue-category-name {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+/* BAR TRACK */
+.revenue-category-track {
+  height: 13px !important;
+  border-radius: 4px !important;
+}
+
+/* BAR */
+.revenue-category-bar {
+  height: 13px !important;
+  border-radius: 3px !important;
+}
+
+/* BAR FACE */
+.revenue-category-bar-face {
+  height: 2px !important;
+}
+
+/* BAR SIDE */
+.revenue-category-bar-side {
+  width: 2px !important;
+}
+
+/* VALUES */
+.revenue-category-value {
+  gap: 2px !important;
+}
+
+.revenue-category-value strong {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+}
+
+.revenue-category-value span {
+  font-size: 8px !important;
+  line-height: 1.4 !important;
+  font-weight: 500 !important;
+}
+
+/* FOOTER */
+.revenue-category-footer {
+  margin-top: 18px !important;
+  padding-top: 11px !important;
+  gap: 12px !important;
+}
+
+.revenue-category-legend {
+  font-size: 9px !important;
+  gap: 6px !important;
+}
+
+.revenue-category-legend-dot {
+  width: 7px !important;
+  height: 7px !important;
+}
+
+/* EMPTY STATE */
+.revenue-category-empty {
+  min-height: 140px !important;
+}
+
+.revenue-category-empty h3 {
+  font-size: 13px !important;
+}
+
+.revenue-category-empty p {
+  font-size: 10px !important;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .revenue-category-row {
+    grid-template-columns: 105px minmax(0, 1fr) 70px !important;
+    gap: 9px !important;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .revenue-category-card {
+    padding: 12px !important;
+    border-radius: 16px !important;
+  }
+
+  .revenue-category-header {
+    gap: 8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .revenue-category-header h2 {
+    font-size: 15px !important;
+  }
+
+  .revenue-category-header p {
+    font-size: 9px !important;
+  }
+
+  .revenue-category-total {
+    width: 100px !important;
+    min-width: 100px !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 9px 10px !important;
+  }
+
+  .revenue-category-total strong {
+    font-size: 15px !important;
+  }
+
+  .revenue-category-row {
+    grid-template-columns: 95px minmax(0, 1fr) 60px !important;
+    gap: 7px !important;
+  }
+
+  .revenue-category-index {
+    width: 23px !important;
+    height: 23px !important;
+    font-size: 8px !important;
+  }
+
+  .revenue-category-name {
+    font-size: 9px !important;
+  }
+
+  .revenue-category-track,
+  .revenue-category-bar {
+    height: 11px !important;
+  }
+
+  .revenue-category-value strong {
+    font-size: 9px !important;
+  }
+
+  .revenue-category-value span {
+    font-size: 7px !important;
+  }
+
+  .revenue-category-chart {
+    gap: 14px !important;
+  }
+
+  .revenue-category-footer {
+    margin-top: 15px !important;
+    padding-top: 10px !important;
+    gap: 10px !important;
+  }
+
+  .revenue-category-legend {
+    font-size: 8px !important;
+  }
+}
+/* REVENUE BY CATEGORY — POPPINS */
+
+.revenue-category-card,
+.revenue-category-card * {
+  font-family: 'Poppins', sans-serif !important;
+}

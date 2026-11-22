@@ -1,0 +1,297 @@
+
+/* ========================================
+   CATEGORY PRODUCT — COMPACT ANALYTICS
+======================================== */
+
+.category-product-card {
+  width: calc(50% - 7px);
+  max-width: calc(50% - 7px);
+  min-width: 0;
+  height: auto;
+  min-height: unset;
+
+  padding: 16px;
+  margin: 0;
+
+  box-sizing: border-box;
+  align-self: start;
+
+  background: linear-gradient(
+    145deg,
+    #FFFCF6,
+    #F5F1E8
+  );
+
+  border: 1px solid rgba(23, 70, 56, 0.10);
+  border-radius: 18px;
+
+  box-shadow:
+    0 3px 14px rgba(20, 45, 35, 0.035);
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.category-product-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.category-product-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #728C79;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.category-product-heading h2 {
+  margin: 0;
+
+  color: #123C32;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.category-product-heading p {
+  margin: 5px 0 0;
+
+  color: #738078;
+  font-size: 11px;
+}
+
+/* TOTAL */
+
+.category-product-total {
+  min-width: 78px;
+
+  padding: 9px 10px;
+  text-align: right;
+
+  background: #F2EEE4;
+  border: 1px solid rgba(23, 70, 56, 0.09);
+  border-radius: 12px;
+}
+
+.category-product-total span {
+  display: block;
+
+  color: #718078;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.category-product-total strong {
+  display: block;
+  margin-top: 4px;
+
+  color: #123C32;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* ========================================
+   CATEGORY GRID
+======================================== */
+
+.category-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+  width: 100%;
+}
+
+/* ========================================
+   CATEGORY CARD
+======================================== */
+
+.category-progress-item {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 14px 10px 12px;
+
+  text-align: center;
+
+  background: #FFFCF7;
+  border: 1px solid rgba(23, 70, 56, 0.08);
+  border-radius: 14px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.category-progress-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(23, 70, 56, 0.05);
+}
+
+/* ========================================
+   DONUT
+======================================== */
+
+.category-progress-ring {
+  position: relative;
+
+  width: 112px;
+  height: 112px;
+
+  flex-shrink: 0;
+}
+
+.category-progress-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.category-progress-circle {
+  transition:
+    stroke-dasharray 0.7s ease,
+    stroke 0.3s ease;
+}
+
+/* CENTER */
+
+.category-progress-center {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+
+  pointer-events: none;
+}
+
+.category-progress-center strong {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.category-progress-center span {
+  margin-top: -9px;
+
+  color: #7B8179;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ========================================
+   CATEGORY INFO
+======================================== */
+
+.category-progress-info {
+  width: 100%;
+  margin-top: 9px;
+}
+
+.category-progress-info h3 {
+  margin: 0;
+
+  color: #123C32;
+  font-size: 12px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.category-progress-info p {
+  margin: 4px 0 0;
+
+  color: #7A817A;
+  font-size: 10px;
+}
+
+/* ========================================
+   LEGEND
+======================================== */
+
+.category-progress-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  width: 100%;
+  margin-top: 11px;
+  padding-top: 9px;
+
+  border-top: 1px solid rgba(23, 70, 56, 0.07);
+}
+
+.category-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #68756C;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.category-legend-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.category-legend-muted {
+  background: #D7D9D2;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .category-product-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .category-progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-progress-ring {
+    width: 120px;
+    height: 120px;
+  }
+
+}
+/* ========================================
+   CATEGORY PRODUCT — POPPINS FONT
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.category-product-card,
+.category-product-card *,
+.category-product-card *::before,
+.category-product-card *::after {
+  font-family: 'Poppins', sans-serif !important;
+}

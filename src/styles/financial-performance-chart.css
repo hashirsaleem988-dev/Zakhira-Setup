@@ -1,0 +1,404 @@
+
+/* ============================================
+   FINANCIAL PERFORMANCE CHART
+============================================ */
+
+.financial-performance-card {
+  --chart-forest: #245848;
+  --chart-forest-dark: #153d32;
+  --chart-olive: #849277;
+  --chart-olive-dark: #626f54;
+  --chart-gold: #c49a5a;
+  --chart-gold-dark: #a77e45;
+  --chart-bg: #f6f2e9;
+  --chart-grid: rgba(50, 70, 60, 0.12);
+  --chart-text: #64746c;
+
+  width: 100%;
+  min-width: 0;
+  padding: 26px 24px 24px;
+  border: 1px solid rgba(45, 75, 60, 0.16);
+  border-radius: 22px;
+  background: var(--chart-bg);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Header */
+
+.financial-performance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.financial-performance-header h3 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 750;
+  color: #123c32;
+}
+
+.financial-performance-header p {
+  margin: 9px 0 0;
+  font-size: 14px;
+  color: #68776f;
+}
+
+.financial-chart-info {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(100, 120, 90, 0.3);
+  background: transparent;
+  color: #748363;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.financial-chart-info span {
+  font-size: 17px;
+  font-weight: 600;
+  font-family: serif;
+}
+
+/* Legend */
+
+.financial-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  margin: 32px 0 22px;
+}
+
+.financial-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #718078;
+}
+
+.financial-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.revenue-dot {
+  background: #315f4e;
+}
+
+.profit-dot {
+  background: #849277;
+}
+
+.expense-dot {
+  background: #c49a5a;
+}
+
+/* Chart layout */
+
+.financial-chart-wrapper {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  height: 390px;
+  min-width: 0;
+}
+
+.financial-chart-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 12px;
+  padding-bottom: 34px;
+}
+
+.financial-y-label {
+  font-size: 13px;
+  color: #728078;
+  line-height: 1;
+}
+
+/* Plot */
+
+.financial-chart-plot {
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.financial-chart-grid {
+  position: absolute;
+  inset: 0 0 34px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.financial-grid-line {
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--chart-grid);
+}
+
+/* Month groups */
+
+.financial-chart-months {
+  position: absolute;
+  inset: 0 0 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.financial-month-group {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.financial-month-bars {
+  width: 100%;
+  max-width: 90px;
+  height: calc(100% - 34px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+/* Bars */
+
+.financial-bar {
+  position: relative;
+  flex: 1;
+  max-width: 35px;
+  min-width: 8px;
+  border-radius: 0;
+  transform: none;
+  transition: none;
+  box-sizing: border-box;
+}
+
+/* Revenue */
+
+.revenue-bar {
+  background: linear-gradient(
+    90deg,
+    #245848 0%,
+    #1e4c3e 70%,
+    #153d32 100%
+  );
+}
+
+.revenue-bar::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: #376d58;
+  clip-path: polygon(0 100%, 16% 0, 100% 0, 84% 100%);
+}
+
+.revenue-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 6px;
+  height: 100%;
+  background: #143c30;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Profit */
+
+.profit-bar {
+  background: linear-gradient(
+    90deg,
+    #849277 0%,
+    #76856a 70%,
+    #626f54 100%
+  );
+}
+
+.profit-bar::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: #9aa58b;
+  clip-path: polygon(0 100%, 16% 0, 100% 0, 84% 100%);
+}
+
+.profit-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 6px;
+  height: 100%;
+  background: #5d6b50;
+}
+
+/* Expense */
+
+.expense-bar {
+  background: linear-gradient(
+    90deg,
+    #c49a5a 0%,
+    #b38a4f 70%,
+    #a77e45 100%
+  );
+}
+
+.expense-bar::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: #d2ad77;
+  clip-path: polygon(0 100%, 16% 0, 100% 0, 84% 100%);
+}
+
+.expense-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 6px;
+  height: 100%;
+  background: #9c7541;
+}
+
+/* Month label */
+
+.financial-month-label {
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #687a72;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 768px) {
+  .financial-performance-card {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .financial-performance-header h3 {
+    font-size: 18px;
+  }
+
+  .financial-chart-legend {
+    gap: 16px;
+    margin: 26px 0 20px;
+  }
+
+  .financial-chart-wrapper {
+    grid-template-columns: 48px minmax(0, 1fr);
+    height: 310px;
+  }
+
+  .financial-month-bars {
+    gap: 3px;
+  }
+
+  .financial-bar {
+    max-width: 24px;
+  }
+
+  .financial-bar::after {
+    width: 4px;
+    right: -4px;
+  }
+
+  .financial-bar::before {
+    height: 5px;
+    top: -5px;
+  }
+
+  .financial-month-label,
+  .financial-y-label {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .financial-performance-card {
+    padding: 18px 12px;
+  }
+
+  .financial-chart-wrapper {
+    grid-template-columns: 40px minmax(0, 1fr);
+    height: 270px;
+  }
+
+  .financial-chart-legend {
+    gap: 12px;
+  }
+
+  .financial-legend-item {
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .financial-legend-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .financial-month-bars {
+    gap: 2px;
+  }
+}
+
+/* Motion stability */
+
+@media (prefers-reduced-motion: reduce) {
+  .financial-performance-card *,
+  .financial-performance-card *::before,
+  .financial-performance-card *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* ============================================
+   FINANCIAL PERFORMANCE — POPPINS FONT
+============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.financial-performance-card,
+.financial-performance-card *,
+.financial-performance-card *::before,
+.financial-performance-card *::after {
+  font-family: 'Poppins', sans-serif !important;
+}

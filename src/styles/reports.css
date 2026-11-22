@@ -1,0 +1,2008 @@
+
+/* ========================================
+   ZAKHIRA REPORTS MODULE
+   Accounting-Matched Design System
+   Forest | Ivory | Olive | Brass
+======================================== */
+
+.reports-layout {
+  --report-forest: #123C32;
+  --report-forest-dark: #0B2C25;
+  --report-forest-light: #315C49;
+  --report-olive: #66745A;
+  --report-olive-light: #829477;
+  --report-ivory: #F7F3EA;
+  --report-cream: #FDF3E8;
+  --report-brass: #C49A5A;
+  --report-text: #26352F;
+  --report-muted: #58645B;
+  --report-border: rgba(18, 60, 50, 0.15);
+
+  color: var(--report-text);
+
+  background:
+    radial-gradient(
+      ellipse at 85% 10%,
+      rgba(130, 148, 119, 0.16),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 15% 90%,
+      rgba(196, 154, 90, 0.10),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #F7F3EA 0%,
+      #EEEAE0 55%,
+      #E9E6DC 100%
+    );
+}
+
+.reports-layout,
+.reports-layout * {
+  box-sizing: border-box;
+}
+
+.reports-layout button,
+.reports-layout input,
+.reports-layout select {
+  font-family: inherit;
+}
+
+.reports-layout button {
+  cursor: pointer;
+}
+
+/* ========================================
+   PAGE CONTENT
+======================================== */
+
+.reports-page-content {
+  width: 100%;
+  min-width: 0;
+  padding: 20px 25px 35px;
+  color: var(--report-text);
+}
+
+/* ========================================
+   REPORT HERO
+======================================== */
+
+.reports-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 22px 26px;
+  margin-bottom: 20px;
+
+  color: var(--report-ivory);
+  background: linear-gradient(
+    115deg,
+    var(--report-forest-dark),
+    var(--report-forest),
+    var(--report-forest-light)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 28px rgba(18, 60, 50, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.reports-hero-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFF9EC;
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #80602F
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+
+  box-shadow:
+    0 7px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+.reports-hero-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.reports-hero-info > span {
+  color: #D8BD8C;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.reports-hero h1 {
+  margin: 4px 0;
+  color: #FFFDF7;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.reports-hero p {
+  margin: 0;
+  color: #D9E3DC;
+  font-size: 12px;
+}
+
+.reports-count {
+  padding: 9px 15px;
+
+  color: #E4BD7D;
+  background: rgba(201, 155, 85, 0.18);
+
+  border: 1px solid rgba(201, 155, 85, 0.15);
+  border-radius: 30px;
+
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ========================================
+   COMMON PANELS
+======================================== */
+
+.reports-panel,
+.reports-date-filter,
+.reports-summary-card,
+.weekly-report-card {
+  color: var(--report-text);
+
+  background: linear-gradient(
+    145deg,
+    rgba(253, 243, 232, 0.96),
+    rgba(233, 230, 220, 0.96)
+  );
+
+  border: 1px solid var(--report-border);
+  box-shadow:
+    0 8px 20px rgba(18, 60, 50, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* ========================================
+   AUTO GENERATE PANEL
+======================================== */
+
+.auto-generate-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+}
+
+.auto-generate-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.75);
+  pointer-events: none;
+}
+
+.reports-panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 22px;
+}
+
+.reports-heading-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFF9EC;
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #80602F
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 13px;
+
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.reports-panel-heading > div:nth-child(2) {
+  min-width: 0;
+}
+
+.reports-panel-heading h2 {
+  margin: 0 0 5px;
+  color: var(--report-forest);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.reports-panel-heading p {
+  margin: 0;
+  color: var(--report-muted);
+  font-size: 12px;
+}
+
+/* ========================================
+   AUTO GENERATE TOGGLE
+======================================== */
+
+.reports-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+
+  color: var(--report-olive);
+  font-size: 11px;
+  font-weight: 750;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.reports-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.reports-toggle-track {
+  position: relative;
+  width: 52px;
+  height: 29px;
+  flex-shrink: 0;
+
+  background: #D9DDD5;
+  border: 1px solid rgba(18, 60, 50, 0.08);
+  border-radius: 30px;
+
+  transition: background 0.25s ease;
+}
+
+.reports-toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+
+  width: 21px;
+  height: 21px;
+
+  background: #FFFDF7;
+  border-radius: 50%;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+  transition: transform 0.25s ease;
+}
+
+.reports-toggle input:checked + .reports-toggle-track {
+  background: var(--report-forest);
+}
+
+.reports-toggle input:checked + .reports-toggle-track::after {
+  transform: translateX(23px);
+}
+
+.reports-toggle input:focus-visible + .reports-toggle-track {
+  outline: 3px solid rgba(196, 154, 90, 0.3);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   GENERATOR CONTROLS
+======================================== */
+
+.reports-generator-controls {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.reports-interval-field,
+.reports-unit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.reports-generator-controls label {
+  color: var(--report-olive);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.reports-interval-field input,
+.reports-unit-field select {
+  height: 43px;
+  padding: 0 14px;
+
+  color: var(--report-text);
+  background: rgba(247, 243, 234, 0.85);
+
+  border: 1px solid var(--report-border);
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.reports-interval-field input {
+  width: 115px;
+}
+
+.reports-unit-field select {
+  width: 150px;
+}
+
+.reports-interval-field input:focus,
+.reports-unit-field select:focus {
+  background: #FFFDF7;
+  border-color: var(--report-brass);
+  box-shadow: 0 0 0 3px rgba(196, 154, 90, 0.12);
+}
+
+/* ========================================
+   GENERATOR BUTTONS
+======================================== */
+
+.reports-apply-btn,
+.reports-generate-btn {
+  min-height: 43px;
+  padding: 0 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.reports-apply-btn {
+  color: #FFF9EC;
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #A47B42
+  );
+  border-color: var(--report-brass);
+
+  box-shadow: 0 5px 12px rgba(196, 154, 90, 0.16);
+}
+
+.reports-apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 18px rgba(196, 154, 90, 0.23);
+}
+
+.reports-apply-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reports-generate-btn {
+  color: #FFF9EC;
+  background: var(--report-forest);
+  border-color: var(--report-forest);
+
+  box-shadow: 0 6px 15px rgba(18, 60, 50, 0.14);
+}
+
+.reports-generate-btn:hover {
+  background: var(--report-forest-light);
+  transform: translateY(-2px);
+  box-shadow: 0 9px 19px rgba(18, 60, 50, 0.2);
+}
+
+/* ========================================
+   QUICK PICKS
+======================================== */
+
+.reports-quick-picks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 17px 0;
+}
+
+.reports-quick-picks > span {
+  margin-right: 5px;
+  color: var(--report-olive);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.reports-quick-picks button {
+  min-width: 48px;
+  height: 34px;
+  padding: 0 12px;
+
+  color: var(--report-forest);
+  background: rgba(247, 243, 234, 0.85);
+
+  border: 1px solid var(--report-border);
+  border-radius: 10px;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  transition: all 0.2s ease;
+}
+
+.reports-quick-picks button:hover {
+  color: var(--report-forest);
+  background: rgba(196, 154, 90, 0.14);
+  border-color: rgba(196, 154, 90, 0.5);
+  transform: translateY(-1px);
+}
+
+.reports-quick-picks button.active {
+  color: #FFF9EC;
+  background: var(--report-forest);
+  border-color: var(--report-forest);
+  box-shadow: 0 4px 10px rgba(18, 60, 50, 0.14);
+}
+
+/* ========================================
+   AUTO SAVE
+======================================== */
+
+.reports-auto-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+
+  color: var(--report-forest);
+  background: rgba(130, 148, 119, 0.14);
+
+  border: 1px solid rgba(18, 60, 50, 0.2);
+  border-radius: 10px;
+
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.reports-auto-save svg {
+  color: var(--report-forest);
+}
+
+/* ========================================
+   GENERATION PROGRESS
+======================================== */
+
+.reports-progress-track {
+  height: 6px;
+  margin: 16px 0 11px;
+  overflow: hidden;
+
+  background: rgba(18, 60, 50, 0.09);
+  border-radius: 20px;
+}
+
+.reports-progress-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #C49A5A,
+    #D9B779
+  );
+
+  border-radius: inherit;
+}
+
+.reports-progress-track span.running {
+  width: 100%;
+  animation: report-progress-pulse 2s ease-in-out infinite;
+}
+
+@keyframes report-progress-pulse {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.reports-generator-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  color: var(--report-muted);
+  font-size: 10px;
+}
+
+.reports-generator-footer strong {
+  color: var(--report-forest);
+  font-weight: 800;
+}
+
+/* ========================================
+   SUMMARY CARDS
+======================================== */
+
+.reports-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.reports-summary-card {
+  position: relative;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 15px;
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.reports-summary-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(196, 154, 90, 0.5);
+
+  box-shadow:
+    0 15px 28px rgba(18, 60, 50, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.reports-summary-card > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+
+  color: var(--report-olive);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.45px;
+}
+
+.summary-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.summary-dot.mustard {
+  background: var(--report-brass);
+}
+
+.summary-dot.olive {
+  background: var(--report-olive);
+}
+
+.summary-dot.forest {
+  background: var(--report-forest);
+}
+
+.reports-summary-card strong {
+  display: block;
+  color: var(--report-forest);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   DATE FILTER
+======================================== */
+
+.reports-date-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
+  gap: 14px;
+
+  padding: 17px;
+  margin-bottom: 18px;
+
+  border-radius: 17px;
+}
+
+.reports-date-filter > div {
+  min-width: 0;
+}
+
+.reports-date-filter label {
+  display: block;
+  margin-bottom: 7px;
+
+  color: var(--report-olive);
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.reports-date-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 44px;
+  padding: 0 13px;
+
+  background: rgba(247, 243, 234, 0.85);
+  border: 1px solid var(--report-border);
+  border-radius: 11px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.reports-date-input:focus-within {
+  background: #FFFDF7;
+  border-color: var(--report-brass);
+  box-shadow: 0 0 0 3px rgba(196, 154, 90, 0.12);
+}
+
+.reports-date-input svg {
+  flex-shrink: 0;
+  color: var(--report-olive);
+}
+
+.reports-date-input input {
+  width: 100%;
+  min-width: 0;
+
+  color: var(--report-text);
+  background: transparent;
+
+  border: 0;
+  outline: 0;
+
+  font-family: inherit;
+  font-size: 11px;
+  color-scheme: light;
+}
+
+.reports-result-count {
+  min-width: 58px;
+  height: 44px;
+  padding: 0 11px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--report-olive);
+  background: rgba(130, 148, 119, 0.14);
+
+  border: 1px solid rgba(18, 60, 50, 0.08);
+  border-radius: 11px;
+
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* ========================================
+   WEEKLY REPORT GRID
+======================================== */
+
+.weekly-reports-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* ========================================
+   WEEKLY REPORT CARD
+======================================== */
+
+.weekly-report-card {
+  position: relative;
+  min-width: 0;
+  padding: 18px;
+  overflow: hidden;
+
+  border-color: rgba(196, 154, 90, 0.38);
+  border-radius: 18px;
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.weekly-report-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(196, 154, 90, 0.65);
+
+  box-shadow:
+    0 16px 30px rgba(18, 60, 50, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   REPORT CARD HEADING
+======================================== */
+
+.weekly-report-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.weekly-report-heading > div {
+  min-width: 0;
+}
+
+.weekly-report-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--report-olive);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.weekly-report-label small {
+  padding: 3px 8px;
+
+  color: #A47B42;
+  background: rgba(196, 154, 90, 0.17);
+
+  border-radius: 6px;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.weekly-report-heading h2 {
+  margin: 7px 0 0;
+
+  color: var(--report-forest);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.weekly-report-file-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #FFF9EC;
+  background: linear-gradient(
+    145deg,
+    #D2AC70,
+    #C49A5A,
+    #80602F
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 11px;
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+
+  transition: transform 0.25s ease;
+}
+
+.weekly-report-card:hover .weekly-report-file-icon {
+  transform: translateY(-2px) scale(1.06);
+}
+
+/* ========================================
+   NET PROFIT
+======================================== */
+
+.weekly-profit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 14px;
+  margin-bottom: 13px;
+
+  background: rgba(130, 148, 119, 0.15);
+  border: 1px solid rgba(18, 60, 50, 0.04);
+  border-radius: 13px;
+}
+
+.weekly-profit span {
+  color: var(--report-olive);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.weekly-profit strong {
+  color: var(--report-forest);
+  font-size: 17px;
+  font-weight: 800;
+  text-align: right;
+}
+
+/* ========================================
+   REPORT METRICS
+======================================== */
+
+.weekly-report-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.weekly-report-metrics > div {
+  min-width: 0;
+  padding: 12px;
+
+  background: rgba(247, 243, 234, 0.85);
+  border: 1px solid rgba(18, 60, 50, 0.07);
+  border-radius: 12px;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.weekly-report-metrics > div:hover {
+  transform: translateY(-2px);
+  border-color: rgba(196, 154, 90, 0.45);
+}
+
+.weekly-report-metrics span {
+  display: block;
+  margin-bottom: 6px;
+
+  color: var(--report-olive);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.weekly-report-metrics strong {
+  display: block;
+
+  color: var(--report-text);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.35;
+
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   REPORT CARD FOOTER
+======================================== */
+
+.weekly-report-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+
+  padding-top: 13px;
+  margin-top: 14px;
+
+  border-top: 1px solid rgba(18, 60, 50, 0.1);
+}
+
+.weekly-report-footer > span {
+  min-width: 0;
+  color: var(--report-muted);
+  font-size: 9px;
+}
+
+.weekly-report-footer > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ========================================
+   PRINT BUTTON
+======================================== */
+
+.report-print-btn {
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--report-forest);
+
+  background: linear-gradient(
+    145deg,
+    rgba(253, 243, 232, 0.96),
+    rgba(233, 230, 220, 0.96)
+  );
+
+  border: 1px solid var(--report-border);
+  border-radius: 11px;
+
+  box-shadow:
+    0 5px 12px rgba(18, 60, 50, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  transition: all 0.2s ease;
+}
+
+.report-print-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(196, 154, 90, 0.5);
+  box-shadow: 0 8px 16px rgba(18, 60, 50, 0.1);
+}
+
+/* ========================================
+   DOWNLOAD PDF BUTTON
+======================================== */
+
+.report-download-btn {
+  min-height: 37px;
+  padding: 0 13px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  color: #FFF9EC;
+  background: var(--report-forest);
+  border: 1px solid var(--report-forest);
+  border-radius: 11px;
+
+  font-size: 10px;
+  font-weight: 750;
+  white-space: nowrap;
+
+  box-shadow: 0 5px 12px rgba(18, 60, 50, 0.12);
+
+  transition: all 0.2s ease;
+}
+
+.report-download-btn:hover {
+  background: var(--report-forest-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 17px rgba(18, 60, 50, 0.18);
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.reports-empty-state {
+  grid-column: 1 / -1;
+  min-height: 220px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--report-muted);
+  text-align: center;
+
+  background: linear-gradient(
+    145deg,
+    rgba(253, 243, 232, 0.96),
+    rgba(233, 230, 220, 0.96)
+  );
+
+  border: 1px solid var(--report-border);
+  border-radius: 18px;
+
+  box-shadow: 0 8px 20px rgba(18, 60, 50, 0.06);
+}
+
+.reports-empty-state > svg {
+  margin-bottom: 12px;
+  color: var(--report-brass);
+}
+
+.reports-empty-state h2 {
+  margin: 0;
+  color: var(--report-forest);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.reports-empty-state p {
+  margin: 7px 0 15px;
+  font-size: 11px;
+}
+
+.reports-empty-state button {
+  min-height: 38px;
+  padding: 0 15px;
+
+  color: #FFF9EC;
+  background: var(--report-forest);
+  border: 1px solid var(--report-forest);
+  border-radius: 10px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ========================================
+   RESPONSIVE LAPTOP
+======================================== */
+
+@media (max-width: 1250px) {
+  .weekly-reports-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reports-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+   RESPONSIVE TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .reports-page-content {
+    padding: 17px;
+  }
+
+  .reports-hero {
+    padding: 19px;
+  }
+
+  .weekly-reports-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+   RESPONSIVE MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .reports-page-content {
+    padding: 14px 14px 25px;
+  }
+
+  .reports-hero {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .reports-hero-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+  }
+
+  .reports-hero h1 {
+    font-size: 19px;
+  }
+
+  .reports-hero p {
+    font-size: 10px;
+  }
+
+  .reports-count {
+    margin-left: 55px;
+  }
+
+  .reports-panel-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .reports-toggle {
+    width: 100%;
+    justify-content: flex-end;
+    margin-left: 0;
+  }
+
+  .reports-generator-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reports-interval-field input,
+  .reports-unit-field select {
+    width: 100%;
+  }
+
+  .reports-generator-controls button {
+    width: 100%;
+  }
+
+  .reports-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .reports-summary-card {
+    padding: 13px;
+  }
+
+  .reports-summary-card strong {
+    font-size: 17px;
+  }
+
+  .reports-date-filter {
+    grid-template-columns: 1fr;
+  }
+
+  .reports-result-count {
+    justify-self: start;
+  }
+
+  .weekly-reports-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reports-generator-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+  .reports-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auto-generate-panel {
+    padding: 14px;
+  }
+
+  .reports-panel-heading h2 {
+    font-size: 14px;
+  }
+
+  .reports-quick-picks {
+    gap: 6px;
+  }
+
+  .reports-quick-picks button {
+    min-width: 42px;
+    padding: 0 9px;
+  }
+
+  .weekly-report-card {
+    padding: 14px;
+  }
+
+  .weekly-report-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .weekly-report-footer > div {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .weekly-report-metrics > div {
+    padding: 10px;
+  }
+
+  .weekly-profit strong {
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   PRINT
+======================================== */
+
+@media print {
+  .dashboard-sidebar,
+  .dashboard-topbar,
+  .reports-hero,
+  .auto-generate-panel,
+  .reports-date-filter,
+  .dashboard-footer,
+  .report-print-btn,
+  .report-download-btn {
+    display: none !important;
+  }
+
+  .reports-layout {
+    background: white !important;
+  }
+
+  .reports-page-content {
+    padding: 0;
+  }
+
+  .weekly-reports-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .weekly-report-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .reports-layout *,
+  .reports-layout *::before,
+  .reports-layout *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+/* ONLY TWO CHANNEL DONUTS */
+
+.rb-channel-donut-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 30px;
+  max-width: 620px;
+  margin: 40px auto 0;
+}
+
+.rb-channel-donut-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 420px) {
+  .rb-channel-donut-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .rb-channel-donut {
+    width: 125px;
+    height: 125px;
+  }
+
+  .rb-channel-donut-inner {
+    width: 94px;
+    height: 94px;
+  }
+}
+/* ========================================
+   REPORTS PAGE — COMPACT CONTAINER
+======================================== */
+
+.reports-page-content {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  gap: 16px !important;
+  box-sizing: border-box;
+}
+/* ========================================
+   REPORTS HEADER
+======================================== */
+
+.reports-hero {
+  padding: 18px 22px !important;
+  min-height: 0 !important;
+  gap: 14px !important;
+  border-radius: 14px !important;
+}
+
+.reports-hero-icon {
+  width: 44px !important;
+  height: 44px !important;
+}
+
+.reports-hero-info h1 {
+  font-size: 22px !important;
+  margin: 4px 0 !important;
+}
+
+.reports-hero-info p {
+  font-size: 12px !important;
+  margin: 0 !important;
+}
+
+.reports-hero-info > span {
+  font-size: 10px !important;
+}
+
+.reports-count {
+  font-size: 10px !important;
+  padding: 6px 10px !important;
+}
+/* ========================================
+   REPORTS — AUTO GENERATE PANEL
+======================================== */
+
+.reports-panel.auto-generate-panel {
+  padding: 18px 20px !important;
+  border-radius: 14px !important;
+  gap: 14px !important;
+}
+
+/* Panel heading */
+.reports-panel-heading {
+  gap: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.reports-heading-icon {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+/* Toggle */
+.reports-toggle {
+  transform: scale(0.9);
+  transform-origin: right center;
+}
+
+/* Generator controls */
+.reports-generator-controls {
+  gap: 12px !important;
+  margin-top: 12px !important;
+}
+
+/* Interval field */
+.reports-interval-field,
+.reports-unit-field {
+  gap: 6px !important;
+}
+
+.reports-interval-field input,
+.reports-unit-field select,
+.reports-generator-controls input,
+.reports-generator-controls select {
+  height: 38px !important;
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+}
+
+/* Buttons */
+.reports-apply-btn,
+.reports-generate-btn {
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 0 14px !important;
+  font-size: 12px !important;
+  border-radius: 9px !important;
+}
+
+/* Quick picks */
+.reports-quick-picks {
+  gap: 7px !important;
+  margin-top: 10px !important;
+}
+
+.reports-quick-picks button {
+  padding: 6px 10px !important;
+  font-size: 10px !important;
+  border-radius: 7px !important;
+}
+
+/* Auto-save text */
+.reports-auto-save {
+  font-size: 11px !important;
+  gap: 6px !important;
+}
+
+/* Progress bar */
+.reports-progress-track {
+  height: 5px !important;
+  border-radius: 20px !important;
+}
+
+/* Generator footer */
+.reports-generator-footer {
+  gap: 10px !important;
+  padding-top: 10px !important;
+  font-size: 11px !important;
+}
+/* ========================================
+   REPORTS — SUMMARY CARDS
+======================================== */
+
+.reports-summary-grid {
+  gap: 14px !important;
+  margin-top: 0 !important;
+}
+
+.reports-summary-card {
+  padding: 16px 18px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  border-radius: 12px !important;
+  gap: 10px !important;
+}
+
+/* Card content spacing */
+.reports-summary-card > * {
+  gap: 10px !important;
+}
+
+/* Card headings */
+.reports-summary-card h3,
+.reports-summary-card h4 {
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+/* Main values */
+.reports-summary-card h2,
+.reports-summary-card h1 {
+  font-size: 23px !important;
+  line-height: 1.3 !important;
+  margin: 4px 0 !important;
+}
+
+/* Description and supporting text */
+.reports-summary-card p,
+.reports-summary-card span {
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+/* Icons inside summary cards */
+.reports-summary-card svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Reduce internal whitespace */
+.reports-summary-card {
+  box-sizing: border-box !important;
+}
+/* ========================================
+   REPORTS — DATE FILTER
+======================================== */
+
+.reports-date-filter {
+  padding: 14px 18px !important;
+  gap: 12px !important;
+  border-radius: 12px !important;
+  margin: 0 !important;
+}
+
+/* Date inputs */
+.reports-date-input {
+  height: 38px !important;
+  min-height: 38px !important;
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+  border-radius: 9px !important;
+  box-sizing: border-box !important;
+}
+
+/* Labels inside date filter */
+.reports-date-filter label {
+  font-size: 11px !important;
+  gap: 6px !important;
+}
+
+/* Filter layout spacing */
+.reports-date-filter > * {
+  gap: 8px !important;
+}
+
+/* Result count */
+.reports-result-count {
+  font-size: 11px !important;
+  padding: 7px 10px !important;
+  border-radius: 8px !important;
+  white-space: nowrap !important;
+}
+/* ========================================
+   REPORTS — WEEKLY REPORT CARDS
+======================================== */
+
+.weekly-reports-grid {
+  gap: 14px !important;
+}
+
+/* Main report card */
+.weekly-report-card {
+  padding: 16px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  border-radius: 12px !important;
+  gap: 12px !important;
+  box-sizing: border-box !important;
+}
+
+/* Card heading */
+.weekly-report-heading {
+  gap: 10px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Report label */
+.weekly-report-label {
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+}
+
+/* Report file icon */
+.weekly-report-file-icon {
+  width: 38px !important;
+  height: 38px !important;
+}
+
+/* Profit amount */
+.weekly-profit {
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+  margin: 6px 0 !important;
+}
+
+/* Report metrics */
+.weekly-report-metrics {
+  gap: 10px !important;
+  margin: 10px 0 !important;
+}
+
+.weekly-report-metrics > * {
+  padding: 10px !important;
+  gap: 5px !important;
+}
+
+.weekly-report-metrics span {
+  font-size: 11px !important;
+}
+
+.weekly-report-metrics strong {
+  font-size: 13px !important;
+}
+
+/* Card footer */
+.weekly-report-footer {
+  gap: 8px !important;
+  padding-top: 10px !important;
+  margin-top: 8px !important;
+}
+
+/* Print and Download buttons */
+.report-print-btn,
+.report-download-btn {
+  min-height: 36px !important;
+  height: 36px !important;
+  padding: 0 12px !important;
+  font-size: 11px !important;
+  border-radius: 8px !important;
+  gap: 6px !important;
+}
+
+/* Button icons */
+.report-print-btn svg,
+.report-download-btn svg {
+  width: 15px !important;
+  height: 15px !important;
+}
+/* ========================================
+   REPORTS — WEEKLY GRID FIX
+======================================== */
+
+.weekly-reports-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.weekly-report-card {
+  padding: 14px !important;
+  min-width: 0 !important;
+}
+
+/* Heading */
+.weekly-report-heading {
+  align-items: flex-start !important;
+}
+
+.weekly-report-heading h3,
+.weekly-report-heading h4 {
+  font-size: 13px !important;
+}
+
+/* Week date */
+.weekly-report-card h2,
+.weekly-report-card h3 {
+  font-size: 14px !important;
+}
+
+/* Profit row */
+.weekly-profit {
+  padding: 12px !important;
+  font-size: 17px !important;
+}
+
+/* Metrics layout */
+.weekly-report-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.weekly-report-metrics > * {
+  padding: 9px !important;
+  min-width: 0 !important;
+}
+
+/* Footer buttons */
+.weekly-report-footer {
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+
+.report-print-btn,
+.report-download-btn {
+  min-height: 34px !important;
+  height: 34px !important;
+  padding: 0 9px !important;
+  font-size: 10px !important;
+}
+/* ========================================
+   WEEKLY REPORT — HEADER ALIGNMENT
+======================================== */
+
+.weekly-report-heading {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+}
+
+.weekly-report-heading > div:first-child {
+  min-width: 0 !important;
+  flex: 1 !important;
+}
+
+.weekly-report-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Week title and sample badge spacing */
+.weekly-report-label > * {
+  margin: 0 !important;
+}
+
+/* Date spacing */
+.weekly-report-heading h3,
+.weekly-report-heading h4 {
+  margin-top: 6px !important;
+  line-height: 1.45 !important;
+}
+
+/* File icon */
+.weekly-report-file-icon {
+  flex-shrink: 0 !important;
+  margin-top: 2px !important;
+}
+/* Space between date filter and weekly report cards */
+.weekly-reports-grid {
+  margin-top: 14px !important;
+  gap: 14px !important;
+}
+/* =========================================================
+   MONTHLY OVERVIEW — INTERNAL GRAPH FIT
+   Exact selectors from Accounting.tsx
+   Outer card sizing remains untouched
+========================================================= */
+
+/* Chart area: compact vertical distribution */
+.accounting-monthly-card .accounting-horizontal-chart {
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 5px !important;
+  margin-top: 14px !important;
+
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Monthly row */
+.accounting-monthly-card .accounting-horizontal-month {
+  display: grid !important;
+  grid-template-columns: 58px minmax(0, 1fr) !important;
+
+  align-items: center !important;
+  gap: 8px !important;
+
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Month label */
+.accounting-monthly-card .accounting-horizontal-month-label {
+  font-size: 11px !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+}
+
+/* Bars group */
+.accounting-monthly-card .accounting-horizontal-bars {
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 2px !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Individual bar rows */
+.accounting-monthly-card .accounting-horizontal-bar-row {
+  display: flex !important;
+  align-items: center !important;
+
+  height: 5px !important;
+  min-height: 5px !important;
+  max-height: 5px !important;
+
+  gap: 6px !important;
+  margin: 0 !important;
+}
+
+/* Bar tracks */
+.accounting-monthly-card .accounting-horizontal-track {
+  flex: 1 !important;
+
+  height: 5px !important;
+  min-height: 5px !important;
+  max-height: 5px !important;
+
+  border-radius: 2px !important;
+}
+
+/* Colored bars */
+.accounting-monthly-card .accounting-horizontal-bar {
+  height: 100% !important;
+  min-height: 0 !important;
+  border-radius: 2px !important;
+}
+
+/* Values beside bars */
+.accounting-monthly-card .accounting-horizontal-value {
+  width: 20px !important;
+  flex-shrink: 0 !important;
+
+  font-size: 10px !important;
+  line-height: 1 !important;
+}
+
+/* Legend */
+.accounting-monthly-card .accounting-horizontal-legend {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+
+  gap: 12px !important;
+  margin-top: 12px !important;
+}
+
+/* Legend text */
+.accounting-monthly-card .accounting-horizontal-legend span {
+  font-size: 11px !important;
+  gap: 5px !important;
+}
+
+/* Legend color squares */
+.accounting-monthly-card .accounting-horizontal-legend i {
+  width: 9px !important;
+  height: 9px !important;
+}
+
+/* Bottom demo text */
+.accounting-monthly-card .accounting-chart-demo-label {
+  margin-top: 12px !important;
+  padding-top: 10px !important;
+  font-size: 10px !important;
+}
+/* =========================================================
+   MONTHLY OVERVIEW — SIZE CORRECTION
+========================================================= */
+
+.accounting-monthly-card .accounting-horizontal-chart {
+  gap: 12px !important;
+  margin-top: 22px !important;
+}
+
+/* Monthly rows */
+.accounting-monthly-card .accounting-horizontal-month {
+  grid-template-columns: 72px minmax(0, 1fr) !important;
+  gap: 10px !important;
+}
+
+/* Bars group */
+.accounting-monthly-card .accounting-horizontal-bars {
+  gap: 4px !important;
+}
+
+/* Individual bars */
+.accounting-monthly-card .accounting-horizontal-bar-row {
+  height: 9px !important;
+  min-height: 9px !important;
+  max-height: 9px !important;
+  gap: 7px !important;
+}
+
+/* Bar tracks */
+.accounting-monthly-card .accounting-horizontal-track {
+  height: 9px !important;
+  min-height: 9px !important;
+  max-height: 9px !important;
+}
+
+/* Values */
+.accounting-monthly-card .accounting-horizontal-value {
+  width: 24px !important;
+  font-size: 11px !important;
+}
+
+/* Legend */
+.accounting-monthly-card .accounting-horizontal-legend {
+  gap: 14px !important;
+  margin-top: 16px !important;
+}
+
+.accounting-monthly-card .accounting-horizontal-legend span {
+  font-size: 12px !important;
+}
+/* =========================================
+   ZAKHIRA REPORTS — POPPINS + COMPACT CARDS
+========================================= */
+
+/* Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.reports-layout,
+.reports-layout *,
+.reports-layout *::before,
+.reports-layout *::after {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Desktop — 2 cards per row */
+.weekly-reports-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+/* Compact weekly report card */
+.weekly-report-card {
+  padding: 14px !important;
+}
+
+/* Net profit row */
+.weekly-profit {
+  padding: 11px 13px !important;
+}
+
+.weekly-profit span {
+  font-size: 10px !important;
+}
+
+.weekly-profit strong {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+/* Metric labels */
+.weekly-report-metrics span {
+  font-size: 9px !important;
+  line-height: 1.4 !important;
+}
+
+/* Metric values */
+.weekly-report-metrics strong {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+  overflow-wrap: normal !important;
+}
+
+/* Summary card values */
+.reports-summary-card strong {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  overflow-wrap: normal !important;
+}
+
+/* Card heading */
+.weekly-report-heading h3,
+.weekly-report-heading h4 {
+  font-size: 12px !important;
+}
+
+/* Desktop and tablet */
+@media (max-width: 1250px) {
+  .weekly-reports-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .weekly-reports-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

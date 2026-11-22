@@ -1,0 +1,836 @@
+/* =========================================================
+   FINANCIAL ANALYTICS — CLEAN MATTE 3D PILLARS
+   Replace the old financial graph CSS completely
+========================================================= */
+
+.financial-3d-chart {
+  --chart-label-height: 32px;
+  --chart-bar-area-height: 300px;
+
+  display: flex;
+  width: 100%;
+  height: calc(var(--chart-bar-area-height) + var(--chart-label-height));
+  min-height: 0;
+  gap: 12px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* ================= Y AXIS ================= */
+
+.financial-3d-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  flex: 0 0 52px;
+  height: 100%;
+
+  padding-bottom: var(--chart-label-height);
+  box-sizing: border-box;
+
+  color: #31433b;
+}
+
+.financial-3d-axis-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex: 1;
+  min-height: 0;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ================= PLOT ================= */
+
+.financial-3d-plot {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ================= GRID ================= */
+
+.financial-3d-grid-lines {
+  position: absolute;
+  inset: 0 0 var(--chart-label-height) 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.financial-3d-grid-line {
+  width: 100%;
+  height: 1px;
+
+  border-top: 1px solid rgba(49, 67, 59, 0.10);
+  box-sizing: border-box;
+}
+
+.financial-3d-grid-line:last-child {
+  border-top-color: rgba(18, 60, 50, 0.22);
+}
+
+/* ================= MONTHS ================= */
+
+.financial-3d-months {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 8px;
+
+  overflow: visible;
+}
+
+.financial-3d-month {
+  position: relative;
+
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* ================= BAR AREA ================= */
+
+.financial-3d-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  gap: 7px;
+  width: 100%;
+  height: var(--chart-bar-area-height);
+  flex: 0 0 var(--chart-bar-area-height);
+
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* =========================================================
+   BASE PILLAR
+========================================================= */
+
+.financial-3d-bar {
+  position: relative;
+
+  width: 22px;
+  flex: 0 0 22px;
+  min-height: 3px;
+
+  border-radius: 0 !important;
+
+  /* Front face stays straight */
+  transform: none !important;
+  transform-origin: bottom center;
+
+  transition: none !important;
+  filter: none !important;
+
+  box-shadow: none !important;
+
+  isolation: isolate;
+  overflow: visible !important;
+}
+
+/* =========================================================
+   REVENUE — DARK GREEN
+========================================================= */
+
+.financial-3d-bar--revenue {
+  background: linear-gradient(
+    90deg,
+    #123C32 0%,
+    #17483B 48%,
+    #1B5547 100%
+  ) !important;
+}
+
+/* =========================================================
+   EXPENSES — SAGE GREEN
+========================================================= */
+
+.financial-3d-bar--expenses {
+  background: linear-gradient(
+    90deg,
+    #66745A 0%,
+    #6D7B60 48%,
+    #7E8C70 100%
+  ) !important;
+}
+
+/* =========================================================
+   PROFIT — MATTE GOLD
+========================================================= */
+
+.financial-3d-bar--profit {
+  background: linear-gradient(
+    90deg,
+    #C49A5A 0%,
+    #CAA366 48%,
+    #D6B276 100%
+  ) !important;
+}
+
+/* =========================================================
+   TOP FACE — REALISTIC ANGLED SURFACE
+========================================================= */
+
+.financial-3d-top {
+  position: absolute;
+
+  top: -7px;
+  left: 0;
+
+  width: calc(100% + 6px);
+  height: 7px;
+
+  transform: skewX(-38deg) !important;
+  transform-origin: bottom left;
+
+  border-radius: 1px 2px 0 0 !important;
+
+  filter: none !important;
+  opacity: 1 !important;
+
+  pointer-events: none;
+}
+
+/* Revenue top */
+
+.financial-3d-bar--revenue .financial-3d-top {
+  background: #286653 !important;
+}
+
+/* Expenses top */
+
+.financial-3d-bar--expenses .financial-3d-top {
+  background: #91A080 !important;
+}
+
+/* Profit top */
+
+.financial-3d-bar--profit .financial-3d-top {
+  background: #DFBD83 !important;
+}
+
+/* =========================================================
+   SIDE FACE — NATURAL DEPTH
+========================================================= */
+
+.financial-3d-side {
+  position: absolute;
+
+  top: 0;
+  right: -6px;
+
+  width: 6px;
+  height: 100%;
+
+  transform: skewY(-28deg) !important;
+  transform-origin: top left;
+
+  filter: none !important;
+  opacity: 1 !important;
+
+  pointer-events: none;
+}
+
+/* Revenue side */
+
+.financial-3d-bar--revenue .financial-3d-side {
+  background: #0B2C25 !important;
+}
+
+/* Expenses side */
+
+.financial-3d-bar--expenses .financial-3d-side {
+  background: #505D46 !important;
+}
+
+/* Profit side */
+
+.financial-3d-bar--profit .financial-3d-side {
+  background: #A67B3D !important;
+}
+
+/* =========================================================
+   REMOVE HOVER EFFECTS COMPLETELY
+========================================================= */
+
+.financial-3d-month:hover .financial-3d-bar,
+.financial-3d-bar:hover {
+  transform: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+.financial-3d-chart,
+.financial-3d-month,
+.financial-3d-bar {
+  pointer-events: none;
+}
+
+/* =========================================================
+   MONTH LABELS
+========================================================= */
+
+.financial-3d-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 var(--chart-label-height);
+  height: var(--chart-label-height);
+  width: 100%;
+
+  position: relative;
+  bottom: auto;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #31433b;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 769px) {
+  .revenue-panel {
+    min-height: 420px;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+  .financial-3d-chart {
+    --chart-label-height: 28px;
+    --chart-bar-area-height: 260px;
+
+    gap: 7px;
+  }
+
+  .financial-3d-axis {
+    flex-basis: 40px;
+  }
+
+  .financial-3d-months {
+    gap: 4px;
+  }
+
+  .financial-3d-bars {
+    gap: 4px;
+  }
+
+  .financial-3d-bar {
+    width: 15px;
+    flex-basis: 15px;
+  }
+
+  .financial-3d-top {
+    height: 5px;
+    top: -5px;
+    width: calc(100% + 4px);
+    transform: skewX(-32deg) !important;
+  }
+
+  .financial-3d-side {
+    width: 4px;
+    right: -4px;
+    transform: skewY(-24deg) !important;
+  }
+
+  .financial-3d-label {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .financial-3d-chart {
+    --chart-label-height: 26px;
+    --chart-bar-area-height: 220px;
+
+    gap: 5px;
+  }
+
+  .financial-3d-axis {
+    flex-basis: 34px;
+  }
+
+  .financial-3d-bars {
+    gap: 3px;
+  }
+
+  .financial-3d-bar {
+    width: 11px;
+    flex-basis: 11px;
+  }
+
+  .financial-3d-top {
+    height: 4px;
+    top: -4px;
+    width: calc(100% + 3px);
+    transform: skewX(-28deg) !important;
+  }
+
+  .financial-3d-side {
+    width: 3px;
+    right: -3px;
+    transform: skewY(-20deg) !important;
+  }
+
+  .financial-3d-label {
+    font-size: 10px;
+  }
+}
+/* =====================================================
+   FINAL FIX — TOP FACE + MONTH VISIBILITY + CHART HEIGHT
+   Paste at the very end of financial graph CSS
+===================================================== */
+
+/* Main graph sizing */
+.financial-3d-chart {
+  --chart-label-height: 34px;
+  --chart-bar-area-height: 260px;
+
+  height: 294px !important;
+  min-height: 294px !important;
+
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Plot sizing */
+.financial-3d-plot {
+  height: 294px !important;
+  min-height: 294px !important;
+
+  overflow: visible !important;
+}
+
+/* Axis */
+.financial-3d-axis {
+  height: 294px !important;
+  padding-bottom: 34px !important;
+}
+
+/* Grid ends above labels */
+.financial-3d-grid-lines {
+  inset: 0 0 34px 0 !important;
+}
+
+/* Month container */
+.financial-3d-months {
+  height: 294px !important;
+  min-height: 294px !important;
+
+  align-items: stretch !important;
+  overflow: visible !important;
+}
+
+/* Individual month column */
+.financial-3d-month {
+  height: 294px !important;
+  min-height: 294px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  overflow: visible !important;
+}
+
+/* Bars area */
+.financial-3d-bars {
+  height: 260px !important;
+  flex: 0 0 260px !important;
+
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+
+  gap: 5px !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
+}
+
+/* Main bars */
+.financial-3d-bar {
+  position: relative !important;
+
+  width: 20px !important;
+  flex: 0 0 20px !important;
+
+  border-radius: 0 !important;
+
+  transform: none !important;
+  transition: none !important;
+  filter: none !important;
+
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* Smaller and controlled top surface */
+.financial-3d-top {
+  position: absolute !important;
+
+  top: -4px !important;
+  left: 0 !important;
+
+  width: 100% !important;
+  height: 4px !important;
+
+  transform: skewX(-25deg) !important;
+  transform-origin: bottom left !important;
+
+  border-radius: 1px !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Smaller side depth */
+.financial-3d-side {
+  position: absolute !important;
+
+  top: 0 !important;
+  right: -3px !important;
+
+  width: 3px !important;
+  height: 100% !important;
+
+  transform: skewY(-12deg) !important;
+  transform-origin: top left !important;
+
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Month labels visible at bottom */
+.financial-3d-label {
+  height: 34px !important;
+  min-height: 34px !important;
+  flex: 0 0 34px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  position: relative !important;
+  bottom: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #31433b !important;
+  font-size: 13px !important;
+  white-space: nowrap !important;
+}
+
+/* Prevent graph card from cutting off months */
+.revenue-panel {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+/* Remove hover */
+.financial-3d-month:hover .financial-3d-bar,
+.financial-3d-bar:hover {
+  transform: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Desktop card layout */
+@media (min-width: 769px) {
+  .revenue-panel {
+    min-height: 0 !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .financial-3d-chart {
+    --chart-label-height: 30px;
+    --chart-bar-area-height: 230px;
+
+    height: 260px !important;
+    min-height: 260px !important;
+  }
+
+  .financial-3d-plot,
+  .financial-3d-months,
+  .financial-3d-month {
+    height: 260px !important;
+    min-height: 260px !important;
+  }
+
+  .financial-3d-axis {
+    height: 260px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .financial-3d-grid-lines {
+    inset: 0 0 30px 0 !important;
+  }
+
+  .financial-3d-bars {
+    height: 230px !important;
+    flex-basis: 230px !important;
+    gap: 4px !important;
+  }
+
+  .financial-3d-bar {
+    width: 15px !important;
+    flex-basis: 15px !important;
+  }
+
+  .financial-3d-label {
+    height: 30px !important;
+    flex-basis: 30px !important;
+    min-height: 30px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .financial-3d-chart {
+    --chart-label-height: 26px;
+    --chart-bar-area-height: 210px;
+
+    height: 236px !important;
+    min-height: 236px !important;
+  }
+
+  .financial-3d-plot,
+  .financial-3d-months,
+  .financial-3d-month {
+    height: 236px !important;
+    min-height: 236px !important;
+  }
+
+  .financial-3d-axis {
+    height: 236px !important;
+    padding-bottom: 26px !important;
+  }
+
+  .financial-3d-grid-lines {
+    inset: 0 0 26px 0 !important;
+  }
+
+  .financial-3d-bars {
+    height: 210px !important;
+    flex-basis: 210px !important;
+    gap: 3px !important;
+  }
+
+  .financial-3d-bar {
+    width: 11px !important;
+    flex-basis: 11px !important;
+  }
+
+  .financial-3d-top {
+    top: -3px !important;
+    height: 3px !important;
+  }
+
+  .financial-3d-side {
+    width: 2px !important;
+    right: -2px !important;
+  }
+
+  .financial-3d-label {
+    height: 26px !important;
+    flex-basis: 26px !important;
+    min-height: 26px !important;
+    font-size: 10px !important;
+  }
+}
+/* =========================================
+   FINAL BAR TOP ALIGNMENT
+   Equal & Natural 3D Top Faces
+========================================= */
+
+.financial-3d-bar {
+  position: relative;
+  overflow: visible !important;
+  transform: perspective(900px) rotateY(-7deg) !important;
+  transition: none !important;
+  filter: none !important;
+}
+
+/* Equal top face on every bar */
+.financial-3d-top {
+  position: absolute !important;
+
+  top: -4px !important;
+  left: 0 !important;
+
+  width: 100% !important;
+  height: 4px !important;
+
+  transform: skewX(-18deg) !important;
+  transform-origin: bottom left !important;
+
+  border-radius: 1px 1px 0 0 !important;
+  opacity: 1 !important;
+  filter: none !important;
+
+  pointer-events: none !important;
+}
+
+/* Revenue top */
+.financial-3d-bar--revenue .financial-3d-top {
+  background: #245B4B !important;
+}
+
+/* Expenses top */
+.financial-3d-bar--expenses .financial-3d-top {
+  background: #879477 !important;
+}
+
+/* Profit top */
+.financial-3d-bar--profit .financial-3d-top {
+  background: #D4B078 !important;
+}
+
+/* Equal side depth */
+.financial-3d-side {
+  width: 3px !important;
+  right: -3px !important;
+  transform: skewY(-12deg) !important;
+  filter: none !important;
+}
+
+/* Remove hover completely */
+.financial-3d-month:hover .financial-3d-bar,
+.financial-3d-bar:hover {
+  transform: perspective(900px) rotateY(-7deg) !important;
+  filter: none !important;
+}
+
+/* No hover movement */
+.financial-3d-bar {
+  transition: none !important;
+}
+
+.financial-3d-month {
+  pointer-events: none !important;
+}
+/* ===== 3D BAR TOP FACE - OUTWARD FIX ===== */
+
+.financial-3d-bar {
+  overflow: visible !important;
+}
+
+.financial-3d-top {
+  position: absolute !important;
+  top: -6px !important;
+  left: -1px !important;
+
+  width: calc(100% + 5px) !important;
+  height: 6px !important;
+
+  transform: skewX(-25deg) !important;
+  transform-origin: bottom left !important;
+
+  border-radius: 2px 2px 0 0 !important;
+  opacity: 1 !important;
+  filter: none !important;
+  pointer-events: none !important;
+}
+
+/* Revenue */
+.financial-3d-bar--revenue .financial-3d-top {
+  background: #245B4B !important;
+}
+
+/* Expenses */
+.financial-3d-bar--expenses .financial-3d-top {
+  background: #879477 !important;
+}
+
+/* Profit */
+.financial-3d-bar--profit .financial-3d-top {
+  background: #D4B078 !important;
+}
+/* ===== BALANCED 3D TOP FACE ===== */
+
+.financial-3d-top {
+  top: -3px !important;
+  left: 0 !important;
+
+  width: 114% !important;
+  height: 3px !important;
+
+  transform: skewX(-20deg) !important;
+  transform-origin: bottom left !important;
+
+  border-radius: 1px !important;
+  opacity: 0.95 !important;
+  filter: none !important;
+}
+
+/* Revenue */
+.financial-3d-bar--revenue .financial-3d-top {
+  background: #245B4B !important;
+}
+
+/* Expenses */
+.financial-3d-bar--expenses .financial-3d-top {
+  background: #879477 !important;
+}
+
+/* Profit */
+.financial-3d-bar--profit .financial-3d-top {
+  background: #D4B078 !important;
+}
+/* =========================================
+   FINANCIAL 3D CHART — POPPINS FONT
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.financial-3d-chart,
+.financial-3d-chart *,
+.financial-3d-chart *::before,
+.financial-3d-chart *::after {
+  font-family: 'Poppins', sans-serif !important;
+}
